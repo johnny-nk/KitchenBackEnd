@@ -35,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name = "recipes")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Recipe {
 	
 	@Id
@@ -77,6 +78,7 @@ public class Recipe {
 	@Version
 	@JsonIgnore
 	private Integer version;
+	
 	
 	@JsonManagedReference(value = "recipe-recipeIngredients")
 	@OneToMany(mappedBy = "recipeId", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)

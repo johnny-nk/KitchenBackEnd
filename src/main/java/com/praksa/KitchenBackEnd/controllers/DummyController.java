@@ -82,7 +82,7 @@ public class DummyController {
 	
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/addIngredient")
-	public ResponseEntity<?> addIngredient(@RequestBody IngredientDTO ingredient) {
+	public ResponseEntity<?> addIngredient(@Valid @RequestBody IngredientDTO ingredient) {
 		Ingredient ingredients = new Ingredient();
 		ingredients.setCalories(ingredient.getCalories());
 		ingredients.setCarbs(ingredient.getCarbs());

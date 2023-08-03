@@ -21,6 +21,8 @@ import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 @Service
 public class UserServiceImpl implements UserService {
 	
@@ -159,6 +161,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	@Transactional
 	public Cook updateCook(CookRegisterDTO dto, Long id) {
 		Optional<Cook> cook = cookRepository.findById(id);
 		if (cook.isPresent()) {
@@ -167,6 +170,7 @@ public class UserServiceImpl implements UserService {
 			updateCook.setLastName(dto.getLastName());
 			updateCook.setPassword(dto.getPassword());
 			updateCook.setUsername(dto.getUsername());
+			updateCook.setAboutMe(dto.getAboutMe());
 			return cookRepository.save(updateCook);
 		}else {
 			throw new UserNotFoundException();

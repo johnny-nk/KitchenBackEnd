@@ -29,9 +29,9 @@ public class RecipeRegisterDTO {
 	private String cook;
 	private Integer amount;
 	private Integer timeToPrepare;
-    @JsonFormat(pattern = "dd-mm-yy")
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime createdOn;
-    @JsonFormat(pattern = "dd-mm-yy")
+    @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime updatedOn;
 	private ERecipeCategory category;
 

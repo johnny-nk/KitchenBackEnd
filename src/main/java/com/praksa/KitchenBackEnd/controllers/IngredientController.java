@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.controllers;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +27,7 @@ public class IngredientController {
 
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
-	public ResponseEntity<?> addNewIngredient(@RequestBody IngredientDTO ingredients) {		
+	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {		
 		try { 	
 			return new ResponseEntity<>(ingredientService.addIngredient(ingredients), HttpStatus.OK);
 		}catch (Exception e) {
@@ -37,7 +39,7 @@ public class IngredientController {
 	
 	
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
-	public ResponseEntity<?> updateIngredient(@PathVariable Long id, @RequestBody IngredientDTO ingredientForUpdate) {
+	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id, @RequestBody IngredientDTO ingredientForUpdate) {
 	    try {
 	        Ingredient updatedIngredient = ingredientService.updateIngredient(ingredientForUpdate, id);
 	        if (updatedIngredient != null) {
