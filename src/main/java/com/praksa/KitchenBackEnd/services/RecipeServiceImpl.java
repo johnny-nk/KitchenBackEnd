@@ -29,13 +29,11 @@ import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 import com.praksa.KitchenBackEnd.models.entities.LimitingIngredient;
 import com.praksa.KitchenBackEnd.models.entities.Recipe;
 import com.praksa.KitchenBackEnd.models.entities.RecipeIngredient;
-import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.repositories.CookRepository;
 import com.praksa.KitchenBackEnd.repositories.IngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.LimitingIngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.RecipeIngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.RecipeRepository;
-import com.praksa.KitchenBackEnd.repositories.RegularUserRepository;
 import com.praksa.KitchenBackEnd.repositories.UserRepository;
 
 @Service
@@ -117,24 +115,23 @@ public class RecipeServiceImpl implements RecipeService {
 		for(RecipeIngredient ring : recipeIngreRepo.findAllByRecipeId(recipe)) {
 				for (Map.Entry<String, Float> entry : nutrition.entrySet()) {
 					if(entry.getKey() == "proteins") {
-					entry.setValue(entry.getValue() + (ring.getIngredientId().getProteins() * (ring.getAmount()/100)));
+					entry.setValue(entry.getValue() +  (ring.getIngredientId().getProteins() * (ring.getAmount()/100f)));
 					} else if(entry.getKey() == "carbs") {
-					entry.setValue(entry.getValue() + ring.getIngredientId().getCarbs() * (ring.getAmount()/100));
+					entry.setValue(entry.getValue() +  (ring.getIngredientId().getCarbs() * (ring.getAmount()/100f)));
 					} else if(entry.getKey() == "fats") {
-					entry.setValue(entry.getValue() + ring.getIngredientId().getFats() * (ring.getAmount()/100));
+					entry.setValue(entry.getValue() + (ring.getIngredientId().getFats() * (ring.getAmount()/100f)));
 					}else if(entry.getKey() == "saturatedFats") {
-					entry.setValue(entry.getValue() + ring.getIngredientId().getSaturatedFats() * (ring.getAmount()/100));
+					entry.setValue(entry.getValue() + (ring.getIngredientId().getSaturatedFats() * (ring.getAmount()/100f)));
 					} else if(entry.getKey() == "sugars") {
-					entry.setValue(entry.getValue() + ring.getIngredientId().getSugars() * (ring.getAmount()/100));
+					entry.setValue(entry.getValue() + (ring.getIngredientId().getSugars() * (ring.getAmount()/100f)));
 					} else if(entry.getKey() == "calories") {
-					entry.setValue(entry.getValue() + ring.getIngredientId().getCalories() * (ring.getAmount()/100));
+					entry.setValue(entry.getValue() + (ring.getIngredientId().getCalories() * (ring.getAmount()/100f)));
 					}
 				}
 			}
-		
-		
-		
-		
+		for (Map.Entry<String, Float> entry : nutrition.entrySet()) {
+			entry.setValue(entry.getValue()/(amount/100f));
+		}
 		
 		return nutrition;
 	}
