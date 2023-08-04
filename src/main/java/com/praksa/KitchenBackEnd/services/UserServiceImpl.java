@@ -19,6 +19,8 @@ import com.praksa.KitchenBackEnd.repositories.RegularUserRepository;
 import com.praksa.KitchenBackEnd.repositories.UserRepository;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -178,7 +180,20 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
-	
+
+	@Override
+	public List<String> getUsernames() {
+	    Iterable<User> allUsers = userRepository.findAll();
+	    List<String> usernames = new ArrayList<>();
+
+	    for (User user : allUsers) {
+	        usernames.add(user.getUsername());
+	    }
+
+	    return usernames;
+	}
+
+
 
 	
 	

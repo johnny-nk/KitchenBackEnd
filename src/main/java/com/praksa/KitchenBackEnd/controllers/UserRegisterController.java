@@ -14,6 +14,7 @@ import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
 import com.praksa.KitchenBackEnd.models.entities.RegularUser;
+import com.praksa.KitchenBackEnd.models.entities.User;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 import com.praksa.KitchenBackEnd.services.UserService;
 
@@ -150,10 +151,30 @@ public class UserRegisterController {
 	
 	}
 	
-
-	// GET UPDATE I DELETE ZA REGLUAR USERA 
 	
-
+	@RequestMapping(method = RequestMethod.GET, value="/all")	
+	public ResponseEntity<?> getAll(){
+		try {
+			Iterable<User> getAll = userService.getAll();
+			return new ResponseEntity<>(getAll , HttpStatus.OK);
+		  } catch (UserNotFoundException e) {
+		        return new ResponseEntity<>("Users not found", HttpStatus.NOT_FOUND);
+		    } catch (Exception e) {
+		        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
+	}
+	
+	@RequestMapping(method = RequestMethod.GET, value="/allbyUserName")	
+	public ResponseEntity<?> getAllbyUserName(){
+		try {
+			Iterable<String> getAll = userService.getUsernames();
+			return new ResponseEntity<>(getAll , HttpStatus.OK);
+		  } catch (UserNotFoundException e) {
+		        return new ResponseEntity<>("Users not found", HttpStatus.NOT_FOUND);
+		    } catch (Exception e) {
+		        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+		    }
+	}
 	
 	
 }

@@ -37,7 +37,7 @@ public interface UserService {
 	public Iterable<Cook> getAllCooks();
 	
 	public User getUserByUsername(String username);
-	
+	public List<String> getUsernames();
 	
 
 }
