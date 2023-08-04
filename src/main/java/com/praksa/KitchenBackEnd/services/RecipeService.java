@@ -23,4 +23,5 @@ public interface RecipeService {
 	
 	public Set<LimitingFactor> getLFfromRecipe(Long id);
 	
+	
 }

@@ -107,17 +107,18 @@ public class RecipeController {
 	
 	@PutMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> updateRecipe(@Valid @RequestBody RecipeRegisterDTO recipe, @PathVariable Long id) {
-		 try {		
-		RecipeRegisterDTO updateRecipe = recipeService.updateRecipe(recipe, id);
-		if(updateRecipe !=null ) {
-			return new ResponseEntity<>(updateRecipe, HttpStatus.OK);
-		}else {
-            return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Recipe not found"), HttpStatus.NOT_FOUND);
-			}
-		}catch(Exception e) {
-	        return new ResponseEntity<>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error"), HttpStatus.INTERNAL_SERVER_ERROR);
-
-		}
+//		 try {		
+//		RecipeRegisterDTO updateRecipe = recipeService.updateRecipe(recipe, id);
+//		if(updateRecipe !=null ) {
+//			return new ResponseEntity<>(updateRecipe, HttpStatus.OK);
+//		}else {
+//            return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Recipe not found"), HttpStatus.NOT_FOUND);
+//			}
+//		}catch(Exception e) {
+//	        return new ResponseEntity<>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error"), HttpStatus.INTERNAL_SERVER_ERROR);
+//
+//		}
+		return new ResponseEntity<>(recipeService.updateRecipe(recipe, id), HttpStatus.OK);
 	}
 
 	

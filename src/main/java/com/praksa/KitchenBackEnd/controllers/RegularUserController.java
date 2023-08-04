@@ -84,4 +84,6 @@ public class RegularUserController {
 	public ResponseEntity<?> removeLikedRecipe(@PathVariable Long userId, @PathVariable Long recId) {
 		return new ResponseEntity<>(regUserService.removeRecipe(userId, recId), HttpStatus.ACCEPTED);
 	}
+	
+	
 }

@@ -11,4 +11,5 @@ public interface RecipeRepository extends CrudRepository<Recipe, Long> {
 	public Set<Recipe> findAllByLikedRecipes(Long id); 
 	public Recipe findByLikedRecipes(Long id);
 	
+	
 }

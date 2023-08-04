@@ -13,4 +13,8 @@ public interface RecipeIngredientRepository extends CrudRepository<RecipeIngredi
 	public List<RecipeIngredient> findByIngredientId(Ingredient ingredient);
 	public List<RecipeIngredient> findAllByRecipeId(Recipe recipe);
 	
+	public RecipeIngredient findByIngredientIdIdAndRecipeId(Long id, Recipe recipe);
+	public List<RecipeIngredient> deleteByIngredientIdIdAndRecipeId(Long id, Recipe recipe);
+//	public List<RecipeIngredient> findByIngredientIdIdAndRecipeId(Long id, Recipe Recipe);
+	
 }

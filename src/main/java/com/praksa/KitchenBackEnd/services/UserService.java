@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.services;
 
+import java.util.List;
+
 import com.praksa.KitchenBackEnd.models.dto.AdminRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
@@ -37,6 +39,7 @@ public interface UserService {
 	public User getUserByUsername(String username);
 	
 	
+
 }
 	
 
