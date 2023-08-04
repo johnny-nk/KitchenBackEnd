@@ -18,8 +18,11 @@ public interface RecipeService {
 	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, Long cookId);
 	public RecipeRegisterDTO updateRecipe(RecipeRegisterDTO dto, Long id);
 	public Recipe deleteRecipe(Long id);
-	
+	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title);
 //	public RecipeDTO getRecipeCaloricValue(Long id);
+	public Iterable<RecipeRegisterDTO> getFormatedRecipes();
+	
+	
 	
 	public Set<LimitingFactor> getLFfromRecipe(Long id);
 	

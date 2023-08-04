@@ -167,6 +167,37 @@ public class RecipeServiceImpl implements RecipeService {
 		return namedIng;
 	}
 	
+	//FORMATIRANJE RECEPTA ZA PRIKAZ SVIH NJEGOVIH OSOBINA - javlja 
+	//Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: 
+	//Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; 
+	//nested exception is java.lang.NumberFormatException: For input string: "getFormatedRecipes"]
+	private List<RecipeRegisterDTO> recipeFormater(Iterable<Recipe> recipes) {
+		
+		List<RecipeRegisterDTO> formatedRecipes = new ArrayList<>();
+		 
+		
+		for(Recipe recipe : recipes) {
+		RecipeRegisterDTO dto = new RecipeRegisterDTO();
+		dto.setId(recipe.getId());
+		dto.setCategory(recipe.getCategory());
+		dto.setDescription(recipe.getDescription());
+		dto.setSteps(recipe.getSteps());
+		dto.setTitle(recipe.getTitle());
+		dto.setTimeToPrepare(recipe.getTimeToPrepare());
+		dto.setAmount(recipe.getAmount());
+		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
+		dto.setNutrition(calculateNutrition(recipe));
+		dto.setCreatedOn(recipe.getCreatedOn());
+		dto.setUpdatedOn(recipe.getUpdatedOn());
+		dto.setIngredients(extractIng(recipe));
+		dto.setIngredientAmount(ingredientNamedMapString(recipe));
+		dto.setLimitingFactors(extractLF(recipe));
+		formatedRecipes.add(dto);
+		}
+		
+		return formatedRecipes;
+	}
+	
 	
 	//=-=-==-=-==-=-=-=-==-=-==SERVICES-=-=-==-=-==-=-=-=-==-=-===-=-=-=-==-=-==-=-=//
 	
@@ -176,6 +207,23 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	public Iterable<Recipe> getRecipes() {
 		return recipeRepository.findAll();
+	}
+	
+	
+	//negde ne moze da castuje long u string, medjutim vraca pojedinacan recept lepo
+	@Override
+	public Iterable<RecipeRegisterDTO> getFormatedRecipes() {
+		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
+		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
+		return formatedRecipes;
+	}
+	
+	
+	
+	
+	@Override
+	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
+		return null;
 	}
 	
 	
@@ -240,18 +288,16 @@ public class RecipeServiceImpl implements RecipeService {
 			recipe.setCategory(updatedRecipe.getCategory());
 		}
 		
-		
-		
-		
 		//Radi dodavanje sastojaka, izmenu kolicine sastojaka i brisanje sastojaka ako im prosledis kolicinu da je 0
+		//kada skontam kako da implementiram da brise preko id-a neka ovako ostane; imamo dosta posla
 		for (Map.Entry<Long, Integer> entry : updatedRecipe.getIngredientMap().entrySet()) {
-			
 			RecipeIngredient ring = recipeIngreRepo.findByIngredientIdIdAndRecipeId(entry.getKey(), recipe);
 			try {
 				if(ring != null) {
 				ring.setAmount(entry.getValue());
 				updateRing.add(ring);
-				} 
+				}
+
 		} catch (NullPointerException npe) {
 			System.out.println(npe);
 		} finally {
@@ -265,16 +311,16 @@ public class RecipeServiceImpl implements RecipeService {
 			if(entry.getValue().equals(0)) {
 				 deleteRecing.add(recipeIngreRepo.findByIngredientIdIdAndRecipeId(entry.getKey(), recipe));
 				
+				}
+				
 			}
-			
-		}
-}	
+		}	
 		
 		
 		recipe.setIngredients(updateRing);
 		recipeRepository.save(recipe);
+		recipeIngreRepo.deleteAll(deleteRecing); 
 		recipeIngreRepo.saveAll(updateRing);
-		recipeIngreRepo.deleteAll(deleteRecing);
 		return updatedRecipe;
 	}
 	
