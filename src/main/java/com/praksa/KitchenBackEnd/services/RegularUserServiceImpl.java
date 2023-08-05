@@ -79,7 +79,6 @@ public class RegularUserServiceImpl implements RegularUserService {
 	}
 	
 	
-	//entitiy must not be null greska 
 	@Override
 	public Optional<AffectedUsers> removeLimitingFactor(Long userId, Long lfId) {		
 		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
