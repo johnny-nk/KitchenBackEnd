@@ -19,6 +19,7 @@ import com.praksa.KitchenBackEnd.repositories.RegularUserRepository;
 import com.praksa.KitchenBackEnd.repositories.UserRepository;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -179,6 +180,7 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+
 	@Override
 	public List<String> getUsernames() {
 	    Iterable<User> allUsers = userRepository.findAll();
@@ -192,6 +194,10 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+
+	
+	
+	
 }
 	
 	
