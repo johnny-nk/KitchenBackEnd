@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,6 +48,7 @@ public class RecipeController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRecipes() {
 		try {
 	        Iterable<Recipe> recipes = recipeService.getRecipes();
@@ -116,21 +118,22 @@ public class RecipeController {
 		}
 	}
 	
-	
-	
-	
-	//vracanje nazad svih formatiranih recepata
-	@RequestMapping(method = RequestMethod.GET, path = "/getFormatedRecipes")
+	//vraca recepte preko dto-a i ujedanko izracuna sve alergene i nutriciente za sve recepte
+	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes() {
 		return new ResponseEntity<>(recipeService.getFormatedRecipes(), HttpStatus.OK);
 	}
-
 	
+	//pretraga po imenu
+	@RequestMapping(method = RequestMethod.GET, path = "/recipes/search")
+	public ResponseEntity<?> searchRecipe(@RequestParam String title) {
+		return new ResponseEntity<>(recipeService.searchByRecipeName(title), HttpStatus.OK);
+	}
 	
 	
 
 	//------------------DINAMICKA PRETRAGA ALERGENA I HRANLJIVOSTI-------------------------------//
-	
+	//ne treba ali nek ostane za sada
 	
 	@GetMapping(path = "/recipeLF/{recId}")
 	public ResponseEntity<?> getRecipeAndLF( @PathVariable Long recId) {

@@ -1,4 +1,6 @@
 package com.praksa.KitchenBackEnd.services;
+
+import java.util.List;
 import java.util.Optional;
 
 import org.slf4j.Logger;
@@ -23,7 +25,9 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	@Autowired
 	private LimitingIngredientRepository limitingIngredientRepository;
 
+
 	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+
 
 	@Override
 	public LimitingFactor getLimitingFactorbyId(Long id) {
@@ -34,6 +38,8 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			return limitingFactorById.get();
 		} else {
 			logger.error("An error occured while getting limiting factor with id= " + id + ".");
+			return limitingFactorById.get();
+		} else {
 			return null;
 		}
 	}
@@ -43,10 +49,13 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 		logger.info("GetAllLimitingFactors method invoked.");
 		Iterable<LimitingFactor> allLimitingFactors = limitingFactorRepository.findAll();
 		if (allLimitingFactors != null) {
+
 			logger.info("All limiting factors listed.");
 			return allLimitingFactors;
 		} else {
 			logger.error("An error occured while getting all limiting factors.");
+			return allLimitingFactors;
+		} else {
 			return null;
 		}
 	}
@@ -54,6 +63,10 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	@Override
 	public LimitingFactor addLimitingFactor(LimFactorDTO limDTO, Long ingredientId) {
 		logger.info("AddLimitingFactor method invoked.");
+		LimitingFactor newLimitingFactor = new LimitingFactor();
+		newLimitingFactor.setName(limDTO.getName());
+		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
+
 		LimitingFactor newLimitingFactor = new LimitingFactor();
 		newLimitingFactor.setName(limDTO.getName());
 		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
@@ -71,26 +84,59 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			return newLimitingFactor;
 		} else {
 			logger.error("An error occured while adding new limiting factor.");
+
+
+			limitingIngredientRepository.save(newLimitingIngredient);
+
+			return newLimitingFactor;
+		} else {
+
 			return null;
 		}
 	}
 
 	@Override
 	public LimitingFactor updateLimitingFactor(Long id, LimFactorDTO limDTO) {
+
 		logger.info("UpdateLimitingFactor method invoked.");
+
+
 		Optional<LimitingFactor> updateLimitingFactor = limitingFactorRepository.findById(id);
 		if (updateLimitingFactor.isPresent()) {
 			LimitingFactor existingLimitingFactor = updateLimitingFactor.get();
 			existingLimitingFactor.setName(limDTO.getName());
 			LimitingFactor updatedLimitingFactor = limitingFactorRepository.save(existingLimitingFactor);
+
 			logger.info("Limiting factor updated.");
 			return updatedLimitingFactor;
 		} else {
 			logger.error("An error occured while updating imiting factor.");
+
+			return updatedLimitingFactor;
+		} else {
+
 			return null;
 		}
 
 	}
-	
-	
+
+	@Override
+	public LimitingFactor deleteLimitingFactor(Long id) {
+		Optional<LimitingFactor> getLimitingFactor = limitingFactorRepository.findById(id);
+		if (getLimitingFactor.isPresent()) {
+			LimitingFactor deleteLimitingFactor = getLimitingFactor.get();
+
+			List<LimitingIngredient> associatedIngredients = limitingIngredientRepository
+					.findByLimitingFactor(deleteLimitingFactor);
+			limitingIngredientRepository.deleteAll(associatedIngredients);
+
+			limitingFactorRepository.delete(deleteLimitingFactor);
+
+			return deleteLimitingFactor;
+		} else {
+			return null;
+		}
+
+	}
+
 }

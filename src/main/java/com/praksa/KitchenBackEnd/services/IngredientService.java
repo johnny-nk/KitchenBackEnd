@@ -2,6 +2,7 @@ package com.praksa.KitchenBackEnd.services;
 
 import com.praksa.KitchenBackEnd.models.dto.IngredientDTO;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
+import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 
 public interface IngredientService {
 
@@ -12,4 +13,14 @@ public interface IngredientService {
     public Ingredient getIngredientById(Long id);
 	public Iterable<Ingredient> getAllIngredients();
 	public Ingredient deleteIngredient(Long id);
+	public LimitingFactor connectIngredientToLimitingFactor(Long limitingFactorId, Long ingredientId);
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

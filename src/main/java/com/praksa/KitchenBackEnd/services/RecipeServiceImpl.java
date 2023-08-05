@@ -172,6 +172,8 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	
 	private List<RecipeRegisterDTO> recipeFormater(Iterable<Recipe> recipes) {
 		
 		List<RecipeRegisterDTO> formatedRecipes = new ArrayList<>();
@@ -186,12 +188,13 @@ public class RecipeServiceImpl implements RecipeService {
 		dto.setTimeToPrepare(recipe.getTimeToPrepare());
 		dto.setAmount(recipe.getAmount());
 		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
-		dto.setNutrition(calculateNutrition(recipe));
 		dto.setCreatedOn(recipe.getCreatedOn());
 		dto.setUpdatedOn(recipe.getUpdatedOn());
-		dto.setIngredients(extractIng(recipe));
-		dto.setIngredientAmount(ingredientNamedMapString(recipe));
-		dto.setLimitingFactors(extractLF(recipe));
+														//zakomentarisi sta ti je nepotrebno
+		dto.setNutrition(calculateNutrition(recipe));  //-> dinamicno racunanje nutritivne vrednosti
+		dto.setIngredients(extractIng(recipe));		   //-> prikaz svih satojaka i njihovih nutrutivnih vrednost	
+		dto.setIngredientAmount(ingredientNamedMapString(recipe)); //-> samo imena sastojaka i njihove kolicine
+		dto.setLimitingFactors(extractLF(recipe)); 	  //-> dinamicno racunanje svih alergena u receptu	
 		formatedRecipes.add(dto);
 		}
 		
@@ -211,11 +214,6 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	
-	//FORMATIRANJE RECEPTA ZA PRIKAZ SVIH NJEGOVIH OSOBINA - javlja 
-	//Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: 
-	//Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; 
-	//nested exception is java.lang.NumberFormatException: For input string: "getFormatedRecipes"
-	//negde ne moze da castuje long u string, medjutim vraca pojedinacan recept lepo
 	@Override
 	public Iterable<RecipeRegisterDTO> getFormatedRecipes() {
 		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
@@ -224,38 +222,22 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
-	
-	
-	
 	@Override
 	public RecipeRegisterDTO getRecipe(Long id) {
-		
 		Recipe recipe = recipeRepository.findById(id).get();
-		RecipeRegisterDTO dto = new RecipeRegisterDTO();
-		
-		dto.setId(recipe.getId());
-		dto.setCategory(recipe.getCategory());
-		dto.setDescription(recipe.getDescription());
-		dto.setSteps(recipe.getSteps());
-		dto.setTitle(recipe.getTitle());
-		dto.setTimeToPrepare(recipe.getTimeToPrepare());
-		dto.setAmount(recipe.getAmount());
-		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
-		dto.setNutrition(calculateNutrition(recipe));
-		dto.setCreatedOn(recipe.getCreatedOn());
-		dto.setUpdatedOn(recipe.getUpdatedOn());
-		dto.setIngredients(extractIng(recipe));
-		dto.setIngredientAmount(ingredientNamedMapString(recipe));
-		dto.setLimitingFactors(extractLF(recipe));
-		
-		return dto;
+		List<Recipe> unformatedRecipe = new ArrayList<>();
+		unformatedRecipe.add(recipe);
+		List<RecipeRegisterDTO> dto = recipeFormater(unformatedRecipe); 
+		return dto.get(0);
 	}
 
 	
 	
 	@Override
 	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
-		return null;
+		Iterable<Recipe> recipes = recipeRepository.findByTitleContainingIgnoreCase(title);
+		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
+		return dto;
 	}
 
 	
@@ -280,7 +262,7 @@ public class RecipeServiceImpl implements RecipeService {
 		Recipe recipe = recipeRepository.findById(id).get();
 		
 		List<RecipeIngredient> updateRing = new ArrayList<>();
-		List<RecipeIngredient> testRing = recipeIngreRepo.findAllByRecipeId(recipe);
+//		List<RecipeIngredient> testRing = recipeIngreRepo.findAllByRecipeId(recipe);
 		List<RecipeIngredient> deleteRecing = new ArrayList<>();
 		if(updatedRecipe.getAmount() != null && !updatedRecipe.getAmount().equals(recipe.getAmount())) {
 			recipe.setAmount(updatedRecipe.getAmount());
