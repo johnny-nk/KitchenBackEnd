@@ -38,7 +38,12 @@ public class WebSecurityConfig {
 				.addFilterAfter(new JWTAuthorizationFilter(secretKey), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
 				.antMatchers(HttpMethod.POST, "/api/v1/project/users/login", "/api/v1/project/register/regUser").permitAll()
-				.antMatchers(HttpMethod.GET, "/api/v1/project/").anonymous()
+				.and()
+				.authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "api/v1/project/recipes").permitAll()
+//				.and()
+//				.authorizeRequests()
+//				.antMatchers(HttpMethod.GET, "api/v1/project/reci**").permitAll()
 				.anyRequest().authenticated();
 		return http.build();
 	}

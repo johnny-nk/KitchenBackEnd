@@ -1,7 +1,6 @@
 package com.praksa.KitchenBackEnd.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.support.Repositories;
 import org.springframework.stereotype.Service;
 
 import com.praksa.KitchenBackEnd.controllers.factory.UserFactory;
@@ -10,7 +9,6 @@ import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Administrator;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
-import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
 import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.models.entities.User;
 import com.praksa.KitchenBackEnd.repositories.CookRepository;
