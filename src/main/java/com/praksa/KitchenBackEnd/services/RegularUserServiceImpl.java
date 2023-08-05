@@ -2,16 +2,20 @@ package com.praksa.KitchenBackEnd.services;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.praksa.KitchenBackEnd.models.entities.AffectedUsers;
+import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 import com.praksa.KitchenBackEnd.models.entities.Recipe;
 import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.repositories.AffectedUserRepository;
+import com.praksa.KitchenBackEnd.repositories.LikedRecipesRepository;
 import com.praksa.KitchenBackEnd.repositories.LimitingFactorRepository;
 import com.praksa.KitchenBackEnd.repositories.RecipeRepository;
 import com.praksa.KitchenBackEnd.repositories.RegularUserRepository;
@@ -36,6 +40,8 @@ public class RegularUserServiceImpl implements RegularUserService {
 	@Autowired
 	private AffectedUserRepository affectedUsersRepo;
 	
+	@Autowired
+	private LikedRecipesRepository likedRecRepo;
 	
 	
 	
@@ -51,24 +57,38 @@ public class RegularUserServiceImpl implements RegularUserService {
 				lf.add(af.getLimitingFactor());
 			}
 		}
-		
 		return lf;
 	}
 
 	@Override
 	public AffectedUsers addLimitingFactor(Long userId, Long lfId) {
+		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
+		
+		if(af.isEmpty()) {
 		RegularUser user = (RegularUser) userRepository.findById(userId).get();
 		LimitingFactor lf = limFactorRepo.findById(lfId).get();
-		AffectedUsers affU = new AffectedUsers(null, user, lf);
-		affectedUsersRepo.save(affU);
-		return affU;
+		AffectedUsers aff = new AffectedUsers();
+		aff.setLimitingFactor(lf);
+		aff.setRegularUser(user);
+		affectedUsersRepo.save(aff);
+		return aff;
+		} else {
+		
+		return null;	
+		}
 	}
-
+	
+	
+	//entitiy must not be null greska 
 	@Override
-	public AffectedUsers removeLimitingFactor(Long lfId) {
-		AffectedUsers af = affectedUsersRepo.findById(lfId).get();
-		affectedUsersRepo.delete(af);
-		return af;
+	public Optional<AffectedUsers> removeLimitingFactor(Long userId, Long lfId) {		
+		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
+		if(af.isPresent()) {
+			affectedUsersRepo.delete(af.get());
+			return af;
+		} else {
+		return null;
+		}
 	}
 	
 	
@@ -77,41 +97,42 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	@Override
 	public Set<Recipe> getUserRecipes(Long userId) {
-//		RegularUser user = (RegularUser) userRepository.findById(userId).get();
-//		Set<Recipe> recipes = recipeRepo.
-//				findAllByLikedRecipes(user.getLikedRecipes().getId());
-//		
+		Set<LikedRecipes> likedRecipes = likedRecRepo.findByRegularUserId(userId);
+		Set<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).collect((Collectors.toSet()));
 		
-		return null;
+		return recipes;
 	}
 
 	
 	
 	@Override
 	public Recipe addRecipeToUser(Long userId, Long recipeId) {
-//		RegularUser user = (RegularUser) userRepository.findById(userId).get();
-//		Recipe recipe = recipeRepo.findById(recipeId).get();
-//		if(recipe.getLikedRecipes() == user.getLikedRecipes()) {
-//			return null;
-//		}
-//		Recipe rec = new Recipe(null, recipe.getTitle(), 
-//				recipe.getDescription(), 
-//				recipe.getSteps(), recipe.getTimeToPrepare(),
-//				recipe.getCreatedOn(), recipe.getUpdatedOn(), 
-//				recipe.getAmount(), recipe.getCategory(), 
-//				recipe.getVersion(), recipe.getIngredients(), 
-//				recipe.getCook(),user.getLikedRecipes());		
-//		recipeRepo.save(rec);
-//		return recipe;
+		
+		Optional<LikedRecipes> likedRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userId, recipeId);
+		if(likedRecipe.isEmpty()) {
+			LikedRecipes likesRecipe = new LikedRecipes();
+			Recipe rec = recipeRepo.findById(recipeId).get();
+			RegularUser user = (RegularUser) userRepository.findById(userId).get();
+			likesRecipe.setRegularUser(user);
+			likesRecipe.setRecipe(rec);
+			likedRecRepo.save(likesRecipe);
+			return rec;
+		} else {
+		
 		return null;
+		}
 	}
 
 	@Override
-	public Recipe removeRecipe(Long userId, Long recId) {
-//		RegularUser user = (RegularUser) userRepository.findById(userId).get();
-//		Recipe recipe = recipeRepo.findByLikedRecipes(recId);
-//		recipeRepo.delete(recipe);
+	public Optional<LikedRecipes> removeRecipe(Long userId, Long recId) {
+		Optional<LikedRecipes> likesRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userId, recId);
+		if(likesRecipe.isPresent()) {
+			likedRecRepo.deleteById(likesRecipe.get().getId());
+			return likesRecipe;
+		} else {
+		
 		return null;
+		}
 	}
 
 	

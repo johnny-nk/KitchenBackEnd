@@ -60,6 +60,7 @@ public class UserRegisterController {
 	    }
 	
 	}
+	
 	//----------------------Delete za Regular Usera------------------------------------//
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteRegUserFromDB/{id}")
 	public ResponseEntity<?> deleteRegluarUser(@PathVariable Long id){
@@ -86,6 +87,8 @@ public class UserRegisterController {
 		        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 		    }
 	}
+	
+	
 	//----------------------GET za sve Regluar Usere-------------------------------------//
 	@RequestMapping(method = RequestMethod.GET, value="/getRegUsers")
 	public ResponseEntity<?> getAllRegUses(){

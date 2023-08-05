@@ -175,7 +175,6 @@ public class RecipeServiceImpl implements RecipeService {
 		
 		List<RecipeRegisterDTO> formatedRecipes = new ArrayList<>();
 		 
-		
 		for(Recipe recipe : recipes) {
 		RecipeRegisterDTO dto = new RecipeRegisterDTO();
 		dto.setId(recipe.getId());
@@ -221,11 +220,6 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	
-	@Override
-	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
-		return null;
-	}
-	
 	
 	@Override
 	public RecipeRegisterDTO getRecipe(Long id) {
@@ -251,6 +245,17 @@ public class RecipeServiceImpl implements RecipeService {
 		return dto;
 	}
 
+	
+	
+	@Override
+	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
+		return null;
+	}
+
+	
+	
+	
+	
 	@Override
 	public Recipe deleteRecipe(Long id) {
 		Recipe recipe = recipeRepository.findById(id).get();
@@ -267,7 +272,9 @@ public class RecipeServiceImpl implements RecipeService {
 	public RecipeRegisterDTO updateRecipe(RecipeRegisterDTO updatedRecipe, Long id) {
 		
 		Recipe recipe = recipeRepository.findById(id).get();
+		
 		List<RecipeIngredient> updateRing = new ArrayList<>();
+		List<RecipeIngredient> testRing = recipeIngreRepo.findAllByRecipeId(recipe);
 		List<RecipeIngredient> deleteRecing = new ArrayList<>();
 		if(updatedRecipe.getAmount() != null && !updatedRecipe.getAmount().equals(recipe.getAmount())) {
 			recipe.setAmount(updatedRecipe.getAmount());
@@ -287,6 +294,9 @@ public class RecipeServiceImpl implements RecipeService {
 		if(updatedRecipe.getCategory() != null && !updatedRecipe.getCategory().equals(recipe.getCategory())) {
 			recipe.setCategory(updatedRecipe.getCategory());
 		}
+		
+	
+		
 		
 		//Radi dodavanje sastojaka, izmenu kolicine sastojaka i brisanje sastojaka ako im prosledis kolicinu da je 0
 		//kada skontam kako da implementiram da brise preko id-a neka ovako ostane; imamo dosta posla
@@ -315,7 +325,6 @@ public class RecipeServiceImpl implements RecipeService {
 				
 			}
 		}	
-		
 		
 		recipe.setIngredients(updateRing);
 		recipeRepository.save(recipe);
