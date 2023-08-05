@@ -38,6 +38,7 @@ public class UserRegisterController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value="/regUser")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> registerRegUser(@Valid @RequestBody RegularUserRegisterDTO regUserDTO) {
 		
 		return new ResponseEntity<>(userService.addUser(regUserDTO), HttpStatus.CREATED);
@@ -102,6 +103,7 @@ public class UserRegisterController {
 	//----------------------GET za COOK po id-ju-------------------------------------//
 
 	@RequestMapping(method = RequestMethod.GET, value="/getCook/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getCookById(@PathVariable Long id){
 		try {
 			Cook getCookbyId = userService.getCookById(id);
@@ -114,6 +116,7 @@ public class UserRegisterController {
 	}
 	//----------------------GET za sve Cooks-------------------------------------//
 	@RequestMapping(method = RequestMethod.GET, value="/getCooks")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllCooks(){
 		try {
 			Iterable<Cook> getAllCooks = userService.getAllCooks();
