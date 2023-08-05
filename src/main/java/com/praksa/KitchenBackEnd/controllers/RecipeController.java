@@ -1,7 +1,5 @@
 package com.praksa.KitchenBackEnd.controllers;
 
-import java.net.http.HttpResponse;
-import java.util.List;
 import java.util.NoSuchElementException;
 
 import javax.validation.Valid;
@@ -21,10 +19,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.praksa.KitchenBackEnd.controllers.util.RESTError;
-import com.praksa.KitchenBackEnd.models.dto.RecipeDTO;
 import com.praksa.KitchenBackEnd.models.dto.RecipeRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Recipe;
-import com.praksa.KitchenBackEnd.repositories.RecipeRepository;
 import com.praksa.KitchenBackEnd.services.RecipeService;
 
 @RestController

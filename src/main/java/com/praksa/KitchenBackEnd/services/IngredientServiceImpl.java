@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import javax.transaction.Transactional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,10 +28,11 @@ public class IngredientServiceImpl implements IngredientService{
 	@Autowired
 	private RecipeIngredientRepository recipeIngredientRepository;
 	
-	
+	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 	
 	@Override
 	public Ingredient addIngredient(IngredientDTO ingredient) {
+		logger.info("AddIngredient method invoked.");
 		Ingredient ingredients = new Ingredient();
 		ingredients.setCalories(ingredient.getCalories());
 		ingredients.setCarbs(ingredient.getCarbs());
@@ -39,6 +42,7 @@ public class IngredientServiceImpl implements IngredientService{
 		ingredients.setSaturatedFats(ingredient.getSaturatedFats());
 		ingredients.setSugars(ingredient.getSugars());
 		ingredients.setUnit(ingredient.getUnit());
+		logger.info("New ingredient added.");
 		return ingredientRepository.save(ingredients);
 		 
 		

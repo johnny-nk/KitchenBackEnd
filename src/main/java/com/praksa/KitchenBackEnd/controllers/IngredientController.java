@@ -2,6 +2,8 @@ package com.praksa.KitchenBackEnd.controllers;
 
 import javax.validation.Valid;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +18,6 @@ import com.praksa.KitchenBackEnd.controllers.util.RESTError;
 import com.praksa.KitchenBackEnd.models.dto.IngredientDTO;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.services.IngredientService;
-import com.praksa.KitchenBackEnd.services.IngredientServiceImpl;
 
 @RestController
 @RequestMapping(path="/api/v1/project/ingredient")
@@ -24,13 +25,18 @@ public class IngredientController {
 
 	@Autowired
 	private IngredientService ingredientService;
+	
+	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
-	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {		
+	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {
+		logger.info("Started adding new ingredient - http.");
 		try { 	
+			logger.info("New ingredient added.");
 			return new ResponseEntity<>(ingredientService.addIngredient(ingredients), HttpStatus.OK);
 		}catch (Exception e) {
+			logger.error("An error ocurred while adding new ingredient.");
 			return new ResponseEntity<RESTError>(
 					new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"BAD Request"), HttpStatus.INTERNAL_SERVER_ERROR);
 			

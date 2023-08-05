@@ -1,0 +1,1315 @@
+2023-08-05 12:52:14.191  INFO 14664 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 14664 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 12:52:14.208  INFO 14664 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 12:52:15.763  INFO 14664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 12:52:15.952  INFO 14664 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 171 ms. Found 11 JPA repository interfaces.
+2023-08-05 12:52:16.917  INFO 14664 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 12:52:16.948  INFO 14664 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 12:52:16.949  INFO 14664 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 12:52:17.240  INFO 14664 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 12:52:17.244  INFO 14664 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2960 ms
+2023-08-05 12:52:17.603  INFO 14664 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 12:52:17.677  INFO 14664 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 12:52:17.961  INFO 14664 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 12:52:18.160  INFO 14664 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 12:52:18.663  INFO 14664 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 12:52:18.711  INFO 14664 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 12:52:20.082  INFO 14664 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 12:52:20.097  INFO 14664 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 12:52:21.341  WARN 14664 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: fb558060-86f6-44c8-a19c-1e8d1e37fcdf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 12:52:21.594  WARN 14664 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 12:52:21.914  INFO 14664 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4ad57db1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6e140753, org.springframework.security.web.context.SecurityContextPersistenceFilter@3f36c191, org.springframework.security.web.header.HeaderWriterFilter@7860a014, org.springframework.web.filter.CorsFilter@53bc6492, org.springframework.security.web.authentication.logout.LogoutFilter@585718dd, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@1e834a5b, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@54a5eff, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@29612ee2, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7fda84cf, org.springframework.security.web.session.SessionManagementFilter@65852d05, org.springframework.security.web.access.ExceptionTranslationFilter@21ebf9be, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@72e5206]
+2023-08-05 12:52:22.292  INFO 14664 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 12:52:22.306  INFO 14664 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 8.769 seconds (JVM running for 10.056)
+2023-08-05 12:54:58.873  INFO 14664 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 12:54:58.873  INFO 14664 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 12:54:58.874  INFO 14664 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-08-05 12:58:36.239  INFO 18256 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 18256 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 12:58:36.253  INFO 18256 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 12:58:37.306  INFO 18256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 12:58:37.532  INFO 18256 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 194 ms. Found 11 JPA repository interfaces.
+2023-08-05 12:58:38.490  INFO 18256 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 12:58:38.520  INFO 18256 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 12:58:38.521  INFO 18256 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 12:58:38.722  INFO 18256 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 12:58:38.722  INFO 18256 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2394 ms
+2023-08-05 12:58:38.938  INFO 18256 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 12:58:39.005  INFO 18256 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 12:58:39.197  INFO 18256 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 12:58:39.334  INFO 18256 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 12:58:39.736  INFO 18256 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 12:58:39.792  INFO 18256 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 12:58:41.713  INFO 18256 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 12:58:41.728  INFO 18256 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 12:58:42.576  WARN 18256 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 0158d5b8-9011-49a4-8028-f74b0b53ef64
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 12:58:42.726  WARN 18256 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 12:58:43.236  INFO 18256 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5f815f93, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7a8e484b, org.springframework.security.web.context.SecurityContextPersistenceFilter@34907a49, org.springframework.security.web.header.HeaderWriterFilter@1d208795, org.springframework.web.filter.CorsFilter@643f8ebe, org.springframework.security.web.authentication.logout.LogoutFilter@4ccf1d3e, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@65013d71, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1ae26c59, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@15ade272, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@30a99b85, org.springframework.security.web.session.SessionManagementFilter@7da0587a, org.springframework.security.web.access.ExceptionTranslationFilter@6a7cbeed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6079d219]
+2023-08-05 12:58:43.587  WARN 18256 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 12:58:43.593  INFO 18256 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 12:58:43.594  INFO 18256 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 12:58:43.606  INFO 18256 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 12:58:43.609  INFO 18256 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 12:58:43.626  INFO 18256 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 12:58:43.650 ERROR 18256 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 12:59:29.092  INFO 25732 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 25732 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 12:59:29.107  INFO 25732 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 12:59:30.092  INFO 25732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 12:59:30.250  INFO 25732 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 11 JPA repository interfaces.
+2023-08-05 12:59:31.052  INFO 25732 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 12:59:31.080  INFO 25732 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 12:59:31.082  INFO 25732 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 12:59:31.291  INFO 25732 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 12:59:31.292  INFO 25732 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2113 ms
+2023-08-05 12:59:31.549  INFO 25732 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 12:59:31.631  INFO 25732 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 12:59:31.850  INFO 25732 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 12:59:32.111  INFO 25732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 12:59:32.644  INFO 25732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 12:59:32.690  INFO 25732 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 12:59:34.140  INFO 25732 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 12:59:34.155  INFO 25732 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 12:59:35.114  WARN 25732 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 99f384cf-f63f-44e9-b3ee-a6ee193f9e88
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 12:59:35.262  WARN 25732 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 12:59:35.577  INFO 25732 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@686ace1f, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7dd92a36, org.springframework.security.web.context.SecurityContextPersistenceFilter@4a76c90, org.springframework.security.web.header.HeaderWriterFilter@54a5eff, org.springframework.web.filter.CorsFilter@531ed68e, org.springframework.security.web.authentication.logout.LogoutFilter@501956f9, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@551976c2, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7da0587a, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@78d52d4c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@6bbd4048, org.springframework.security.web.session.SessionManagementFilter@5cb64b9c, org.springframework.security.web.access.ExceptionTranslationFilter@3f36c191, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@19240b9]
+2023-08-05 12:59:35.936  WARN 25732 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 12:59:35.941  INFO 25732 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 12:59:35.943  INFO 25732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 12:59:35.953  INFO 25732 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 12:59:35.956  INFO 25732 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 12:59:35.972  INFO 25732 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 12:59:36.002 ERROR 25732 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 13:00:49.862  INFO 22672 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 22672 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:00:49.875  INFO 22672 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:00:50.874  INFO 22672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:00:51.025  INFO 22672 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 136 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:00:51.831  INFO 22672 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:00:51.860  INFO 22672 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:00:51.862  INFO 22672 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:00:52.058  INFO 22672 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:00:52.058  INFO 22672 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2107 ms
+2023-08-05 13:00:52.273  INFO 22672 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:00:52.341  INFO 22672 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:00:52.542  INFO 22672 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:00:52.679  INFO 22672 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:00:53.053  INFO 22672 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:00:53.096  INFO 22672 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:00:54.578  INFO 22672 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:00:54.593  INFO 22672 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:00:55.423  WARN 22672 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 785a97fb-af56-4e53-9d4c-6ca0ab7b4bc6
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:00:55.582  WARN 22672 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:00:55.896  INFO 22672 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72e5206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4615bc00, org.springframework.security.web.context.SecurityContextPersistenceFilter@47596e9, org.springframework.security.web.header.HeaderWriterFilter@77262e71, org.springframework.web.filter.CorsFilter@37f75ebf, org.springframework.security.web.authentication.logout.LogoutFilter@1ae26c59, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@569b3009, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74cad577, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@350ede1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23d0f6be, org.springframework.security.web.session.SessionManagementFilter@7325b786, org.springframework.security.web.access.ExceptionTranslationFilter@4cc4f6bd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4117e0c9]
+2023-08-05 13:00:56.253  INFO 22672 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:00:56.266  INFO 22672 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.009 seconds (JVM running for 8.515)
+2023-08-05 13:01:26.067  INFO 22672 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 13:01:26.067  INFO 22672 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 13:01:26.071  INFO 22672 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-08-05 13:19:48.201  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 13:19:48.222  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:19:48.225  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 13:19:48.243  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:19:48.246  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:19:48.262  INFO 22672 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:34:06.188  INFO 17048 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 17048 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:34:06.204  INFO 17048 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:34:07.454  INFO 17048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:34:07.610  INFO 17048 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 138 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:34:08.497  INFO 17048 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:34:08.532  INFO 17048 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:34:08.533  INFO 17048 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:34:08.766  INFO 17048 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:34:08.766  INFO 17048 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2479 ms
+2023-08-05 13:34:09.017  INFO 17048 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:34:09.087  INFO 17048 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:34:09.350  INFO 17048 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:34:09.489  INFO 17048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:34:09.895  INFO 17048 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:34:09.937  INFO 17048 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:34:11.144  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table administrators drop foreign key FK3w6wcfo04i0l5sfxgcf6iq0yh" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table administrators drop foreign key FK3w6wcfo04i0l5sfxgcf6iq0yh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.administrators' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.153  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table affected_users drop foreign key FKgkomcbv5xr3n8o0tj4ywk68od" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table affected_users drop foreign key FKgkomcbv5xr3n8o0tj4ywk68od" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.affected_users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.156  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table affected_users drop foreign key FKlqfkpstg3udjp7sng71s1813c" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table affected_users drop foreign key FKlqfkpstg3udjp7sng71s1813c" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.affected_users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.162  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table cooks drop foreign key FKf3i02hih81xaow69ojwhohnwh" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table cooks drop foreign key FKf3i02hih81xaow69ojwhohnwh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.cooks' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.165  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table liked_recipes drop foreign key FKsa96iqma2okf4khh99kwhqppm" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table liked_recipes drop foreign key FKsa96iqma2okf4khh99kwhqppm" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.liked_recipes' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.168  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table liked_recipes drop foreign key FKg1mqijqovt3hynlnigqidgjgr" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table liked_recipes drop foreign key FKg1mqijqovt3hynlnigqidgjgr" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.liked_recipes' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.171  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table limiting_ingredient drop foreign key FKfwerwpi1iuosw4l042wc6i80w" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table limiting_ingredient drop foreign key FKfwerwpi1iuosw4l042wc6i80w" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.limiting_ingredient' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.176  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table limiting_ingredient drop foreign key FKoowat3vwhg30vd3tmor87duhv" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table limiting_ingredient drop foreign key FKoowat3vwhg30vd3tmor87duhv" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.limiting_ingredient' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.179  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table recipe_ingredient drop foreign key FK9b3oxoskt0chwqxge0cnlkc29" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table recipe_ingredient drop foreign key FK9b3oxoskt0chwqxge0cnlkc29" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.recipe_ingredient' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.182  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table recipe_ingredient drop foreign key FK6fyh7xtjni8tgso26h8ek5b96" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table recipe_ingredient drop foreign key FK6fyh7xtjni8tgso26h8ek5b96" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.recipe_ingredient' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.185  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table recipes drop foreign key FKpd0dvq0qemr3bu7t3cb4r6d13" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table recipes drop foreign key FKpd0dvq0qemr3bu7t3cb4r6d13" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.recipes' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.187  WARN 17048 --- [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "alter table regular_users drop foreign key FKselyr1s9bnfk6jsa6p9mekaga" via JDBC Statement
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table regular_users drop foreign key FKselyr1s9bnfk6jsa6p9mekaga" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:387) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:371) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:341) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:235) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:156) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:128) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:114) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:157) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:85) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341) ~[spring-orm-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1157) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:911) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.29.jar:5.3.29]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.14.jar:2.7.14]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.14.jar:2.7.14]
+	at com.praksa.KitchenBackEnd.KitchenBackEndApplication.main(KitchenBackEndApplication.java:10) ~[classes/:?]
+Caused by: java.sql.SQLSyntaxErrorException: Table 'db_praksa.regular_users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:121) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648) ~[mysql-connector-j-8.0.33.jar:8.0.33]
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-4.0.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-4.0.3.jar:?]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54) ~[hibernate-core-5.6.15.Final.jar:5.6.15.Final]
+	... 35 more
+
+2023-08-05 13:34:11.955  INFO 17048 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:34:11.971  INFO 17048 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:34:13.011  WARN 17048 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6e6aa3f9-0f58-4353-8731-738c01471445
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:34:13.243  WARN 17048 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:34:13.605  INFO 17048 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@2d21d12b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@669b8190, org.springframework.security.web.context.SecurityContextPersistenceFilter@f047670, org.springframework.security.web.header.HeaderWriterFilter@1d9cac6e, org.springframework.web.filter.CorsFilter@5fdcc63f, org.springframework.security.web.authentication.logout.LogoutFilter@3b3dc752, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@27f8f1cc, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@27d44578, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@2446597e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@473c491, org.springframework.security.web.session.SessionManagementFilter@2f0b5d79, org.springframework.security.web.access.ExceptionTranslationFilter@870413c, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@77da2881]
+2023-08-05 13:34:13.961  INFO 17048 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:34:13.974  INFO 17048 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 8.415 seconds (JVM running for 9.639)
+2023-08-05 13:39:13.158  INFO 17048 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 13:39:13.173  INFO 17048 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:39:13.189  INFO 17048 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:39:13.191  INFO 17048 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:39:13.204  INFO 17048 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:40:22.275  INFO 18276 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 18276 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:40:22.290  INFO 18276 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:40:23.458  INFO 18276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:40:23.644  INFO 18276 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 166 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:40:24.561  INFO 18276 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:40:24.596  INFO 18276 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:40:24.598  INFO 18276 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:40:24.847  INFO 18276 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:40:24.847  INFO 18276 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2458 ms
+2023-08-05 13:40:25.170  INFO 18276 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:40:25.268  INFO 18276 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:40:25.516  INFO 18276 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:40:25.683  INFO 18276 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:40:26.102  INFO 18276 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:40:26.146  INFO 18276 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:40:27.491  INFO 18276 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:40:27.507  INFO 18276 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:40:28.647  WARN 18276 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 36050325-febb-4904-b467-c795d211d1ac
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:40:28.828  WARN 18276 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:40:29.149  INFO 18276 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7a8e484b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@643f8ebe, org.springframework.security.web.context.SecurityContextPersistenceFilter@4b8c9729, org.springframework.security.web.header.HeaderWriterFilter@2f006edf, org.springframework.web.filter.CorsFilter@65013d71, org.springframework.security.web.authentication.logout.LogoutFilter@75ff2b6d, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@30a99b85, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@15ade272, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@225890bc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@386d41cb, org.springframework.security.web.session.SessionManagementFilter@78d52d4c, org.springframework.security.web.access.ExceptionTranslationFilter@3d96b8fb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4ed90b04]
+2023-08-05 13:40:29.512  INFO 18276 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:40:29.525  INFO 18276 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 8.139 seconds (JVM running for 9.326)
+2023-08-05 13:40:41.128  INFO 18276 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 13:40:41.129  INFO 18276 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 13:40:41.131  INFO 18276 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-08-05 13:43:22.214  INFO 16928 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 16928 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:43:22.227  INFO 16928 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:43:23.370  INFO 16928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:43:23.533  INFO 16928 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:43:24.693  INFO 16928 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:43:24.725  INFO 16928 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:43:24.727  INFO 16928 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:43:24.969  INFO 16928 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:43:24.970  INFO 16928 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2644 ms
+2023-08-05 13:43:25.216  INFO 16928 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:43:25.288  INFO 16928 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:43:25.508  INFO 16928 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:43:25.657  INFO 16928 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:43:26.103  INFO 16928 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:43:26.153  INFO 16928 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:43:27.567  INFO 16928 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:43:27.584  INFO 16928 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:43:28.581  WARN 16928 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 56b127c1-4bcf-4c0a-a85b-e2b69c3bc808
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:43:28.943  WARN 16928 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:43:29.771  INFO 16928 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@643f8ebe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65013d71, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ae26c59, org.springframework.security.web.header.HeaderWriterFilter@1d208795, org.springframework.web.filter.CorsFilter@30a99b85, org.springframework.security.web.authentication.logout.LogoutFilter@20a7ce0, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@386d41cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@225890bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d426e01, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20bf7206, org.springframework.security.web.session.SessionManagementFilter@47a90d2a, org.springframework.security.web.access.ExceptionTranslationFilter@6a7cbeed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@686ace1f]
+2023-08-05 13:43:30.649  WARN 16928 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 13:43:30.668  INFO 16928 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:43:30.671  INFO 16928 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:43:30.714  INFO 16928 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:43:30.716  INFO 16928 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:43:30.736  INFO 16928 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 13:43:30.776 ERROR 16928 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 13:43:45.956  INFO 26304 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 26304 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:43:45.970  INFO 26304 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:43:47.299  INFO 26304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:43:47.485  INFO 26304 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 165 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:43:48.569  INFO 26304 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:43:48.605  INFO 26304 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:43:48.607  INFO 26304 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:43:48.872  INFO 26304 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:43:48.873  INFO 26304 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2828 ms
+2023-08-05 13:43:49.183  INFO 26304 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:43:49.277  INFO 26304 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:43:49.564  INFO 26304 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:43:49.783  INFO 26304 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:43:50.297  INFO 26304 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:43:50.355  INFO 26304 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:43:51.939  INFO 26304 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:43:51.958  INFO 26304 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:43:53.359  WARN 26304 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 37ac745d-33bb-4ede-b091-44e45992a615
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:43:53.536  WARN 26304 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:43:53.926  INFO 26304 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6079d219, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4ed90b04, org.springframework.security.web.context.SecurityContextPersistenceFilter@1cb7f2fe, org.springframework.security.web.header.HeaderWriterFilter@47462daf, org.springframework.web.filter.CorsFilter@686ace1f, org.springframework.security.web.authentication.logout.LogoutFilter@6af02de0, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@7dd92a36, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2c376461, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@27244a88, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@531ed68e, org.springframework.security.web.session.SessionManagementFilter@28dd038f, org.springframework.security.web.access.ExceptionTranslationFilter@2bbaf1bc, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7fda84cf]
+2023-08-05 13:43:54.417  WARN 26304 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 13:43:54.431  INFO 26304 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:43:54.436  INFO 26304 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:43:54.461  INFO 26304 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:43:54.466  INFO 26304 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:43:54.491  INFO 26304 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 13:43:54.529 ERROR 26304 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 13:44:41.384  INFO 19444 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 19444 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:44:41.399  INFO 19444 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:44:42.765  INFO 19444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:44:42.922  INFO 19444 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:44:43.745  INFO 19444 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:44:43.775  INFO 19444 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:44:43.776  INFO 19444 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:44:44.003  INFO 19444 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:44:44.003  INFO 19444 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2526 ms
+2023-08-05 13:44:44.280  INFO 19444 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:44:44.351  INFO 19444 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:44:44.576  INFO 19444 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:44:44.722  INFO 19444 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:44:45.119  INFO 19444 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:44:45.171  INFO 19444 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:44:46.524  INFO 19444 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:44:46.539  INFO 19444 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:44:47.426  WARN 19444 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c1bf02ea-828d-470a-84e1-f1bc86a1aa0e
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:44:47.618  WARN 19444 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:44:48.197  INFO 19444 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72e5206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4615bc00, org.springframework.security.web.context.SecurityContextPersistenceFilter@74cad577, org.springframework.security.web.header.HeaderWriterFilter@1c0a4f87, org.springframework.web.filter.CorsFilter@37f75ebf, org.springframework.security.web.authentication.logout.LogoutFilter@225890bc, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@569b3009, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2bbaf1bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@65852d05, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23d0f6be, org.springframework.security.web.session.SessionManagementFilter@4c376b44, org.springframework.security.web.access.ExceptionTranslationFilter@77262e71, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4117e0c9]
+2023-08-05 13:44:48.609  INFO 19444 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:44:48.622  INFO 19444 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.881 seconds (JVM running for 9.095)
+2023-08-05 13:45:08.895  INFO 19444 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 13:45:08.910  INFO 19444 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:45:08.925  INFO 19444 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:45:08.926  INFO 19444 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:45:08.938  INFO 19444 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:47:58.009  INFO 8708 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 8708 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:47:58.024  INFO 8708 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:47:59.095  INFO 8708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:47:59.268  INFO 8708 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:48:00.196  INFO 8708 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:48:00.231  INFO 8708 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:48:00.233  INFO 8708 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:48:00.460  INFO 8708 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:48:00.461  INFO 8708 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2353 ms
+2023-08-05 13:48:00.724  INFO 8708 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:48:00.800  INFO 8708 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:48:01.024  INFO 8708 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:48:01.175  INFO 8708 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:48:01.585  INFO 8708 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:48:01.639  INFO 8708 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:48:03.266  INFO 8708 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:48:03.282  INFO 8708 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:48:04.327  WARN 8708 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 698908d4-7b41-4c87-b188-107a9b5b4424
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:48:04.488  WARN 8708 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:48:04.804  INFO 8708 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@6bbd4048, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5f815f93, org.springframework.security.web.context.SecurityContextPersistenceFilter@47a90d2a, org.springframework.security.web.header.HeaderWriterFilter@3d96b8fb, org.springframework.web.filter.CorsFilter@7a8e484b, org.springframework.security.web.authentication.logout.LogoutFilter@129b0ed, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@643f8ebe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@4b8c9729, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1ae26c59, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65013d71, org.springframework.security.web.session.SessionManagementFilter@6a233d33, org.springframework.security.web.access.ExceptionTranslationFilter@20524816, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5d1907fb]
+2023-08-05 13:48:05.170  INFO 8708 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:48:05.183  INFO 8708 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.824 seconds (JVM running for 9.475)
+2023-08-05 13:50:48.717  INFO 8708 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 13:50:48.717  INFO 8708 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 13:50:48.719  INFO 8708 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-08-05 13:50:48.795  WARN 8708 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'user' for method parameter type String is not present]
+2023-08-05 13:53:48.615  WARN 8708 --- [http-nio-8080-exec-8] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'user' for method parameter type String is not present]
+2023-08-05 13:55:35.051  INFO 2632 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 2632 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:55:35.065  INFO 2632 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:55:36.086  INFO 2632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:55:36.241  INFO 2632 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:55:37.029  INFO 2632 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:55:37.060  INFO 2632 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:55:37.061  INFO 2632 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:55:37.276  INFO 2632 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:55:37.277  INFO 2632 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2115 ms
+2023-08-05 13:55:37.530  INFO 2632 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:55:37.599  INFO 2632 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:55:37.813  INFO 2632 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:55:37.954  INFO 2632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:55:38.344  INFO 2632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:55:38.435  INFO 2632 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:55:40.031  INFO 2632 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:55:40.045  INFO 2632 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:55:40.907  WARN 2632 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 1eff7ccb-1fce-4c6b-886c-9dbdae8c8218
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:55:41.079  WARN 2632 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:55:41.432  INFO 2632 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@56728f48, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@281d3ce7, org.springframework.security.web.context.SecurityContextPersistenceFilter@e38d655, org.springframework.security.web.header.HeaderWriterFilter@24455d50, org.springframework.web.filter.CorsFilter@fdfd984, org.springframework.security.web.authentication.logout.LogoutFilter@78d52d4c, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@45e49d3d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@f943847, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@4c376b44, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@72e5206, org.springframework.security.web.session.SessionManagementFilter@7860a014, org.springframework.security.web.access.ExceptionTranslationFilter@33de9d85, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4f2a0909]
+2023-08-05 13:55:41.784  WARN 2632 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 13:55:41.790  INFO 2632 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:55:41.792  INFO 2632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:55:41.809  INFO 2632 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:55:41.813  INFO 2632 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:55:41.828  INFO 2632 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 13:55:41.859 ERROR 2632 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 13:55:46.223  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 13:55:46.237  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:55:46.239  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 13:55:46.252  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:55:46.254  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:55:46.267  INFO 8708 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 13:56:02.590  INFO 20920 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 20920 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 13:56:02.605  INFO 20920 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 13:56:03.637  INFO 20920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 13:56:03.793  INFO 20920 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 142 ms. Found 11 JPA repository interfaces.
+2023-08-05 13:56:04.610  INFO 20920 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 13:56:04.642  INFO 20920 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 13:56:04.643  INFO 20920 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 13:56:04.840  INFO 20920 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 13:56:04.840  INFO 20920 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2156 ms
+2023-08-05 13:56:05.065  INFO 20920 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 13:56:05.135  INFO 20920 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 13:56:05.349  INFO 20920 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 13:56:05.492  INFO 20920 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 13:56:05.889  INFO 20920 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 13:56:05.933  INFO 20920 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 13:56:07.516  INFO 20920 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 13:56:07.530  INFO 20920 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:56:08.389  WARN 20920 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 8a1924f2-837d-4da6-8da1-054d7aa5a17f
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 13:56:08.569  WARN 20920 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 13:56:08.876  INFO 20920 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45e49d3d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72e5206, org.springframework.security.web.context.SecurityContextPersistenceFilter@4c376b44, org.springframework.security.web.header.HeaderWriterFilter@798753cc, org.springframework.web.filter.CorsFilter@4615bc00, org.springframework.security.web.authentication.logout.LogoutFilter@4b8c9729, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@37f75ebf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5ab29866, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@74cad577, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@569b3009, org.springframework.security.web.session.SessionManagementFilter@e38d655, org.springframework.security.web.access.ExceptionTranslationFilter@bb160fb, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e6ad84c]
+2023-08-05 13:56:09.243  INFO 20920 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 13:56:09.256  INFO 20920 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.314 seconds (JVM running for 8.71)
+2023-08-05 13:56:27.113  INFO 20920 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 13:56:27.113  INFO 20920 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 13:56:27.115  INFO 20920 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-08-05 13:58:52.021  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 13:58:52.035  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 13:58:52.036  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 13:58:52.050  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 13:58:52.051  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 13:58:52.063  INFO 20920 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:00:03.706  INFO 19892 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 19892 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:00:03.721  INFO 19892 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:00:04.707  INFO 19892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:00:04.865  INFO 19892 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:00:05.785  INFO 19892 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:00:05.829  INFO 19892 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:00:05.831  INFO 19892 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:00:06.164  INFO 19892 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:00:06.164  INFO 19892 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2368 ms
+2023-08-05 14:00:06.472  INFO 19892 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:00:06.556  INFO 19892 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:00:06.784  INFO 19892 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:00:06.954  INFO 19892 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:00:07.349  INFO 19892 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:00:07.396  INFO 19892 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:00:08.740  INFO 19892 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:00:08.754  INFO 19892 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:00:09.606  WARN 19892 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 479ca663-4057-4cf5-abb1-46c3d9f6c535
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:00:09.773  WARN 19892 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:00:10.106  INFO 19892 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f2a0909, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@34947355, org.springframework.security.web.context.SecurityContextPersistenceFilter@5f5076f9, org.springframework.security.web.header.HeaderWriterFilter@35d4fecf, org.springframework.web.filter.CorsFilter@62ad5f35, org.springframework.security.web.authentication.logout.LogoutFilter@1d82d35c, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@5e6ad84c, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6f53f5a4, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@21ebf9be, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4117e0c9, org.springframework.security.web.session.SessionManagementFilter@77262e71, org.springframework.security.web.access.ExceptionTranslationFilter@25031fd4, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@e9947af]
+2023-08-05 14:00:10.473  INFO 19892 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 14:00:10.485  INFO 19892 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.414 seconds (JVM running for 8.513)
+2023-08-05 14:00:26.651  INFO 19892 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 14:00:26.651  INFO 19892 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 14:00:26.653  INFO 19892 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-08-05 14:10:13.689  WARN 19892 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m36s155ms899µs600ns).
+2023-08-05 14:11:20.295  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 14:11:20.310  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 14:11:20.312  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 14:11:20.325  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:11:20.327  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 14:11:20.339  INFO 19892 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:12:04.475  INFO 24612 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 24612 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:12:04.489  INFO 24612 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:12:05.485  INFO 24612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:12:05.637  INFO 24612 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 135 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:12:06.455  INFO 24612 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:12:06.478  INFO 24612 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:12:06.479  INFO 24612 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:12:06.677  INFO 24612 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:12:06.677  INFO 24612 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2113 ms
+2023-08-05 14:12:06.909  INFO 24612 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:12:06.980  INFO 24612 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:12:07.371  INFO 24612 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:12:07.566  INFO 24612 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:12:07.968  INFO 24612 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:12:08.013  INFO 24612 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:12:09.368  INFO 24612 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:12:09.386  INFO 24612 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:12:10.292  WARN 24612 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 99a9221f-bf13-410f-ba20-24139da5fa67
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:12:10.474  WARN 24612 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:12:10.813  INFO 24612 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@65013d71, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30a99b85, org.springframework.security.web.context.SecurityContextPersistenceFilter@15ade272, org.springframework.security.web.header.HeaderWriterFilter@28dd038f, org.springframework.web.filter.CorsFilter@386d41cb, org.springframework.security.web.authentication.logout.LogoutFilter@4ee80a94, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@20bf7206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@d426e01, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@44b5b54, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4cb939d5, org.springframework.security.web.session.SessionManagementFilter@34907a49, org.springframework.security.web.access.ExceptionTranslationFilter@2f006edf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@7dd92a36]
+2023-08-05 14:12:11.179  INFO 24612 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 14:12:11.192  INFO 24612 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.354 seconds (JVM running for 8.62)
+2023-08-05 14:12:38.887  INFO 24612 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 14:12:38.887  INFO 24612 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 14:12:38.889  INFO 24612 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-08-05 14:23:04.155  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 14:23:04.175  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 14:23:04.177  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 14:23:04.193  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:23:04.195  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 14:23:04.209  INFO 24612 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:26:46.255  INFO 9480 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 9480 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:26:46.269  INFO 9480 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:26:47.268  INFO 9480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:26:47.428  INFO 9480 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 144 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:26:48.232  INFO 9480 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:26:48.261  INFO 9480 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:26:48.262  INFO 9480 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:26:48.482  INFO 9480 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:26:48.482  INFO 9480 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2136 ms
+2023-08-05 14:26:48.746  INFO 9480 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:26:48.816  INFO 9480 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:26:49.026  INFO 9480 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:26:49.169  INFO 9480 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:26:49.578  INFO 9480 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:26:49.620  INFO 9480 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:26:51.170  INFO 9480 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:26:51.184  INFO 9480 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:26:52.036  WARN 9480 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 76f082dc-f256-4d2c-8767-1068575884ed
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:26:52.213  WARN 9480 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:26:52.543  INFO 9480 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@45e49d3d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@72e5206, org.springframework.security.web.context.SecurityContextPersistenceFilter@f943847, org.springframework.security.web.header.HeaderWriterFilter@4cc4f6bd, org.springframework.web.filter.CorsFilter@4615bc00, org.springframework.security.web.authentication.logout.LogoutFilter@34907a49, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@37f75ebf, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@47596e9, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5ab29866, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@569b3009, org.springframework.security.web.session.SessionManagementFilter@76b6bad3, org.springframework.security.web.access.ExceptionTranslationFilter@24455d50, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@5e6ad84c]
+2023-08-05 14:26:52.917  INFO 9480 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 14:26:52.930  INFO 9480 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.322 seconds (JVM running for 8.815)
+2023-08-05 14:27:00.101  INFO 9480 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 14:27:00.101  INFO 9480 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 14:27:00.105  INFO 9480 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 4 ms
+2023-08-05 14:30:23.980  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 14:30:23.996  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 14:30:23.998  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 14:30:24.011  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:30:24.013  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 14:30:24.023  INFO 9480 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:30:36.151  INFO 19308 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 19308 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:30:36.166  INFO 19308 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:30:37.314  INFO 19308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:30:37.471  INFO 19308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:30:38.312  INFO 19308 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:30:38.347  INFO 19308 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:30:38.349  INFO 19308 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:30:38.574  INFO 19308 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:30:38.574  INFO 19308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2324 ms
+2023-08-05 14:30:38.838  INFO 19308 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:30:38.919  INFO 19308 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:30:39.198  INFO 19308 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:30:39.374  INFO 19308 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:30:39.835  INFO 19308 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:30:39.881  INFO 19308 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:30:41.507  INFO 19308 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:30:41.523  INFO 19308 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:30:42.400  WARN 19308 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: def841f1-c229-40a2-b296-f35bc8228658
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:30:42.561  WARN 19308 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:30:42.909  INFO 19308 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@d60aa4, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@30942f54, org.springframework.security.web.context.SecurityContextPersistenceFilter@798753cc, org.springframework.security.web.header.HeaderWriterFilter@7fd3c38b, org.springframework.web.filter.CorsFilter@11d557a5, org.springframework.security.web.authentication.logout.LogoutFilter@2f006edf, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@55b5ce0f, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77902ed6, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@1c0a4f87, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65067d37, org.springframework.security.web.session.SessionManagementFilter@24455d50, org.springframework.security.web.access.ExceptionTranslationFilter@58fb5b8f, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@56e9126f]
+2023-08-05 14:30:43.303  INFO 19308 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 14:30:43.314  INFO 19308 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 8.079 seconds (JVM running for 9.34)
+2023-08-05 14:30:59.612  INFO 19308 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 14:30:59.612  INFO 19308 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 14:30:59.614  INFO 19308 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-08-05 14:31:22.567  INFO 25948 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 25948 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:31:22.584  INFO 25948 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:31:23.631  INFO 25948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:31:23.787  INFO 25948 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 140 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:31:24.707  INFO 25948 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:31:24.734  INFO 25948 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:31:24.735  INFO 25948 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:31:25.022  INFO 25948 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:31:25.023  INFO 25948 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2356 ms
+2023-08-05 14:31:25.618  INFO 25948 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:31:25.733  INFO 25948 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:31:25.965  INFO 25948 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:31:26.105  INFO 25948 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:31:26.484  INFO 25948 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:31:26.535  INFO 25948 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:31:27.833  INFO 25948 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:31:27.848  INFO 25948 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:31:28.706  WARN 25948 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5fe0a2b5-1b55-4c54-85aa-7ea78e3a9727
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:31:28.865  WARN 25948 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:31:29.188  INFO 25948 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@72e5206, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4615bc00, org.springframework.security.web.context.SecurityContextPersistenceFilter@47596e9, org.springframework.security.web.header.HeaderWriterFilter@77262e71, org.springframework.web.filter.CorsFilter@37f75ebf, org.springframework.security.web.authentication.logout.LogoutFilter@1ae26c59, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@569b3009, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@74cad577, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@350ede1, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@23d0f6be, org.springframework.security.web.session.SessionManagementFilter@7325b786, org.springframework.security.web.access.ExceptionTranslationFilter@4cc4f6bd, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@4117e0c9]
+2023-08-05 14:31:29.531  WARN 25948 --- [main] ConfigServletWebServerApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Failed to start bean 'webServerStartStop'; nested exception is org.springframework.boot.web.server.PortInUseException: Port 8080 is already in use
+2023-08-05 14:31:29.537  INFO 25948 --- [main] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:31:29.539  INFO 25948 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 14:31:29.549  INFO 25948 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:31:29.552  INFO 25948 --- [main] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 14:31:29.568  INFO 25948 --- [main] ConditionEvaluationReportLoggingListener : 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-08-05 14:31:29.592 ERROR 25948 --- [main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Web server failed to start. Port 8080 was already in use.
+
+Action:
+
+Identify and stop the process that's listening on port 8080 or configure this application to listen on another port.
+
+2023-08-05 14:31:33.086  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-05 14:31:33.101  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-05 14:31:33.103  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.C.[.[.[/]                        : Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-08-05 14:31:33.118  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:31:33.120  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-05 14:31:33.132  INFO 19308 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2023-08-05 14:31:44.252  INFO 22696 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 22696 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 14:31:44.267  INFO 22696 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 14:31:45.273  INFO 22696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 14:31:45.461  INFO 22696 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 173 ms. Found 11 JPA repository interfaces.
+2023-08-05 14:31:46.263  INFO 22696 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 14:31:46.289  INFO 22696 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 14:31:46.289  INFO 22696 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 14:31:46.481  INFO 22696 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 14:31:46.482  INFO 22696 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2138 ms
+2023-08-05 14:31:46.710  INFO 22696 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 14:31:46.778  INFO 22696 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 14:31:46.995  INFO 22696 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 14:31:47.142  INFO 22696 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 14:31:47.754  INFO 22696 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 14:31:47.803  INFO 22696 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 14:31:49.100  INFO 22696 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 14:31:49.115  INFO 22696 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 14:31:49.976  WARN 22696 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 5de8bb6a-5f37-4a12-aabd-27b120617556
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 14:31:50.143  WARN 22696 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 14:31:50.476  INFO 22696 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@643f8ebe, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@65013d71, org.springframework.security.web.context.SecurityContextPersistenceFilter@1ae26c59, org.springframework.security.web.header.HeaderWriterFilter@1d208795, org.springframework.web.filter.CorsFilter@30a99b85, org.springframework.security.web.authentication.logout.LogoutFilter@20a7ce0, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@386d41cb, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@225890bc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@d426e01, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20bf7206, org.springframework.security.web.session.SessionManagementFilter@47a90d2a, org.springframework.security.web.access.ExceptionTranslationFilter@6a7cbeed, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@686ace1f]
+2023-08-05 14:31:50.849  INFO 22696 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 14:31:50.860  INFO 22696 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.242 seconds (JVM running for 8.468)
+2023-08-05 14:31:55.949  INFO 22696 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 14:31:55.950  INFO 22696 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 14:31:55.951  INFO 22696 --- [http-nio-8080-exec-1] o.s.w.s.DispatcherServlet                : Completed initialization in 1 ms
+2023-08-05 14:33:16.537  WARN 22696 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported]
+2023-08-05 14:48:33.727  WARN 22696 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m15s752ms922µs400ns).
+2023-08-05 15:00:41.735  INFO 17960 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 17960 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-05 15:00:41.750  INFO 17960 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-05 15:00:42.740  INFO 17960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-05 15:00:42.897  INFO 17960 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 141 ms. Found 11 JPA repository interfaces.
+2023-08-05 15:00:43.818  INFO 17960 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-05 15:00:43.848  INFO 17960 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-05 15:00:43.849  INFO 17960 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-05 15:00:44.074  INFO 17960 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-05 15:00:44.074  INFO 17960 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2246 ms
+2023-08-05 15:00:44.335  INFO 17960 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-05 15:00:44.405  INFO 17960 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-05 15:00:44.601  INFO 17960 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-05 15:00:44.753  INFO 17960 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-05 15:00:45.135  INFO 17960 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-05 15:00:45.177  INFO 17960 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-05 15:00:46.489  INFO 17960 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-05 15:00:46.506  INFO 17960 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-05 15:00:47.344  WARN 17960 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: 6c0dbd57-91b5-49c2-8aef-6be797b0bcdf
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-05 15:00:47.503  WARN 17960 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-05 15:00:47.864  INFO 17960 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5e528476, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@56728f48, org.springframework.security.web.context.SecurityContextPersistenceFilter@86e8469, org.springframework.security.web.header.HeaderWriterFilter@33de9d85, org.springframework.web.filter.CorsFilter@281d3ce7, org.springframework.security.web.authentication.logout.LogoutFilter@6a233d33, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@fdfd984, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@e38d655, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7325b786, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@45e49d3d, org.springframework.security.web.session.SessionManagementFilter@21ebf9be, org.springframework.security.web.access.ExceptionTranslationFilter@c10f7a8, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@74f9004c]
+2023-08-05 15:00:48.254  INFO 17960 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-05 15:00:48.266  INFO 17960 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.14 seconds (JVM running for 8.386)
+2023-08-05 15:00:54.537  INFO 17960 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/]                        : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-08-05 15:00:54.537  INFO 17960 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Initializing Servlet 'dispatcherServlet'
+2023-08-05 15:00:54.539  INFO 17960 --- [http-nio-8080-exec-2] o.s.w.s.DispatcherServlet                : Completed initialization in 2 ms
+2023-08-05 15:00:54.632  WARN 17960 --- [http-nio-8080-exec-2] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported]
+2023-08-05 15:01:51.569  WARN 17960 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported]
+2023-08-05 15:10:35.583  WARN 17960 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m50s268ms919µs700ns).
+2023-08-05 15:26:52.647  WARN 17960 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m47s53ms917µs100ns).

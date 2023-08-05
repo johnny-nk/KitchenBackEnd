@@ -1,4 +1,4 @@
-package com.praksa.KitchenBackEnd.controllers;
+ package com.praksa.KitchenBackEnd.controllers;
 
 import javax.validation.Valid;
 
@@ -31,6 +31,7 @@ public class AdminController {
 	//Create
 	@RequestMapping(method = RequestMethod.POST, path = "/addCook" )
 	public ResponseEntity<?> addCook(@Valid @RequestBody CookRegisterDTO dto) {
+		logger.info("New cook added.");
 		return null;
 	}
 	

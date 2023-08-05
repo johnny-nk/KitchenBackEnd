@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -62,6 +64,8 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Autowired
 	private CookRepository cookRepository;
+	
+	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 	
 	
 	
