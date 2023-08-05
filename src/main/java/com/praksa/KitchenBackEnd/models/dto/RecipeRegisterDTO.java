@@ -34,7 +34,8 @@ public class RecipeRegisterDTO {
     @JsonFormat(pattern = "dd-mm-yyyy")
     private LocalDateTime updatedOn;
 	private ERecipeCategory category;
-
+	
+	private boolean likedByUser;
 	private Map<Long, Integer> ingredientMap = new HashMap<>();
 	private Set<String> limitingFactors = new HashSet<>();
 	private Map<String, Float> nutrition = new HashMap<>();
@@ -50,8 +51,8 @@ public class RecipeRegisterDTO {
 
 	public RecipeRegisterDTO(Long id, String title, String description, String steps, String cook, Integer amount,
 			Integer timeToPrepare, LocalDateTime createdOn, LocalDateTime updatedOn, ERecipeCategory category,
-			Map<Long, Integer> ingredientMap, Set<String> limitingFactors, Map<String, Float> nutrition,
-			List<Ingredient> ingredients, Map<String, String> ingredientAmount) {
+			boolean likedByUser, Map<Long, Integer> ingredientMap, Set<String> limitingFactors,
+			Map<String, Float> nutrition, List<Ingredient> ingredients, Map<String, String> ingredientAmount) {
 		super();
 		this.id = id;
 		this.title = title;
@@ -63,6 +64,7 @@ public class RecipeRegisterDTO {
 		this.createdOn = createdOn;
 		this.updatedOn = updatedOn;
 		this.category = category;
+		this.likedByUser = likedByUser;
 		this.ingredientMap = ingredientMap;
 		this.limitingFactors = limitingFactors;
 		this.nutrition = nutrition;
@@ -168,6 +170,16 @@ public class RecipeRegisterDTO {
 
 	public void setCategory(ERecipeCategory category) {
 		this.category = category;
+	}
+
+
+	public boolean isLikedByUser() {
+		return likedByUser;
+	}
+
+
+	public void setLikedByUser(boolean likedByUser) {
+		this.likedByUser = likedByUser;
 	}
 
 

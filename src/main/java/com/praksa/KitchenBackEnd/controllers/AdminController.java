@@ -37,6 +37,7 @@ public class AdminController {
 	@RequestMapping(method = RequestMethod.POST, path = "/addCook" )
 	public ResponseEntity<?> addCook(@Valid @RequestBody CookRegisterDTO dto, Principal p) {
 		System.out.println(p.getName().toString());
+		
 		return new ResponseEntity<>(userService.addCook(dto), HttpStatus.CREATED);
 	}
 	

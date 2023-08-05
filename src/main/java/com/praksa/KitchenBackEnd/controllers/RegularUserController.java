@@ -71,6 +71,12 @@ public class RegularUserController {
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIKED RECIPES=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
+	
+	@RequestMapping(method = RequestMethod.GET, path = "/myCookbook/{username}")
+	public ResponseEntity<?> getMyCookbook(@PathVariable String username) {
+		return new ResponseEntity<>(recipeService.myCookbook(username), HttpStatus.OK);
+	}
+	
 	@RequestMapping(method = RequestMethod.GET, path = "/userRec/{id}")
 	public ResponseEntity<?> getUsersFav(@PathVariable Long id ) {
 		return new ResponseEntity<>(regUserService.getUserRecipes(id), HttpStatus.OK);

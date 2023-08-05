@@ -60,12 +60,8 @@ public class LimitingFactorServiceImpl implements LimitingFactorService{
 	        newLimitingIngredient.setIngredients(ingredient);
 	        newLimitingIngredient.setLimitingFactor(newLimitingFactor);
 	        
-	        
-	        
 	        limitingIngredientRepository.save(newLimitingIngredient);
 	        
-	        
-	      
 	        return newLimitingFactor;
 	    } else {
 	        return null;

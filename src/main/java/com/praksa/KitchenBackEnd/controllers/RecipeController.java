@@ -1,6 +1,7 @@
 package com.praksa.KitchenBackEnd.controllers;
 
 import java.net.http.HttpResponse;
+import java.security.Principal;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -9,6 +10,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -120,10 +122,11 @@ public class RecipeController {
 		}
 	}
 	
-	//vraca recepte preko dto-a i ujedanko izracuna sve alergene i nutriciente za sve recepte
+	
+	@Secured("REGULARUSER")
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
-	public ResponseEntity<?> getFormatedRecipes() {
-		return new ResponseEntity<>(recipeService.getFormatedRecipes(), HttpStatus.OK);
+	public ResponseEntity<?> getFormatedRecipes(Principal p) {
+		return new ResponseEntity<>(recipeService.getFormatedRecipes(p.getName()), HttpStatus.OK);
 	}
 	
 	//pretraga po imenu

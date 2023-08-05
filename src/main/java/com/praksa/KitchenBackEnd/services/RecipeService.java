@@ -20,7 +20,9 @@ public interface RecipeService {
 	public Recipe deleteRecipe(Long id);
 	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title);
 //	public RecipeDTO getRecipeCaloricValue(Long id);
-	public Iterable<RecipeRegisterDTO> getFormatedRecipes();
+	public Iterable<RecipeRegisterDTO> getFormatedRecipes(String username);
+	
+	public List<RecipeRegisterDTO> myCookbook(String username);
 	
 	
 	
