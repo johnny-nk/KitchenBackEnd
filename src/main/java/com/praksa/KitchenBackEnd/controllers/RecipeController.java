@@ -121,7 +121,7 @@ public class RecipeController {
 	}
 		
 	//Vraca nazad formatirane recepte.. 
-	@RequestMapping(method = RequestMethod.GET, path = "/getFormatedRecipes")
+	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes() {
 		return new ResponseEntity<>(recipeService.getFormatedRecipes(), HttpStatus.OK);
 	}
