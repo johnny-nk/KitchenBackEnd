@@ -126,7 +126,7 @@ public class RecipeController {
 		}
 	}
 	
-	
+	//gadjaj ga preko ulogovanog usera
 	@Secured("REGULARUSER")
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes(Principal p) {
