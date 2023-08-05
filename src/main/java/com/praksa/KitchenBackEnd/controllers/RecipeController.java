@@ -126,7 +126,7 @@ public class RecipeController {
 		}
 	}
 	
-	//gadjaj ga preko ulogovanog usera
+	//gadjaj ga preko ulogovanog usera da bi dobio username... trebali bi ovo sada uraditi za svaki endpoint
 	@Secured("REGULARUSER")
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes(Principal p) {
