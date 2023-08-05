@@ -119,17 +119,17 @@ public class RecipeController {
 
 		}
 	}
-	
-	
-	
-	
-	//vracanje nazad svih formatiranih recepata
-	@RequestMapping(method = RequestMethod.GET, path = "/getFormatedRecipes")
+		
+	//Vraca nazad formatirane recepte.. 
+	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes() {
 		return new ResponseEntity<>(recipeService.getFormatedRecipes(), HttpStatus.OK);
 	}
 
-	
+	@RequestMapping(method = RequestMethod.GET, path = "/recipes/search")
+	public ResponseEntity<?> searchRecipe(@RequestParam String title) {
+		return new ResponseEntity<>(recipeService.searchByRecipeName(title), HttpStatus.OK);
+	}
 	
 	
 
