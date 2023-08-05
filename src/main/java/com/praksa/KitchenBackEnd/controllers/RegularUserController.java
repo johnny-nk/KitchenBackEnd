@@ -29,14 +29,15 @@ public class RegularUserController {
 	
 	@Autowired
 	UserService userService;
+	
 	@Autowired
 	RegularUserService regUserService;
 	
 	@Autowired
 	RecipeService recipeService;
 	
-	//moguce da ne radi jos
-	//=-==-=-==-=-==-==-=-==-=-==-==-LIMITING FACTOR=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
+	
+	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIMITING FACTORS=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
 	@RequestMapping(method = RequestMethod.GET, path = "/getLf/{userId}")
 	public ResponseEntity<?> getLimFactors(@Valid @PathVariable Long userId) {
@@ -62,13 +63,14 @@ public class RegularUserController {
 	    }
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}")
-	public ResponseEntity<?> removeLimitingFactor(@PathVariable Long userId) {
-		return new ResponseEntity<>(regUserService.removeLimitingFactor(userId), HttpStatus.OK);
+	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/lf/{lfId}")
+	public ResponseEntity<?> removeLimitingFactor(@PathVariable Long userId, @PathVariable Long lfId) {
+		return new ResponseEntity<>(regUserService.removeLimitingFactor(userId, lfId), HttpStatus.OK);
 	}
 	
 	
-	//=-==-=-==-=-==-==-=-==-=-==-==- RECIPE=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
+	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIKED RECIPES=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
+	
 	@RequestMapping(method = RequestMethod.GET, path = "/userRec/{id}")
 	public ResponseEntity<?> getUsersFav(@PathVariable Long id ) {
 		return new ResponseEntity<>(regUserService.getUserRecipes(id), HttpStatus.OK);
@@ -84,4 +86,6 @@ public class RegularUserController {
 	public ResponseEntity<?> removeLikedRecipe(@PathVariable Long userId, @PathVariable Long recId) {
 		return new ResponseEntity<>(regUserService.removeRecipe(userId, recId), HttpStatus.ACCEPTED);
 	}
+	
+	
 }

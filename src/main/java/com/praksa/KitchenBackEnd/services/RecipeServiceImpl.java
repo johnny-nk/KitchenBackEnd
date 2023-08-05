@@ -1,5 +1,6 @@
 package com.praksa.KitchenBackEnd.services;
 
+import org.springframework.aop.ThrowsAdvice;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.ArrayList;
@@ -10,6 +11,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -129,9 +132,12 @@ public class RecipeServiceImpl implements RecipeService {
 					}
 				}
 			}
+		
+
 		for (Map.Entry<String, Float> entry : nutrition.entrySet()) {
 			entry.setValue(entry.getValue()/(amount/100f));
 		}
+
 		
 		return nutrition;
 	}
@@ -162,6 +168,36 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	
+	private List<RecipeRegisterDTO> recipeFormater(Iterable<Recipe> recipes) {
+		
+		List<RecipeRegisterDTO> formatedRecipes = new ArrayList<>();
+		 
+		for(Recipe recipe : recipes) {
+		RecipeRegisterDTO dto = new RecipeRegisterDTO();
+		dto.setId(recipe.getId());
+		dto.setCategory(recipe.getCategory());
+		dto.setDescription(recipe.getDescription());
+		dto.setSteps(recipe.getSteps());
+		dto.setTitle(recipe.getTitle());
+		dto.setTimeToPrepare(recipe.getTimeToPrepare());
+		dto.setAmount(recipe.getAmount());
+		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
+		dto.setCreatedOn(recipe.getCreatedOn());
+		dto.setUpdatedOn(recipe.getUpdatedOn());
+														//zakomentarisi sta ti je nepotrebno
+		dto.setNutrition(calculateNutrition(recipe));  //-> dinamicno racunanje nutritivne vrednosti
+		dto.setIngredients(extractIng(recipe));		   //-> prikaz svih satojaka i njihovih nutrutivnih vrednost	
+		dto.setIngredientAmount(ingredientNamedMapString(recipe)); //-> samo imena sastojaka i njihove kolicine
+		dto.setLimitingFactors(extractLF(recipe)); 	  //-> dinamicno racunanje svih alergena u receptu	
+		formatedRecipes.add(dto);
+		}
+		
+		return formatedRecipes;
+	}
+	
+	
 	//=-=-==-=-==-=-=-=-==-=-==SERVICES-=-=-==-=-==-=-=-=-==-=-===-=-=-=-==-=-==-=-=//
 	
 	
@@ -173,30 +209,37 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	@Override
+	public Iterable<RecipeRegisterDTO> getFormatedRecipes() {
+		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
+		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
+		return formatedRecipes;
+	}
+	
+	
 	@Override
 	public RecipeRegisterDTO getRecipe(Long id) {
-		
 		Recipe recipe = recipeRepository.findById(id).get();
-		RecipeRegisterDTO dto = new RecipeRegisterDTO();
-		
-		dto.setId(recipe.getId());
-		dto.setCategory(recipe.getCategory());
-		dto.setDescription(recipe.getDescription());
-		dto.setSteps(recipe.getSteps());
-		dto.setTitle(recipe.getTitle());
-		dto.setTimeToPrepare(recipe.getTimeToPrepare());
-		dto.setAmount(recipe.getAmount());
-		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
-		dto.setNutrition(calculateNutrition(recipe));
-		dto.setCreatedOn(recipe.getCreatedOn());
-		dto.setUpdatedOn(recipe.getUpdatedOn());
-		dto.setIngredients(extractIng(recipe));
-		dto.setIngredientAmount(ingredientNamedMapString(recipe));
-		dto.setLimitingFactors(extractLF(recipe));
-		
+		List<Recipe> unformatedRecipe = new ArrayList<>();
+		unformatedRecipe.add(recipe);
+		List<RecipeRegisterDTO> dto = recipeFormater(unformatedRecipe); 
+		return dto.get(0);
+	}
+
+	
+	
+	@Override
+	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
+		Iterable<Recipe> recipes = recipeRepository.findByTitleContainingIgnoreCase(title);
+		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
 		return dto;
 	}
 
+	
+	
+	
+	
 	@Override
 	public Recipe deleteRecipe(Long id) {
 		Recipe recipe = recipeRepository.findById(id).get();
@@ -209,12 +252,14 @@ public class RecipeServiceImpl implements RecipeService {
 
 
 	@Override
+	@Transactional
 	public RecipeRegisterDTO updateRecipe(RecipeRegisterDTO updatedRecipe, Long id) {
 		
 		Recipe recipe = recipeRepository.findById(id).get();
+		
 		List<RecipeIngredient> updateRing = new ArrayList<>();
-		
-		
+//		List<RecipeIngredient> testRing = recipeIngreRepo.findAllByRecipeId(recipe);
+		List<RecipeIngredient> deleteRecing = new ArrayList<>();
 		if(updatedRecipe.getAmount() != null && !updatedRecipe.getAmount().equals(recipe.getAmount())) {
 			recipe.setAmount(updatedRecipe.getAmount());
 		}
@@ -233,16 +278,41 @@ public class RecipeServiceImpl implements RecipeService {
 		if(updatedRecipe.getCategory() != null && !updatedRecipe.getCategory().equals(recipe.getCategory())) {
 			recipe.setCategory(updatedRecipe.getCategory());
 		}
-		//gadjaj id iz RecipeIngredient tabele za ovo i menjaj kolicinu 
+		
+	
+		
+		
+		//Radi dodavanje sastojaka, izmenu kolicine sastojaka i brisanje sastojaka ako im prosledis kolicinu da je 0
+		//kada skontam kako da implementiram da brise preko id-a neka ovako ostane; imamo dosta posla
 		for (Map.Entry<Long, Integer> entry : updatedRecipe.getIngredientMap().entrySet()) {
-			RecipeIngredient ring = recipeIngreRepo.findById(entry.getKey()).get(); 
+			RecipeIngredient ring = recipeIngreRepo.findByIngredientIdIdAndRecipeId(entry.getKey(), recipe);
+			try {
+				if(ring != null) {
 				ring.setAmount(entry.getValue());
 				updateRing.add(ring);
-		}
+				}
+
+		} catch (NullPointerException npe) {
+			System.out.println(npe);
+		} finally {
+			if(ring == null) {
+			RecipeIngredient newRing = new RecipeIngredient();
+			newRing.setIngredientId(ingredientRepository.findById(entry.getKey()).get());
+			newRing.setAmount(entry.getValue());
+			newRing.setRecipeId(recipe);
+			recipeIngreRepo.save(newRing);
+			} 
+			if(entry.getValue().equals(0)) {
+				 deleteRecing.add(recipeIngreRepo.findByIngredientIdIdAndRecipeId(entry.getKey(), recipe));
+				
+				}
+				
+			}
+		}	
 		
 		recipe.setIngredients(updateRing);
-		
 		recipeRepository.save(recipe);
+		recipeIngreRepo.deleteAll(deleteRecing); 
 		recipeIngreRepo.saveAll(updateRing);
 		return updatedRecipe;
 	}
