@@ -167,10 +167,7 @@ public class RecipeServiceImpl implements RecipeService {
 		return namedIng;
 	}
 	
-	//FORMATIRANJE RECEPTA ZA PRIKAZ SVIH NJEGOVIH OSOBINA - javlja 
-	//Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: 
-	//Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; 
-	//nested exception is java.lang.NumberFormatException: For input string: "getFormatedRecipes"]
+	
 	private List<RecipeRegisterDTO> recipeFormater(Iterable<Recipe> recipes) {
 		
 		List<RecipeRegisterDTO> formatedRecipes = new ArrayList<>();
@@ -209,6 +206,11 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	//FORMATIRANJE RECEPTA ZA PRIKAZ SVIH NJEGOVIH OSOBINA - javlja 
+	//Resolved [org.springframework.web.method.annotation.MethodArgumentTypeMismatchException: 
+	//Failed to convert value of type 'java.lang.String' to required type 'java.lang.Long'; 
+	//nested exception is java.lang.NumberFormatException: For input string: "getFormatedRecipes"
 	//negde ne moze da castuje long u string, medjutim vraca pojedinacan recept lepo
 	@Override
 	public Iterable<RecipeRegisterDTO> getFormatedRecipes() {
