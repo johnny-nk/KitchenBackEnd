@@ -25,12 +25,17 @@ import com.opencsv.CSVReader;
 import com.opencsv.CSVReaderBuilder;
 import com.opencsv.bean.CsvToBeanBuilder;
 import com.opencsv.exceptions.CsvException;
+import com.praksa.KitchenBackEnd.models.dto.AdminRegisterDTO;
+import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
+import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
+import com.praksa.KitchenBackEnd.models.entities.EUserRole;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 import com.praksa.KitchenBackEnd.models.entities.LimitingIngredient;
 import com.praksa.KitchenBackEnd.repositories.IngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.LimitingFactorRepository;
 import com.praksa.KitchenBackEnd.repositories.LimitingIngredientRepository;
+import com.praksa.KitchenBackEnd.services.UserService;
 
 @Component
 public class StartupDatasetWrite implements ApplicationListener<ApplicationReadyEvent> {
@@ -45,6 +50,8 @@ public class StartupDatasetWrite implements ApplicationListener<ApplicationReady
 	private LimitingIngredientRepository limitingIngredientRepo;
 	@Autowired
 	private IngredientRepository ingredientRepository;
+	@Autowired
+	private UserService userService; 
 
 	@Override
 	public void onApplicationEvent(ApplicationReadyEvent event) {
@@ -117,7 +124,70 @@ public class StartupDatasetWrite implements ApplicationListener<ApplicationReady
 				logger.info("Done writing connections");
 				logger.info("Writing users...");
 				
+				// Dodavanje korisnika u bazu
+				InputStream resourceUsers = new ClassPathResource("data/users.csv").getInputStream();
+				CSVReader readerUsers = new CSVReaderBuilder(new InputStreamReader(resourceUsers))
+						.build();
+				@SuppressWarnings({ "rawtypes", "unchecked" })
+				List<UserStartupDTO> users = new ArrayList<>(
+						new CsvToBeanBuilder(readerUsers).withType(UserStartupDTO.class).build().parse());
+				
+//				for(UserStartupDTO u: users) {
+//					logger.info(u.toString());
+//				}
+				
+				for(UserStartupDTO u: users) {
+					switch(u.getRole()) {
+					case "ADMINISTRATOR": {
+						logger.info(u.getRole());
+						AdminRegisterDTO admin = new AdminRegisterDTO(
+								u.getUsername(),
+								u.getPassword(),
+								EUserRole.valueOf(u.getRole())
+								);
+						userService.addAdmin(admin);
+						break;
+					}
+					case "REGULARUSER": {
+						logger.info(u.getRole());
+						RegularUserRegisterDTO user = new RegularUserRegisterDTO(
+								u.getUsername(),
+								u.getPassword(),
+								EUserRole.valueOf(u.getRole())
+								);
+						user.setEmail(u.getEmail());
+						user.setFirstName(u.getFirstName());
+						user.setLastName(u.getLastName());
+						userService.addUser(user);
+						break;
+					}
+					case "COOK": {
+						logger.info(u.getRole());
+						CookRegisterDTO cook = new CookRegisterDTO(
+								u.getUsername(),
+								u.getPassword(),
+								EUserRole.valueOf(u.getRole()),
+								u.getFirstName(),
+								u.getLastName(),
+								u.getEmail(),
+								u.getAboutMe()
+								);
+						userService.addCook(cook);
+						break;
+					}
+					default: {
+						break;
+					}
+					}
+				}
+				
+				readerUsers.close();
+				
+				// Pisanje recepata
+				
 
+				
+				logger.info("Done writing.");
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

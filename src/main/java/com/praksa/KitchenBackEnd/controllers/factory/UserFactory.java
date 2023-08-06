@@ -51,6 +51,7 @@ public class UserFactory {
 			cook.setPassword(Encryption.getPassEncoded(cookDTO.getPassword()));
 			cook.setEmail(cookDTO.getEmail());
 			cook.setRole(cookDTO.getRole());
+			cook.setAboutMe(cookDTO.getAboutMe());
 			
 			return cook;
 		}
