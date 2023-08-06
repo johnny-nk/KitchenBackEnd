@@ -56,6 +56,7 @@ public class IngredientServiceImpl implements IngredientService {
 
 	@Override
 	public Ingredient updateIngredient(IngredientDTO ingredientForUpdate, Long id) {
+		logger.info("UpdateIngredient method invoked - ingredient with id = " + id + ".");
 		Optional<Ingredient> ingredient = ingredientRepository.findById(id);
 		if (ingredient.isPresent()) {
 			Ingredient updateIngredient = ingredient.get();
@@ -67,28 +68,36 @@ public class IngredientServiceImpl implements IngredientService {
 			updateIngredient.setSaturatedFats(ingredientForUpdate.getSaturatedFats());
 			updateIngredient.setSugars(ingredientForUpdate.getSugars());
 			updateIngredient.setUnit(ingredientForUpdate.getUnit());
+			logger.info("Finished updating ingredient - ingredient with id = " + id + ".");
 			return ingredientRepository.save(updateIngredient);
 		} else {
+			logger.info("An error occured while updating an ingredient.");
 			return null;
 		}
 	}
 
 	@Override
 	public Ingredient getIngredientById(Long id) {
+		logger.info("GetIngredientById method invoked - ingredient with id = " + id + ".");
 		Optional<Ingredient> ingredientById = ingredientRepository.findById(id);
 		if (ingredientById.isPresent()) {
+			logger.info("Finished getting ingredient with id = " + id + ".");
 			return ingredientById.get();
 		} else {
+			logger.info("An error occured while getting an ingredient with id = " + id + ".");
 			return null;
 		}
 	}
 
 	@Override
 	public Iterable<Ingredient> getAllIngredients() {
+		logger.info("GetAllIngredients method invoked.");
 		Iterable<Ingredient> allIngredients = ingredientRepository.findAll();
 		if (allIngredients != null) {
+			logger.info("Finished getting all ingredients.");
 			return allIngredients;
 		}
+		logger.info("An error occured while getting all ingredients.");
 		return null;
 	}
 
@@ -105,18 +114,21 @@ public class IngredientServiceImpl implements IngredientService {
 	@Override
 	@Transactional
 	public Ingredient deleteIngredient(Long id) {
+		logger.info("DeleteIngredient method invoked - ingredient with id = " + id + ".");
 		Ingredient ingredient = ingredientRepository.findById(id).orElseThrow();
 		List<LimitingIngredient> limits = ingredient.getLimitingFactors();
 		List<RecipeIngredient> recipes = recipeIngredientRepository.findByIngredientId(ingredient);
 		recipeIngredientRepository.deleteAll(recipes);
 		limitingIngredientRepo.deleteAll(limits);
 		ingredientRepository.delete(ingredient);
+		logger.info("Finished deleting ingredient with id = " + id + ".");
 		return ingredient;
 	}
 
 	@Override
 	public LimitingFactor connectIngredientToLimitingFactor(Long limitingFactorId, Long ingredientId) {
-	    Optional<LimitingFactor> getLimitingFactor = limitingFactorRepository.findById(limitingFactorId);
+		logger.info("ConnectIngredientToLimitingFactor method invoked - ingredient with id = " + ingredientId + ", limiting factor with id = " + limitingFactorId + ".");
+		Optional<LimitingFactor> getLimitingFactor = limitingFactorRepository.findById(limitingFactorId);
 	    Optional<Ingredient> getIngredient = ingredientRepository.findById(ingredientId);
 	    				// Proveravamo da li konekcija postoji // 
 	    if (getLimitingFactor.isPresent() && getIngredient.isPresent()) {
@@ -132,8 +144,10 @@ public class IngredientServiceImpl implements IngredientService {
             newLimitingIngredient.setIngredients(ingredient);
             newLimitingIngredient.setLimitingFactor(limitingFactor);
             limitingIngredientRepo.save(newLimitingIngredient);
+            logger.info("Finished connecting ingredient to limiting factor - ingredient with id = " + ingredientId + ", limiting factor with id = " + limitingFactorId + ".");
 	        return limitingFactor;
 	    } else {
+	    	logger.error("An error occured while connecting ingredient to limiting factor - ingredient with id = " + ingredientId + ", limiting factor with id = " + limitingFactorId + ".");
 	        return null;
 	    }
 	}

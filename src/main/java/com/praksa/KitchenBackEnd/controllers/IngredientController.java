@@ -44,29 +44,7 @@ public class IngredientController {
 		}	
 	}
 	
-	
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
-	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id, @RequestBody IngredientDTO ingredientForUpdate) {
-	    try {
-	        Ingredient updatedIngredient = ingredientService.updateIngredient(ingredientForUpdate, id);
-	        if (updatedIngredient != null) {
-	            return new ResponseEntity<>(updatedIngredient, HttpStatus.OK);
-	        } else {
-	            return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Ingredient not found"), HttpStatus.NOT_FOUND);
-	        }
-	    } catch (Exception e) {
-	        return new ResponseEntity<>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error"), HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
 
-		try {
-			return new ResponseEntity<>(ingredientService.addIngredient(ingredients), HttpStatus.OK);
-		} catch (Exception e) {
-			return new ResponseEntity<RESTError>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "BAD Request"),
-					HttpStatus.INTERNAL_SERVER_ERROR);
-
-		}
-
-	}
 
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
 	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id,

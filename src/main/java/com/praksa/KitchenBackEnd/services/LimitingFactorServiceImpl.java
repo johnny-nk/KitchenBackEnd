@@ -38,8 +38,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			return limitingFactorById.get();
 		} else {
 			logger.error("An error occured while getting limiting factor with id= " + id + ".");
-			return limitingFactorById.get();
-		} else {
 			return null;
 		}
 	}
@@ -54,8 +52,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			return allLimitingFactors;
 		} else {
 			logger.error("An error occured while getting all limiting factors.");
-			return allLimitingFactors;
-		} else {
 			return null;
 		}
 	}
@@ -63,11 +59,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	@Override
 	public LimitingFactor addLimitingFactor(LimFactorDTO limDTO, Long ingredientId) {
 		logger.info("AddLimitingFactor method invoked.");
-		LimitingFactor newLimitingFactor = new LimitingFactor();
-		newLimitingFactor.setName(limDTO.getName());
-		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
-
-
 		LimitingFactor newLimitingFactor = new LimitingFactor();
 		newLimitingFactor.setName(limDTO.getName());
 		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
@@ -85,13 +76,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			return newLimitingFactor;
 		} else {
 			logger.error("An error occured while adding new limiting factor.");
-
-
-			limitingIngredientRepository.save(newLimitingIngredient);
-
-			return newLimitingFactor;
-		} else {
-
 			return null;
 		}
 
@@ -101,8 +85,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	public LimitingFactor updateLimitingFactor(Long id, LimFactorDTO limDTO) {
 
 		logger.info("UpdateLimitingFactor method invoked.");
-
-
 		Optional<LimitingFactor> updateLimitingFactor = limitingFactorRepository.findById(id);
 		if (updateLimitingFactor.isPresent()) {
 			LimitingFactor existingLimitingFactor = updateLimitingFactor.get();
@@ -112,11 +94,6 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			logger.info("Limiting factor updated.");
 			return updatedLimitingFactor;
 		} else {
-			logger.error("An error occured while updating imiting factor.");
-
-			return updatedLimitingFactor;
-		} else {
-
 			return null;
 		}
 

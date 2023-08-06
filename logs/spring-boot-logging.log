@@ -1313,3 +1313,37 @@ This generated password is for development use only. Your security configuration
 2023-08-05 15:01:51.569  WARN 17960 --- [http-nio-8080-exec-3] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpMediaTypeNotSupportedException: Content type 'text/plain;charset=UTF-8' not supported]
 2023-08-05 15:10:35.583  WARN 17960 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=7m50s268ms919µs700ns).
 2023-08-05 15:26:52.647  WARN 17960 --- [HikariPool-1 housekeeper] c.z.h.p.HikariPool                       : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=14m47s53ms917µs100ns).
+2023-08-06 09:31:10.583  INFO 13016 --- [main] c.p.K.KitchenBackEndApplication          : Starting KitchenBackEndApplication using Java 17.0.4.1 on DESKTOP-0P7MVEJ with PID 13016 (C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen\target\classes started by brank in C:\Users\brank\Documents\workspace-spring-tool-suite-4-4.16.1.RELEASE\kitchen)
+2023-08-06 09:31:10.599  INFO 13016 --- [main] c.p.K.KitchenBackEndApplication          : No active profile set, falling back to 1 default profile: "default"
+2023-08-06 09:31:11.824  INFO 13016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-08-06 09:31:11.985  INFO 13016 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 145 ms. Found 11 JPA repository interfaces.
+2023-08-06 09:31:12.836  INFO 13016 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat initialized with port(s): 8080 (http)
+2023-08-06 09:31:12.868  INFO 13016 --- [main] o.a.c.c.StandardService                  : Starting service [Tomcat]
+2023-08-06 09:31:12.869  INFO 13016 --- [main] o.a.c.c.StandardEngine                   : Starting Servlet engine: [Apache Tomcat/9.0.78]
+2023-08-06 09:31:13.076  INFO 13016 --- [main] o.a.c.c.C.[.[.[/]                        : Initializing Spring embedded WebApplicationContext
+2023-08-06 09:31:13.076  INFO 13016 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2405 ms
+2023-08-06 09:31:13.386  INFO 13016 --- [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-08-06 09:31:13.457  INFO 13016 --- [main] o.h.Version                              : HHH000412: Hibernate ORM core version 5.6.15.Final
+2023-08-06 09:31:13.655  INFO 13016 --- [main] o.h.a.c.Version                          : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-08-06 09:31:13.817  INFO 13016 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2023-08-06 09:31:14.220  INFO 13016 --- [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2023-08-06 09:31:14.262  INFO 13016 --- [main] o.h.d.Dialect                            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-08-06 09:31:15.586  INFO 13016 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-08-06 09:31:15.603  INFO 13016 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-08-06 09:31:16.478  WARN 13016 --- [main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: c5814204-342d-4d17-8796-a2cc97d61811
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2023-08-06 09:31:16.625  WARN 13016 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-08-06 09:31:16.948  INFO 13016 --- [main] o.s.s.w.DefaultSecurityFilterChain       : Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@650997b0, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@7337f87e, org.springframework.security.web.context.SecurityContextPersistenceFilter@585718dd, org.springframework.security.web.header.HeaderWriterFilter@4a76c90, org.springframework.web.filter.CorsFilter@77e24d3c, org.springframework.security.web.authentication.logout.LogoutFilter@30bd6bc8, com.praksa.KitchenBackEnd.config.JWTAuthorizationFilter@66831b14, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6347f9cc, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@268f126f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@4f1ea463, org.springframework.security.web.session.SessionManagementFilter@7e8f97dd, org.springframework.security.web.access.ExceptionTranslationFilter@2c376461, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@20bf7206]
+2023-08-06 09:31:17.286  INFO 13016 --- [main] o.s.b.w.e.t.TomcatWebServer              : Tomcat started on port(s): 8080 (http) with context path ''
+2023-08-06 09:31:17.299  INFO 13016 --- [main] c.p.K.KitchenBackEndApplication          : Started KitchenBackEndApplication in 7.317 seconds (JVM running for 8.612)
+2023-08-06 09:31:17.303  INFO 13016 --- [main] c.p.K.u.s.StartupDatasetWrite            : DDL Status: update
+2023-08-06 09:31:17.303  INFO 13016 --- [main] c.p.K.u.s.StartupDatasetWrite            : Skipping DB write
+2023-08-06 09:37:59.714  INFO 13016 --- [RMI TCP Connection(2)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2023-08-06 09:37:59.769  INFO 13016 --- [RMI TCP Connection(2)-127.0.0.1] o.a.c.c.StandardService                  : Stopping service [Tomcat]
+2023-08-06 09:37:59.788  INFO 13016 --- [RMI TCP Connection(2)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-08-06 09:37:59.790  INFO 13016 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2023-08-06 09:37:59.812  INFO 13016 --- [RMI TCP Connection(2)-127.0.0.1] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
