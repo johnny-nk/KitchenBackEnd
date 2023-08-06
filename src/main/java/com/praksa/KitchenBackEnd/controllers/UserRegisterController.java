@@ -95,6 +95,7 @@ public class UserRegisterController {
 	}
 	
 	@RequestMapping(method = RequestMethod.GET, value = "/getUser/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getUser(@PathVariable Long id) {
 		
 		return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
