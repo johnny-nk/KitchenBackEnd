@@ -223,7 +223,7 @@ public class RecipeServiceImpl implements RecipeService {
 	//=-=-==-=-==-=-=-=-==-=-==SERVICES-=-=-==-=-==-=-=-=-==-=-===-=-=-=-==-=-==-=-=//
 	
 	
-	
+	//povlaci sve recepte sa izracunatom vrednoscu nutricienata, proverava LF i pravi prikaz da li user voli recept ili ne
 	@Override
 	public Iterable<RecipeRegisterDTO> getFormatedRecipes(String username) {
 		RegularUser user = (RegularUser) userRepo.findByUsername(username);
