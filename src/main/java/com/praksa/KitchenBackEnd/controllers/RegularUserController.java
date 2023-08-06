@@ -1,5 +1,6 @@
 package com.praksa.KitchenBackEnd.controllers;
 
+import java.security.Principal;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -7,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -50,6 +52,14 @@ public class RegularUserController {
 	    }
 	}
 	
+	//kroz Principal
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.GET, path = "/getLf")
+	public ResponseEntity<?> getLimitingFactors(@Valid Principal p) {
+		return new ResponseEntity<>(regUserService.getLimFactors(p.getName()), HttpStatus.OK);
+	}
+	
+	
 	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/addLf/{lFid}")
 	public ResponseEntity<?> addLimitingFactor(@Valid @PathVariable Long userId, @PathVariable Long lFid) {
 	    try {
@@ -77,10 +87,6 @@ public class RegularUserController {
 		return new ResponseEntity<>(recipeService.myCookbook(username), HttpStatus.OK);
 	}
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/userRec/{id}")
-	public ResponseEntity<?> getUsersFav(@PathVariable Long id ) {
-		return new ResponseEntity<>(regUserService.getUserRecipes(id), HttpStatus.OK);
-	}
 	
 	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/rec/{recId}")
 	public ResponseEntity<?> addRecToUser(@PathVariable Long userId, @PathVariable Long recId) {

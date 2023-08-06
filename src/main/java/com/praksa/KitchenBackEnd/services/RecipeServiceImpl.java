@@ -270,12 +270,23 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	//moglo je elegantnije ali za sada copy/paste
 	@Override
 	public List<RecipeRegisterDTO> myCookbook(String username) {
 		RegularUser user = (RegularUser) userRepo.findByUsername(username);
 		Set<LikedRecipes> likedRecipes = likedRecipesRepo.findByRegularUserId(user.getId());
 		Iterable<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).toList();
+		Set<String> usersLF = userLF(user);
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
+		dto.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
+		for (RecipeRegisterDTO frRec : dto) {
+			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
+				frRec.setLikedByUser(true);
+			} else {
+				frRec.setLikedByUser(false);
+			}
+		}
 		return dto;
 	}
 	
