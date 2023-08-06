@@ -71,6 +71,7 @@ public class RecipeServiceImpl implements RecipeService {
 	private CookRepository cookRepository;
 	
 	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+	
 	@Autowired
 	private LikedRecipesRepository likedRecipesRepo;
 	
@@ -223,17 +224,20 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Override
 	public Iterable<RecipeRegisterDTO> getFormatedRecipes(String username) {
+		logger.info("GetFormatedRecipes method invoked - for user with username = " + username + ".");
 		RegularUser user = (RegularUser) userRepo.findByUsername(username);
 		Set<String> usersLF = userLF(user);
 		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
 		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
 		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet()); //intersekcija alergena
+		logger.info("Finished getting formated recipes for user with username = " + username + ".");
 		return formatedRecipes;
 	}
 	
 	
 	@Override
 	public Iterable<Recipe> getRecipes() {
+		logger.info("Finished getting all recipies.");
 		return recipeRepository.findAll();
 	}
 	
@@ -242,10 +246,12 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Override
 	public RecipeRegisterDTO getRecipe(Long id) {
+		logger.info("GetRecipe method invoked - recipe id = " + id + ".");
 		Recipe recipe = recipeRepository.findById(id).get();
 		List<Recipe> unformatedRecipe = new ArrayList<>();
 		unformatedRecipe.add(recipe);
 		List<RecipeRegisterDTO> dto = recipeFormater(unformatedRecipe); 
+		logger.info("Finished getting recipe with id = " + id + ".");
 		return dto.get(0);
 	}
 
@@ -253,18 +259,22 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Override
 	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title) {
+		logger.info("SearchByRecipeName method invoked - recipe name = " + title + ".");
 		Iterable<Recipe> recipes = recipeRepository.findByTitleContainingIgnoreCase(title);
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
+		logger.info("Finished searching recipe by the name = " + title + ".");
 		return dto;
 	}
 	
 	
 	@Override
 	public List<RecipeRegisterDTO> myCookbook(String username) {
+		logger.info("MyCookbook method invoked - for user with username = " + username + ".");
 		RegularUser user = (RegularUser) userRepo.findByUsername(username);
 		Set<LikedRecipes> likedRecipes = likedRecipesRepo.findByRegularUserId(user.getId());
 		Iterable<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).toList();
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
+		logger.info("Finished getting my Cookbook for user with username " + username + ".");
 		return dto;
 	}
 	
@@ -273,10 +283,12 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	@Override
 	public Recipe deleteRecipe(Long id) {
+		logger.info("DeleteRecipe method invoked - recipe with id = " + id + ".");
 		Recipe recipe = recipeRepository.findById(id).get();
 		List<RecipeIngredient> rings = recipeIngreRepo.findAllByRecipeId(recipe);
 		recipeIngreRepo.deleteAll(rings);
 		recipeRepository.deleteById(id);
+		logger.info("Finished deleteing recipe with id = " + id + ".");
 		return recipe;
 	}
 	
@@ -285,7 +297,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public RecipeRegisterDTO updateRecipe(RecipeRegisterDTO updatedRecipe, Long id) {
-		
+		logger.info("UpdateRecipe method invoked - recipe with id = " + updatedRecipe.getId() + ".");
 		Recipe recipe = recipeRepository.findById(id).get();
 		
 		List<RecipeIngredient> updateRing = new ArrayList<>();
@@ -345,11 +357,13 @@ public class RecipeServiceImpl implements RecipeService {
 		recipeRepository.save(recipe);
 		recipeIngreRepo.deleteAll(deleteRecing); 
 		recipeIngreRepo.saveAll(updateRing);
+		logger.info("Finished updating recipe with id = " + updatedRecipe.getId() + ".");
 		return updatedRecipe;
 	}
 	
 	@Override
 	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, Long cookId) {
+		logger.info("CreateRecipe method invoked - recipe for cook with id = " + cookId + ".");
 		Recipe recipe = new Recipe();
 		Cook cook = (Cook) userRepo.findById(cookId).get();
 		List<RecipeIngredient> recIng = new ArrayList<>();
@@ -374,7 +388,9 @@ public class RecipeServiceImpl implements RecipeService {
 		
 		recipeRepository.save(recipe);
 		recipeIngreRepo.saveAll(recIng);
+		logger.info("Finished creating recipe for cook with id = " + cookId + ".");
 		return dto;
+		
 	}
 	
 	

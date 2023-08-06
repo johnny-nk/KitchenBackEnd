@@ -126,6 +126,7 @@ public class UserServiceImpl implements UserService {
 			logger.error("An error occured while deleting regular user - user with id = " + id + " doesn't exist.");
 			throw new UserNotFoundException();
 		}
+		logger.error("An error occured while deleting regular user with id = " + id + ".");
 		return null;
 	}
 
@@ -192,6 +193,7 @@ public class UserServiceImpl implements UserService {
 			logger.error("An error occured while deleting cook - cook with id = " + id + " doesn't exist.");
 			throw new UserNotFoundException();
 		}
+		logger.error("An error occured while deleting cook with id = " + id + ".");
 		return null;
 	}
 

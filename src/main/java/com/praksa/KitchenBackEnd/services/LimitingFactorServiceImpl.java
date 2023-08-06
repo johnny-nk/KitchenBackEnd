@@ -31,13 +31,13 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 
 	@Override
 	public LimitingFactor getLimitingFactorbyId(Long id) {
-		logger.info("GetLimitingFactorbyId method invoked.");
+		logger.info("GetLimitingFactorbyId method invoked - limiting factor with id = " + id + ".");
 		Optional<LimitingFactor> limitingFactorById = limitingFactorRepository.findById(id);
 		if (limitingFactorById.isPresent()) {
-			logger.info("Limiting factor with id= " + id + " found.");
+			logger.info("Limiting factor with id = " + id + " found.");
 			return limitingFactorById.get();
 		} else {
-			logger.error("An error occured while getting limiting factor with id= " + id + ".");
+			logger.error("An error occured while getting limiting factor with id = " + id + ".");
 			return null;
 		}
 	}
@@ -58,7 +58,7 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 
 	@Override
 	public LimitingFactor addLimitingFactor(LimFactorDTO limDTO, Long ingredientId) {
-		logger.info("AddLimitingFactor method invoked.");
+		logger.info("AddLimitingFactor method invoked - for ingredient with id = " + ingredientId + ".");
 		LimitingFactor newLimitingFactor = new LimitingFactor();
 		newLimitingFactor.setName(limDTO.getName());
 		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
@@ -72,10 +72,10 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			newLimitingIngredient.setLimitingFactor(newLimitingFactor);
 			
 			limitingIngredientRepository.save(newLimitingIngredient);
-			logger.info("New limiting factor added.");
+			logger.info("Finished adding new limiting factor for ingredient with id = " + ingredientId + ".");
 			return newLimitingFactor;
 		} else {
-			logger.error("An error occured while adding new limiting factor.");
+			logger.error("An error occured while adding new limiting factor for ingredient with id = " + ingredientId + ".");
 			return null;
 		}
 
@@ -84,16 +84,17 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	@Override
 	public LimitingFactor updateLimitingFactor(Long id, LimFactorDTO limDTO) {
 
-		logger.info("UpdateLimitingFactor method invoked.");
+		logger.info("UpdateLimitingFactor method invoked - limiting factor with id = " + id + ".");
 		Optional<LimitingFactor> updateLimitingFactor = limitingFactorRepository.findById(id);
 		if (updateLimitingFactor.isPresent()) {
 			LimitingFactor existingLimitingFactor = updateLimitingFactor.get();
 			existingLimitingFactor.setName(limDTO.getName());
 			LimitingFactor updatedLimitingFactor = limitingFactorRepository.save(existingLimitingFactor);
 
-			logger.info("Limiting factor updated.");
+			logger.info("Finished updating limiting factor with id = " + id  + ".");
 			return updatedLimitingFactor;
 		} else {
+		    logger.error("An error occured while updating limiting factor with id = " + id  + ".");
 			return null;
 		}
 
@@ -101,6 +102,7 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 
 	@Override
 	public LimitingFactor deleteLimitingFactor(Long id) {
+		logger.info("DeleteLimitingFactor method invoked - limiting factor with id = " + id + ".");
 		Optional<LimitingFactor> getLimitingFactor = limitingFactorRepository.findById(id);
 		if (getLimitingFactor.isPresent()) {
 			LimitingFactor deleteLimitingFactor = getLimitingFactor.get();
@@ -110,9 +112,11 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 			limitingIngredientRepository.deleteAll(associatedIngredients);
 
 			limitingFactorRepository.delete(deleteLimitingFactor);
-
+			
+			logger.info("Finished deleting limiting factor with id = " + id  + ".");
 			return deleteLimitingFactor;
 		} else {
+			logger.error("An error occured while deleting limiting factor with id = " + id  + ".");
 			return null;
 		}
 

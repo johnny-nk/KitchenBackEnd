@@ -27,17 +27,13 @@ public class IngredientController {
 	@Autowired
 	private IngredientService ingredientService;
 	
-	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
 
 	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
 	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {
-
-		logger.info("Started adding new ingredient - http.");
+;
 		try { 	
-			logger.info("New ingredient added.");
 			return new ResponseEntity<>(ingredientService.addIngredient(ingredients), HttpStatus.OK);
 		}catch (Exception e) {
-			logger.error("An error ocurred while adding new ingredient.");
 			return new ResponseEntity<RESTError>(
 					new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"BAD Request"), HttpStatus.INTERNAL_SERVER_ERROR);
 			

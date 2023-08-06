@@ -55,6 +55,7 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	@Override
 	public RegularUserRegisterDTO getLimFactors(String username) {
+		logger.info("GetLimFactors method invoked - for user with username = " + username + ".");
 		RegularUser user = (RegularUser) userRepository.findByUsername(username);
 		RegularUserRegisterDTO dto = new RegularUserRegisterDTO();
 		
@@ -62,8 +63,7 @@ public class RegularUserServiceImpl implements RegularUserService {
 			if(user.getId().equals(a.getRegularUser().getId()))
 				dto.getMyLimitigFactors().add(a.getLimitingFactor().getName());
 		}
-		
-		
+		logger.info("Finished getting limiting factors for user with username = " + username + ".");
 		return dto;
 	}
 	
@@ -89,6 +89,7 @@ public class RegularUserServiceImpl implements RegularUserService {
 		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
 		
 		if (af.isEmpty()) {
+			logger.error("Missing affected user.");
 			RegularUser user = (RegularUser) userRepository.findById(userId).get();
 			LimitingFactor lf = limFactorRepo.findById(lfId).get();
 			AffectedUsers aff = new AffectedUsers();
@@ -138,6 +139,7 @@ public class RegularUserServiceImpl implements RegularUserService {
 		logger.info("AddRecipeToUser method invoked - recipe with id = " + recipeId + ", for user with id = " + userId 	+ ".");
 		Optional<LikedRecipes> likedRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userId, recipeId);
 		if (likedRecipe.isEmpty()) {
+			logger.error("Missing liked recipe.");
 			LikedRecipes likesRecipe = new LikedRecipes();
 			Recipe rec = recipeRepo.findById(recipeId).get();
 			RegularUser user = (RegularUser) userRepository.findById(userId).get();

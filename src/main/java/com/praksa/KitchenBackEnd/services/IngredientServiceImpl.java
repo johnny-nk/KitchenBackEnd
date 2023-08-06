@@ -71,7 +71,7 @@ public class IngredientServiceImpl implements IngredientService {
 			logger.info("Finished updating ingredient - ingredient with id = " + id + ".");
 			return ingredientRepository.save(updateIngredient);
 		} else {
-			logger.info("An error occured while updating an ingredient.");
+			logger.info("An error occured while updating an ingredientwith id = " + id + ".");
 			return null;
 		}
 	}
@@ -144,10 +144,10 @@ public class IngredientServiceImpl implements IngredientService {
             newLimitingIngredient.setIngredients(ingredient);
             newLimitingIngredient.setLimitingFactor(limitingFactor);
             limitingIngredientRepo.save(newLimitingIngredient);
-            logger.info("Finished connecting ingredient to limiting factor - ingredient with id = " + ingredientId + ", limiting factor with id = " + limitingFactorId + ".");
+            logger.info("Finished connecting ingredient with id = " + ingredientId + ", to limiting factor with id = " + limitingFactorId + ".");
 	        return limitingFactor;
 	    } else {
-	    	logger.error("An error occured while connecting ingredient to limiting factor - ingredient with id = " + ingredientId + ", limiting factor with id = " + limitingFactorId + ".");
+	    	logger.error("An error occured while connecting ingredient with id = " + ingredientId + ", to limiting factor with id = " + limitingFactorId + ".");
 	        return null;
 	    }
 	}
