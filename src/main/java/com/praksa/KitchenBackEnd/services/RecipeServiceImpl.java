@@ -74,8 +74,14 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	
-	//=-=-=-=-=-=-=-=-=-=-=FUNKCIONALNA DEKONSTRUKCIJA=-=-=-=-=-=-=-=-=-=-=-///
+	//=-=-=-=-=-=-=-=-=-=-==--=-=-===-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-///
 	
+	//IZVLACENJE OMILJENIH RECEPTA
+	 private Set<Recipe> getLikedRecipes(RegularUser user) {
+		 Set<Recipe> likedRecipes = new HashSet<>();
+	 	 likedRecipes = user.getLikedRecipes().stream().map(e -> e.getRecipe()).collect(Collectors.toSet());	 
+	 	 return likedRecipes;
+}
 	//IZVVLACENJE ALERGENE IZ USERA
 	private Set<String> userLF(RegularUser user) {
 		Set<String> userLF = new HashSet<>();
@@ -224,9 +230,17 @@ public class RecipeServiceImpl implements RecipeService {
 		Set<String> usersLF = userLF(user);
 		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
 		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
-		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet()); //intersekcija alergena
+		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
+		for (RecipeRegisterDTO frRec : formatedRecipes) {
+			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
+				frRec.setLikedByUser(true);
+			} else {
+				frRec.setLikedByUser(false);
+			}
+		}
+		
 		return formatedRecipes;
-	}
+	} 
 	
 	
 	@Override

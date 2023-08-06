@@ -35,7 +35,7 @@ public class RecipeRegisterDTO {
     private LocalDateTime updatedOn;
 	private ERecipeCategory category;
 	
-	private boolean likedByUser;
+	private Boolean likedByUser;
 	private Map<Long, Integer> ingredientMap = new HashMap<>();
 	private Set<String> limitingFactors = new HashSet<>();
 	private Map<String, Float> nutrition = new HashMap<>();
@@ -51,7 +51,7 @@ public class RecipeRegisterDTO {
 
 	public RecipeRegisterDTO(Long id, String title, String description, String steps, String cook, Integer amount,
 			Integer timeToPrepare, LocalDateTime createdOn, LocalDateTime updatedOn, ERecipeCategory category,
-			boolean likedByUser, Map<Long, Integer> ingredientMap, Set<String> limitingFactors,
+			Boolean likedByUser, Map<Long, Integer> ingredientMap, Set<String> limitingFactors,
 			Map<String, Float> nutrition, List<Ingredient> ingredients, Map<String, String> ingredientAmount) {
 		super();
 		this.id = id;
@@ -173,12 +173,12 @@ public class RecipeRegisterDTO {
 	}
 
 
-	public boolean isLikedByUser() {
+	public Boolean getLikedByUser() {
 		return likedByUser;
 	}
 
 
-	public void setLikedByUser(boolean likedByUser) {
+	public void setLikedByUser(Boolean likedByUser) {
 		this.likedByUser = likedByUser;
 	}
 
@@ -231,6 +231,8 @@ public class RecipeRegisterDTO {
 	public void setIngredientAmount(Map<String, String> ingredientAmount) {
 		this.ingredientAmount = ingredientAmount;
 	}
+
+
 
 
 
