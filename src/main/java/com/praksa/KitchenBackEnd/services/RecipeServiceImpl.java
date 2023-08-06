@@ -236,7 +236,6 @@ public class RecipeServiceImpl implements RecipeService {
 		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
 		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
 		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet()); //intersekcija alergena
-		logger.info("Finished getting formated recipes for user with username = " + username + ".");
 		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
 		for (RecipeRegisterDTO frRec : formatedRecipes) {
 			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
@@ -245,7 +244,7 @@ public class RecipeServiceImpl implements RecipeService {
 				frRec.setLikedByUser(false);
 			}
 		}
-		
+		logger.info("Finished getting formated recipes for user with username = " + username + ".");
 		return formatedRecipes;
 	} 
 	
@@ -292,7 +291,6 @@ public class RecipeServiceImpl implements RecipeService {
 		Iterable<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).toList();
 		Set<String> usersLF = userLF(user);
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
-		logger.info("Finished getting my Cookbook for user with username " + username + ".");
 		dto.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
 		for (RecipeRegisterDTO frRec : dto) {
 			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
@@ -301,6 +299,7 @@ public class RecipeServiceImpl implements RecipeService {
 				frRec.setLikedByUser(false);
 			}
 		}
+		logger.info("Finished getting my Cookbook for user with username " + username + ".");
 		return dto;
 	}
 	
