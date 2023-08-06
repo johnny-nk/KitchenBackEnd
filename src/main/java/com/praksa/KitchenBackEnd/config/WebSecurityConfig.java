@@ -31,20 +31,33 @@ public class WebSecurityConfig {
 		return this.secretKey;
 	}
 
+//	@Bean
+//	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+//		http.cors().and().csrf().disable()
+////		http.csrf().disable()
+//				.addFilterAfter(new JWTAuthorizationFilter(secretKey), UsernamePasswordAuthenticationFilter.class)
+//				.authorizeRequests()
+//				.antMatchers(HttpMethod.POST, "/api/v1/project/users/login", "/api/v1/project/register/regUser").permitAll()
+//				.and()
+//				.authorizeRequests()
+//				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "api/v1/project/recipes").permitAll()
+//				.and()
+//				.authorizeRequests()
+////				.antMatchers(HttpMethod.GET, "api/v1/project/reci**").permitAll()
+//				.anyRequest().authenticated();
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.cors().and().csrf().disable()
-//		http.csrf().disable()
+//			http.csrf().disable()
 				.addFilterAfter(new JWTAuthorizationFilter(secretKey), UsernamePasswordAuthenticationFilter.class)
 				.authorizeRequests()
-				.antMatchers(HttpMethod.POST, "/api/v1/project/users/login", "/api/v1/project/register/regUser").permitAll()
-				.and()
-				.authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "api/v1/project/recipes").permitAll()
-//				.and()
-//				.authorizeRequests()
-//				.antMatchers(HttpMethod.GET, "api/v1/project/reci**").permitAll()
+				.antMatchers(HttpMethod.POST, "/api/v1/project/users/login", "/api/v1/project/register/regUser")
+				.permitAll().and().authorizeRequests()
+				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "/api/v1/project/recipes")
+				.permitAll().and().authorizeRequests()
+//					.antMatchers(HttpMethod.GET, "api/v1/project/reci**").permitAll()
 				.anyRequest().authenticated();
 		return http.build();
+
 	}
 }
