@@ -1,6 +1,8 @@
 package com.praksa.KitchenBackEnd.models.dto;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import com.praksa.KitchenBackEnd.models.entities.EUserRole;
@@ -13,7 +15,7 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 	
 	private String email;
 	
-	private Set<Long> myCookbook = new HashSet<>();
+	private List<RecipeRegisterDTO> myCookbook = new ArrayList<>();
 	
 	private Set<String> myLimitigFactors = new HashSet<>();
 
@@ -21,13 +23,17 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	public RegularUserRegisterDTO(String username, String password, EUserRole role) {
 		super(username, password, role);
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegularUserRegisterDTO(String firstName, String lastName, String email, Set<Long> myCookbook,
+
+
+	public RegularUserRegisterDTO(String firstName, String lastName, String email, List<RecipeRegisterDTO> myCookbook,
 			Set<String> myLimitigFactors) {
 		super();
 		this.firstName = firstName;
@@ -61,11 +67,11 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		this.email = email;
 	}
 
-	public Set<Long> getMyCookbook() {
+	public List<RecipeRegisterDTO> getMyCookbook() {
 		return myCookbook;
 	}
 
-	public void setMyCookbook(Set<Long> myCookbook) {
+	public void setMyCookbook(List<RecipeRegisterDTO> myCookbook) {
 		this.myCookbook = myCookbook;
 	}
 
@@ -77,7 +83,6 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		this.myLimitigFactors = myLimitigFactors;
 	}
 
-	
 	
 	
 }

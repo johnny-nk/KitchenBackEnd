@@ -16,14 +16,17 @@ public interface UserService {
 	
 	public Iterable<User> getAll();
 	public RegularUser getUserById(Long id);
+	public RegularUserRegisterDTO getUser(Long id);
 	/*------------POST-------------*/
+	
+	
 	
 	public RegularUser addUser(RegularUserRegisterDTO dto);
 	public Administrator addAdmin(AdminRegisterDTO dto);
 	public Cook addCook(CookRegisterDTO dto);
 
 	/*-----------DELETE-------------*/
-	public RegularUser deleteRegularUser( Long id);	
+	public RegularUser deleteRegularUser(Long id);	
 	public Cook deleteCook(Long id);
 	/*------------PUT--------------*/
 	public RegularUser updateRegularUser(RegularUserRegisterDTO dto, Long id);
