@@ -45,12 +45,14 @@ public class UserRegisterController {
 	}
 	
 	@RequestMapping(method = RequestMethod.POST, value ="/cook")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> registerCook(@Valid @RequestBody CookRegisterDTO cookDTO) {
 		
 		return new ResponseEntity<>(userService.addCook(cookDTO), HttpStatus.CREATED);
 	}
 	// ------------------------Update za Regular Usera --------------------------------//
 	@RequestMapping(method = RequestMethod.PUT, value="/regUserUpdate/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,@PathVariable Long id){
 		try {
 			RegularUser regUser = userService.updateRegularUser(updateRegularUser, id);
@@ -65,6 +67,7 @@ public class UserRegisterController {
 	
 	//----------------------Delete za Regular Usera------------------------------------//
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteRegUserFromDB/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteRegluarUser(@PathVariable Long id){
 		try {	
 			RegularUser regUser = userService.deleteRegularUser(id);
@@ -79,6 +82,7 @@ public class UserRegisterController {
 	
 	//----------------------GET za Regular Usera po Id-ju-------------------------------------//
 	@RequestMapping(method = RequestMethod.GET, value="/getRegUser/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRegUserById(@PathVariable Long id){
 		try {
 			RegularUser regUser = userService.getRegularUserById(id);
@@ -93,6 +97,7 @@ public class UserRegisterController {
 	
 	//----------------------GET za sve Regluar Usere-------------------------------------//
 	@RequestMapping(method = RequestMethod.GET, value="/getRegUsers")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllRegUses(){
 		try {
 			Iterable<RegularUser> regUsers = userService.getAllRegluarUsers();
@@ -133,6 +138,7 @@ public class UserRegisterController {
 	
 	//----------------------Delete za COOK------------------------------------//
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteCook/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteCook(@PathVariable Long id){
 		try {	
 			userService.deleteCook(id);
@@ -146,6 +152,7 @@ public class UserRegisterController {
 	
 	//----------------------Update za COOK------------------------------------//
 	@RequestMapping(method = RequestMethod.PUT, value="/updateCook/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateCook(@Valid @RequestBody CookRegisterDTO updateCook,@PathVariable Long id){
 		try {
 			Cook cook = userService.updateCook(updateCook, id);
@@ -160,6 +167,7 @@ public class UserRegisterController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET, value="/all")	
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAll(){
 		try {
 			Iterable<User> getAll = userService.getAll();
