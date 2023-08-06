@@ -67,6 +67,7 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 		newLimitingFactor.setName(limDTO.getName());
 		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
 
+
 		LimitingFactor newLimitingFactor = new LimitingFactor();
 		newLimitingFactor.setName(limDTO.getName());
 		limitingFactorRepository.save(newLimitingFactor); // Save the LimitingFactor first
@@ -93,6 +94,7 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 
 			return null;
 		}
+
 	}
 
 	@Override

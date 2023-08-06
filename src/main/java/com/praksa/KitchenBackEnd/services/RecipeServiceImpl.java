@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -28,14 +29,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.praksa.KitchenBackEnd.models.dto.RecipeDTO;
 import com.praksa.KitchenBackEnd.models.dto.RecipeRegisterDTO;
+import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
+import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 import com.praksa.KitchenBackEnd.models.entities.LimitingIngredient;
 import com.praksa.KitchenBackEnd.models.entities.Recipe;
 import com.praksa.KitchenBackEnd.models.entities.RecipeIngredient;
+import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.repositories.CookRepository;
 import com.praksa.KitchenBackEnd.repositories.IngredientRepository;
+import com.praksa.KitchenBackEnd.repositories.LikedRecipesRepository;
 import com.praksa.KitchenBackEnd.repositories.LimitingIngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.RecipeIngredientRepository;
 import com.praksa.KitchenBackEnd.repositories.RecipeRepository;
@@ -66,13 +71,23 @@ public class RecipeServiceImpl implements RecipeService {
 	private CookRepository cookRepository;
 	
 	private final Logger logger = (Logger) LoggerFactory.getLogger(this.getClass());
+	@Autowired
+	private LikedRecipesRepository likedRecipesRepo;
 	
 	
 	
 	
 	//=-=-=-=-=-=-=-=-=-=-=FUNKCIONALNA DEKONSTRUKCIJA=-=-=-=-=-=-=-=-=-=-=-///
 	
-	//IZLVACENJE ALERGENA
+	//IZVVLACENJE ALERGENE IZ USERA
+	private Set<String> userLF(RegularUser user) {
+		Set<String> userLF = new HashSet<>();
+		userLF = user.getLimitingFactor().stream().map(e -> e.getLimitingFactor().getName()).collect(Collectors.toSet());
+		return userLF;
+	}
+	
+	
+	//IZLVACENJE ALERGENA IZ RECEPTA
 	private Set<String> extractLF(Recipe recipe) {
 		
 		List<Ingredient> ingredients = recipe.
@@ -190,11 +205,11 @@ public class RecipeServiceImpl implements RecipeService {
 		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
 		dto.setCreatedOn(recipe.getCreatedOn());
 		dto.setUpdatedOn(recipe.getUpdatedOn());
-														//zakomentarisi sta ti je nepotrebno
+													
 		dto.setNutrition(calculateNutrition(recipe));  //-> dinamicno racunanje nutritivne vrednosti
 		dto.setIngredients(extractIng(recipe));		   //-> prikaz svih satojaka i njihovih nutrutivnih vrednost	
 		dto.setIngredientAmount(ingredientNamedMapString(recipe)); //-> samo imena sastojaka i njihove kolicine
-		dto.setLimitingFactors(extractLF(recipe)); 	  //-> dinamicno racunanje svih alergena u receptu	
+		dto.setLimitingFactors(extractLF(recipe)); 	  
 		formatedRecipes.add(dto);
 		}
 		
@@ -206,6 +221,16 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	
+	@Override
+	public Iterable<RecipeRegisterDTO> getFormatedRecipes(String username) {
+		RegularUser user = (RegularUser) userRepo.findByUsername(username);
+		Set<String> usersLF = userLF(user);
+		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
+		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
+		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet()); //intersekcija alergena
+		return formatedRecipes;
+	}
+	
 	
 	@Override
 	public Iterable<Recipe> getRecipes() {
@@ -213,13 +238,6 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
-	
-	@Override
-	public Iterable<RecipeRegisterDTO> getFormatedRecipes() {
-		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
-		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
-		return formatedRecipes;
-	}
 	
 	
 	@Override
@@ -239,7 +257,16 @@ public class RecipeServiceImpl implements RecipeService {
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
 		return dto;
 	}
-
+	
+	
+	@Override
+	public List<RecipeRegisterDTO> myCookbook(String username) {
+		RegularUser user = (RegularUser) userRepo.findByUsername(username);
+		Set<LikedRecipes> likedRecipes = likedRecipesRepo.findByRegularUserId(user.getId());
+		Iterable<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).toList();
+		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
+		return dto;
+	}
 	
 	
 	

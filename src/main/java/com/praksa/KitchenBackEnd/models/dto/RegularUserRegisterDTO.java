@@ -1,5 +1,8 @@
 package com.praksa.KitchenBackEnd.models.dto;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import com.praksa.KitchenBackEnd.models.entities.EUserRole;
 
 public class RegularUserRegisterDTO extends UserRegisterDTO {
@@ -9,6 +12,10 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 	private String lastName;
 	
 	private String email;
+	
+	private Set<Long> myCookbook = new HashSet<>();
+	
+	private Set<String> myLimitigFactors = new HashSet<>();
 
 	public RegularUserRegisterDTO() {
 		super();
@@ -20,11 +27,14 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public RegularUserRegisterDTO(String firstName, String lastName, String email) {
+	public RegularUserRegisterDTO(String firstName, String lastName, String email, Set<Long> myCookbook,
+			Set<String> myLimitigFactors) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.myCookbook = myCookbook;
+		this.myLimitigFactors = myLimitigFactors;
 	}
 
 	public String getFirstName() {
@@ -51,7 +61,22 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		this.email = email;
 	}
 
-	
+	public Set<Long> getMyCookbook() {
+		return myCookbook;
+	}
+
+	public void setMyCookbook(Set<Long> myCookbook) {
+		this.myCookbook = myCookbook;
+	}
+
+	public Set<String> getMyLimitigFactors() {
+		return myLimitigFactors;
+	}
+
+	public void setMyLimitigFactors(Set<String> myLimitigFactors) {
+		this.myLimitigFactors = myLimitigFactors;
+	}
+
 	
 	
 	

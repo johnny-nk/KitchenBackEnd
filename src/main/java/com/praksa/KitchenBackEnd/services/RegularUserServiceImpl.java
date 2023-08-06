@@ -11,6 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.AffectedUsers;
 import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
@@ -49,6 +50,24 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	
 	//=========================FOR LIMITING FACTORS=======================//
+	
+	
+	
+	@Override
+	public RegularUserRegisterDTO getLimFactors(String username) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		RegularUserRegisterDTO dto = new RegularUserRegisterDTO();
+		
+		for(AffectedUsers a : affectedUsersRepo.findAll()) {
+			if(user.getId().equals(a.getRegularUser().getId()))
+				dto.getMyLimitigFactors().add(a.getLimitingFactor().getName());
+		}
+		
+		
+		return dto;
+	}
+	
+	
 	
 	@Override
 	public Set<LimitingFactor> getLimitingFactors(Long userId) {
