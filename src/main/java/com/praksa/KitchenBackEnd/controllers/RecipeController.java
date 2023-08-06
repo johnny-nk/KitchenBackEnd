@@ -59,7 +59,7 @@ public class RecipeController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRecipes() {
 		try {
-	        Iterable<Recipe> recipes = recipeService.getRecipes();
+	        Iterable<RecipeRegisterDTO> recipes = recipeService.getAllRecipes();
 	        if (recipes !=null) {
 	            return new ResponseEntity<>(recipes, HttpStatus.OK);
 	        } else {

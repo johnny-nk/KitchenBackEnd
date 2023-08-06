@@ -9,6 +9,8 @@ import com.praksa.KitchenBackEnd.models.entities.EUserRole;
 
 public class RegularUserRegisterDTO extends UserRegisterDTO {
 	
+	private Long id;
+	
 	private String firstName;
 	
 	private String lastName;
@@ -33,56 +35,90 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 
 
 
-	public RegularUserRegisterDTO(String firstName, String lastName, String email, List<RecipeRegisterDTO> myCookbook,
-			Set<String> myLimitigFactors) {
+	public RegularUserRegisterDTO(Long id, String firstName, String lastName, String email,
+			List<RecipeRegisterDTO> myCookbook, Set<String> myLimitigFactors) {
 		super();
+		this.id = id;
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.myCookbook = myCookbook;
 		this.myLimitigFactors = myLimitigFactors;
 	}
+
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
 
 	public String getFirstName() {
 		return firstName;
 	}
 
+
+
 	public void setFirstName(String firstName) {
 		this.firstName = firstName;
 	}
+
+
 
 	public String getLastName() {
 		return lastName;
 	}
 
+
+
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 	}
+
+
 
 	public String getEmail() {
 		return email;
 	}
 
+
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
+
 
 	public List<RecipeRegisterDTO> getMyCookbook() {
 		return myCookbook;
 	}
 
+
+
 	public void setMyCookbook(List<RecipeRegisterDTO> myCookbook) {
 		this.myCookbook = myCookbook;
 	}
+
+
 
 	public Set<String> getMyLimitigFactors() {
 		return myLimitigFactors;
 	}
 
+
+
 	public void setMyLimitigFactors(Set<String> myLimitigFactors) {
 		this.myLimitigFactors = myLimitigFactors;
 	}
 
-	
+
+
 	
 }

@@ -44,7 +44,7 @@ public class UserServiceImpl implements UserService {
 	
 	private RegularUserRegisterDTO userFormater(RegularUser user) {
 		RegularUserRegisterDTO dto = new RegularUserRegisterDTO();
-		
+		dto.setId(user.getId());
 		dto.setFirstName(user.getFirstName());
 		dto.setLastName(user.getLastName());
 		dto.setEmail(user.getEmail());

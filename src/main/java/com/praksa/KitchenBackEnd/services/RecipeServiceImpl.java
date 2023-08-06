@@ -244,6 +244,14 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	@Override
+	public Iterable<RecipeRegisterDTO> getAllRecipes() {
+		Iterable<Recipe> unformatedRecipes = recipeRepository.findAll();
+		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
+		return formatedRecipes;
+	}
+	
+	
+	@Override
 	public Iterable<Recipe> getRecipes() {
 		return recipeRepository.findAll();
 	}
