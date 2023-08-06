@@ -90,6 +90,12 @@ public class UserRegisterController {
 		    }
 	}
 	
+	@RequestMapping(method = RequestMethod.GET, value = "/getUser/{id}")
+	public ResponseEntity<?> getUser(@PathVariable Long id) {
+		
+		return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
+	}
+	
 	
 	//----------------------GET za sve Regluar Usere-------------------------------------//
 	@RequestMapping(method = RequestMethod.GET, value="/getRegUsers")

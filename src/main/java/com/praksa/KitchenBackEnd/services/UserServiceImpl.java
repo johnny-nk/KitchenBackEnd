@@ -21,6 +21,7 @@ import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
@@ -36,6 +37,25 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private LikedRecipesRepository likedRecipesRepository;
 	
+	@Autowired
+	private RecipeService recipeService;
+	
+	
+	
+	private RegularUserRegisterDTO userFormater(RegularUser user) {
+		RegularUserRegisterDTO dto = new RegularUserRegisterDTO();
+		
+		dto.setFirstName(user.getFirstName());
+		dto.setLastName(user.getLastName());
+		dto.setEmail(user.getEmail());
+		dto.setUsername(user.getUsername());
+		dto.setRole(user.getRole());
+		dto.setMyCookbook(recipeService.myCookbook(user.getUsername()));
+		dto.setMyLimitigFactors(user.getLimitingFactor().stream().map(e->e.getLimitingFactor().getName()).collect(Collectors.toSet()));
+
+		return dto;
+	}
+	
 	
 	/*----------------GET--------------------*/
 	@Override
@@ -49,6 +69,12 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 	
+	
+	@Override
+	public RegularUserRegisterDTO getUser(Long id) {
+		RegularUser user = (RegularUser) userRepository.findById(id).get();		
+		return userFormater(user);
+	}
 
 	public User getUserByUsername(String username) {
 		User user = userRepository.findByUsername(username);
