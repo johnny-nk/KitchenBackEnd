@@ -78,8 +78,14 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	
-	//=-=-=-=-=-=-=-=-=-=-=FUNKCIONALNA DEKONSTRUKCIJA=-=-=-=-=-=-=-=-=-=-=-///
+	//=-=-=-=-=-=-=-=-=-=-==--=-=-===-=-=-=-=-=-=-=-=--=-=-=-=-=-=-=-=-=-=-=-///
 	
+	//IZVLACENJE OMILJENIH RECEPTA
+	 private Set<Recipe> getLikedRecipes(RegularUser user) {
+		 Set<Recipe> likedRecipes = new HashSet<>();
+	 	 likedRecipes = user.getLikedRecipes().stream().map(e -> e.getRecipe()).collect(Collectors.toSet());	 
+	 	 return likedRecipes;
+}
 	//IZVVLACENJE ALERGENE IZ USERA
 	private Set<String> userLF(RegularUser user) {
 		Set<String> userLF = new HashSet<>();
@@ -221,7 +227,7 @@ public class RecipeServiceImpl implements RecipeService {
 	//=-=-==-=-==-=-=-=-==-=-==SERVICES-=-=-==-=-==-=-=-=-==-=-===-=-=-=-==-=-==-=-=//
 	
 	
-	
+	//povlaci sve recepte sa izracunatom vrednoscu nutricienata, proverava LF i pravi prikaz da li user voli recept ili ne
 	@Override
 	public Iterable<RecipeRegisterDTO> getFormatedRecipes(String username) {
 		logger.info("GetFormatedRecipes method invoked - for user with username = " + username + ".");
@@ -231,8 +237,17 @@ public class RecipeServiceImpl implements RecipeService {
 		List<RecipeRegisterDTO> formatedRecipes = recipeFormater(unformatedRecipes);
 		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet()); //intersekcija alergena
 		logger.info("Finished getting formated recipes for user with username = " + username + ".");
+		formatedRecipes.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
+		for (RecipeRegisterDTO frRec : formatedRecipes) {
+			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
+				frRec.setLikedByUser(true);
+			} else {
+				frRec.setLikedByUser(false);
+			}
+		}
+		
 		return formatedRecipes;
-	}
+	} 
 	
 	
 	@Override
@@ -267,14 +282,25 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	
+	
+	//moglo je elegantnije ali za sada copy/paste
 	@Override
 	public List<RecipeRegisterDTO> myCookbook(String username) {
 		logger.info("MyCookbook method invoked - for user with username = " + username + ".");
 		RegularUser user = (RegularUser) userRepo.findByUsername(username);
 		Set<LikedRecipes> likedRecipes = likedRecipesRepo.findByRegularUserId(user.getId());
 		Iterable<Recipe> recipes = likedRecipes.stream().map(e -> e.getRecipe()).toList();
+		Set<String> usersLF = userLF(user);
 		List<RecipeRegisterDTO> dto = recipeFormater(recipes);
 		logger.info("Finished getting my Cookbook for user with username " + username + ".");
+		dto.stream().map(e -> e.getLimitingFactors().retainAll(usersLF)).collect(Collectors.toSet());
+		for (RecipeRegisterDTO frRec : dto) {
+			if(user.getLikedRecipes().stream().anyMatch(e -> e.getRecipe().getId().equals(frRec.getId()))) {
+				frRec.setLikedByUser(true);
+			} else {
+				frRec.setLikedByUser(false);
+			}
+		}
 		return dto;
 	}
 	
