@@ -16,7 +16,7 @@ public interface RecipeService {
 	public Iterable<Recipe> getRecipes();
 	
 	public RecipeRegisterDTO getRecipe(Long id);
-	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, Long cookId);
+	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, String username);
 	public RecipeRegisterDTO updateRecipe(RecipeRegisterDTO dto, Long id);
 	public Recipe deleteRecipe(Long id);
 	public Iterable<RecipeRegisterDTO> searchByRecipeName(String title);

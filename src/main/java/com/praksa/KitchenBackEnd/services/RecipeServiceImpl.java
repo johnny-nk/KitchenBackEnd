@@ -379,9 +379,9 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 	
 	@Override
-	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, Long cookId) {
+	public RecipeRegisterDTO createRecipe(RecipeRegisterDTO dto, String username) {
 		Recipe recipe = new Recipe();
-		Cook cook = (Cook) userRepo.findById(cookId).get();
+		Cook cook = (Cook) userRepo.findByUsername(username);
 		List<RecipeIngredient> recIng = new ArrayList<>();
 		
 		
@@ -390,7 +390,9 @@ public class RecipeServiceImpl implements RecipeService {
 		recipe.setTitle(dto.getTitle());
 		recipe.setCategory(dto.getCategory());
 		recipe.setTimeToPrepare(dto.getTimeToPrepare());
+		recipe.setAmount(dto.getAmount());
 		recipe.setCook(cook);
+		
 		
 		for (Map.Entry<Long, Integer> entry : dto.getIngredientMap().entrySet()) {
 			RecipeIngredient ring = new RecipeIngredient();

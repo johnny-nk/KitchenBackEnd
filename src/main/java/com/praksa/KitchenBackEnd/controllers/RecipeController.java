@@ -85,11 +85,11 @@ public class RecipeController {
 	}
 	
 	
-	// Bio bi isti metod kao i na updejtu, sa istim endpointom "/recipes/{id}, 
 	@PostMapping(path = "/recipes")
-	public ResponseEntity<?> createRecipe(@Valid @RequestBody RecipeRegisterDTO newRecipe, @RequestParam Long cookId) {
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> createRecipe(@Valid @RequestBody RecipeRegisterDTO newRecipe, Principal p) {
 		try {
-			return new ResponseEntity<>(recipeService.createRecipe(newRecipe, cookId), HttpStatus.CREATED);
+			return new ResponseEntity<>(recipeService.createRecipe(newRecipe, p.getName()), HttpStatus.CREATED);
 		}catch (Exception e) {
 			return new ResponseEntity<RESTError>(
 					new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(),"BAD Request"), HttpStatus.INTERNAL_SERVER_ERROR);
