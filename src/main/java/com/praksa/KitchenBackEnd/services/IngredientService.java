@@ -16,6 +16,7 @@ public interface IngredientService {
 	public LimitingFactor connectIngredientToLimitingFactor(Long limitingFactorId, Long ingredientId);
 	
 	public IngredientDTO addLfToIngredient(Long ingId, Long lfId);
+	public Iterable<IngredientDTO> getIngredients();
 	
 	
 	

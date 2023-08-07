@@ -1,6 +1,9 @@
 package com.praksa.KitchenBackEnd.services;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
@@ -30,6 +33,44 @@ public class IngredientServiceImpl implements IngredientService {
 	@Autowired
 	private LimitingFactorRepository limitingFactorRepository;
 
+	//-=-=-=-=-=-=-=-=-=-=-=-==-PRIVATE FUNCTIONS==-=-=-=-=-=-=-=-=-=-==//
+	private List<IngredientDTO> ingFormater(Iterable<Ingredient> ingredients) {
+		List<IngredientDTO> ingDTO = new ArrayList<>();
+		for(Ingredient ing : ingredients) {
+			IngredientDTO dto = new IngredientDTO();
+			dto.setId(ing.getId());
+			dto.setCalories(ing.getCalories());
+			dto.setCarbs(ing.getCarbs());
+			dto.setFats(ing.getFats());
+			dto.setProteins(ing.getProteins());
+			dto.setSaturatedFats(ing.getSaturatedFats());
+			dto.setSugars(ing.getSugars());
+			dto.setName(ing.getName());
+			dto.setUnit(ing.getUnit());
+			for (LimitingIngredient lim : ing.getLimitingFactors()) {
+				dto.getContains().put(lim.getLimitingFactor().getId(), lim.getLimitingFactor().getName());
+			}
+			ingDTO.add(dto);
+			
+		}
+		
+		return ingDTO;
+	}
+	
+	
+	
+	
+	//=-=-=-=-=-==-=-==-==-=-=-=SERVICES=-=-=-=-=-=-=-=-=-=-=-=-=-==//
+	
+	@Override
+	public Iterable<IngredientDTO> getIngredients() {
+		Iterable<Ingredient> ingEntities = ingredientRepository.findAll();
+		List<IngredientDTO> ingredients = ingFormater(ingEntities);
+		return ingredients;
+	}
+	
+	
+	
 	@Override
 	public Ingredient addIngredient(IngredientDTO ingredient) {
 		Ingredient ingredients = new Ingredient();
@@ -124,8 +165,12 @@ public class IngredientServiceImpl implements IngredientService {
 	
 	@Override
 	public IngredientDTO addLfToIngredient(Long ingId, Long lfId) {
-		Ingredient ing = ingredientRepository.findById(ingId).get();
-		LimitingFactor lf = limitingFactorRepository.findById(lfId).get();
+		Optional<Ingredient> ing = ingredientRepository.findById(ingId);
+		Optional<LimitingFactor> lf = limitingFactorRepository.findById(lfId);
+		
+		if(lf.isPresent() && ing.isPresent()) {
+			
+		}
 		
 		return null;
 	}

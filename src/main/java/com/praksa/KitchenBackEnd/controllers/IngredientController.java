@@ -86,7 +86,7 @@ public class IngredientController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllIngredients() {
 		try {
-			Iterable<Ingredient> getAllIngredients = ingredientService.getAllIngredients();
+			Iterable<IngredientDTO> getAllIngredients = ingredientService.getIngredients();
 			if (getAllIngredients != null) {
 				return new ResponseEntity<>(getAllIngredients, HttpStatus.OK);
 			} else {
