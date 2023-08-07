@@ -10,6 +10,7 @@ import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 
 public class IngredientDTO {
 	
+	private Long id;
 	private String name;
 	private String unit;
 	private Integer calories;
@@ -26,9 +27,10 @@ public class IngredientDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public IngredientDTO(String name, String unit, Integer calories, Float carbs, Float sugars, Float fats,
+	public IngredientDTO(Long id,String name, String unit, Integer calories, Float carbs, Float sugars, Float fats,
 			Float saturatedFats, Float proteins, Map<Long, String> contains) {
 		super();
+		this.id = id;
 		this.name = name;
 		this.unit = unit;
 		this.calories = calories;
@@ -112,7 +114,12 @@ public class IngredientDTO {
 		this.contains = contains;
 	}
 
-	
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	
 	
