@@ -15,6 +15,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.praksa.KitchenBackEnd.models.entities.ERecipeCategory;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
@@ -29,9 +30,9 @@ public class RecipeRegisterDTO {
 	private String cook;
 	private Integer amount;
 	private Integer timeToPrepare;
-    @JsonFormat(pattern = "dd-mm-yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDateTime createdOn;
-    @JsonFormat(pattern = "dd-mm-yyyy")
+	@JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDateTime updatedOn;
 	private ERecipeCategory category;
 	
