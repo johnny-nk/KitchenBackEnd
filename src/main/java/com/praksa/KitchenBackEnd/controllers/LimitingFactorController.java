@@ -82,7 +82,7 @@ public class LimitingFactorController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllLimitingFactors() {
 		try {
-			Iterable<LimitingFactor> getAllLimitingFactor = limitingFactorService.getAllLimitingFactors();
+			Iterable<LimFactorDTO> getAllLimitingFactor = limitingFactorService.getLF();
 			if (getAllLimitingFactor != null) {
 				return new ResponseEntity<>(getAllLimitingFactor, HttpStatus.OK);
 			} else {

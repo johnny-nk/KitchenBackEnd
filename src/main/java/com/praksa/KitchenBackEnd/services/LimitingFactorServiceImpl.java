@@ -1,5 +1,6 @@
 package com.praksa.KitchenBackEnd.services;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,21 @@ public class LimitingFactorServiceImpl implements LimitingFactorService {
 	private IngredientRepository ingredientRepository;
 	@Autowired
 	private LimitingIngredientRepository limitingIngredientRepository;
-
+	
+	
+	@Override
+	public Iterable<LimFactorDTO> getLF() {
+		List<LimFactorDTO> dto = new ArrayList<>();
+		Iterable<LimitingFactor> lfs = limitingFactorRepository.findAll();
+		for(LimitingFactor lf : lfs ) {
+			LimFactorDTO l = new LimFactorDTO();
+			l.setId(lf.getId());
+			l.setName(lf.getName());
+			dto.add(l);
+		}
+		return dto;
+	}
+	
 	@Override
 	public LimitingFactor getLimitingFactorbyId(Long id) {
 		Optional<LimitingFactor> limitingFactorById = limitingFactorRepository.findById(id);

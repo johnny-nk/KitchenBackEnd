@@ -107,7 +107,8 @@ public class UserRegisterController {
 	
 	
 	//----------------------GET za sve Regluar Usere-------------------------------------//
-	@RequestMapping(method = RequestMethod.GET, value="/getRegUsers")
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.GET, value="/getUsers")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllRegUses(){
 		try {
