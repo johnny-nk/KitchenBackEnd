@@ -29,6 +29,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
@@ -61,12 +62,12 @@ public class Recipe {
 	
 	@Column(name = "created")
     @CreationTimestamp
-    @JsonFormat(pattern = "dd-mm-yyyy")
+    @JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDateTime createdOn;
 
     @Column(name = "updated")
     @UpdateTimestamp
-    @JsonFormat(pattern = "dd-mm-yyyy")
+    @JsonFormat(shape = Shape.STRING, pattern = "dd-MM-yyyy")
     private LocalDateTime updatedOn;
 	
 	private Integer amount;
