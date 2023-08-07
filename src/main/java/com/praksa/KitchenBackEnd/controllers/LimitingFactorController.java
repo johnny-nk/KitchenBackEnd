@@ -29,7 +29,7 @@ public class LimitingFactorController {
 	
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.POST, value = "/newlimitingFactor/{Id}") //PRINCIPAL P UMESTO ID
+	@RequestMapping(method = RequestMethod.POST, value = "/newlimitingFactor/{Id}") 
 	public ResponseEntity<?> addNewLimitingFactor(@Valid @RequestBody LimFactorDTO limDTO, @PathVariable Long Id) {
 		try {
 			return new ResponseEntity<>(limitingFactorService.addLimitingFactor(limDTO, Id), HttpStatus.OK);
@@ -41,7 +41,7 @@ public class LimitingFactorController {
 	}
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}") //PRINCIPAL P UMESTO ID
+	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}")
 	public ResponseEntity<?> updateLimitingFactor(@Valid @PathVariable Long Id, @RequestBody LimFactorDTO limDTO) {
 		try {
 			LimitingFactor updatedLimitingFactor = limitingFactorService.updateLimitingFactor(Id, limDTO);

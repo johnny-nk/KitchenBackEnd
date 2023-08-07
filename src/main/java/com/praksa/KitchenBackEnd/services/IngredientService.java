@@ -15,7 +15,7 @@ public interface IngredientService {
 	public Ingredient deleteIngredient(Long id);
 	public LimitingFactor connectIngredientToLimitingFactor(Long limitingFactorId, Long ingredientId);
 	
-	
+	public IngredientDTO addLfToIngredient(Long ingId, Long lfId);
 	
 	
 	

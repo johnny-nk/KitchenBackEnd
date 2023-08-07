@@ -29,6 +29,7 @@ public class IngredientController {
 	
 	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {
 		try {
 			return new ResponseEntity<>(ingredientService.addIngredient(ingredients), HttpStatus.OK);
@@ -41,6 +42,7 @@ public class IngredientController {
 	
 	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id,
 			@RequestBody IngredientDTO ingredientForUpdate) {
 		try {
@@ -58,7 +60,10 @@ public class IngredientController {
 		}
 	}
 	
+	
+	@Secured({"COOK", "ADMINISTRATOR"})
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getIngredientById(@PathVariable Long id) {
 		try {
 			Ingredient getIngredientById = ingredientService.getIngredientById(id);
@@ -74,7 +79,9 @@ public class IngredientController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	
+	@Secured({"COOK", "ADMINISTRATOR"})
 	@RequestMapping(method = RequestMethod.GET, value = "/allIngredients")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllIngredients() {
@@ -95,6 +102,7 @@ public class IngredientController {
 	
 	
 	@Secured("ADMINISTRATOR")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteIngredient/{id}")
 	public ResponseEntity<?> deleteIngredient(@PathVariable Long id) {
 		Ingredient deletedIngredient = ingredientService.deleteIngredient(id);
@@ -104,8 +112,9 @@ public class IngredientController {
 	}
 	
 	
-	//????
-	@RequestMapping(method = RequestMethod.POST, value = "/connectIngredientToLimitingFactor/{ingredientId}/to/{limitingFactorId}")
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.POST, value = "/addLfToIng/{ingredientId}/to/{limitingFactorId}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> connectIngredientToLimitingFactor(@PathVariable Long ingredientId,
 			@PathVariable Long limitingFactorId) {
 		LimitingFactor connectedLimitingFactor = ingredientService.connectIngredientToLimitingFactor(limitingFactorId,

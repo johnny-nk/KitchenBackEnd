@@ -83,15 +83,7 @@ public class IngredientServiceImpl implements IngredientService {
 		return null;
 	}
 
-//	@Override
-//	public Ingredient deleteIngredient(Long id) {
-//        Ingredient deleteIngredient = ingredientRepository.findById(id).get();
-//		if(deleteIngredient != null) {
-//			  ingredientRepository.delete(deleteIngredient);
-//			  return deleteIngredient; 
-//		}
-//		return null;
-//	}
+
 
 	@Override
 	@Transactional
@@ -130,7 +122,13 @@ public class IngredientServiceImpl implements IngredientService {
 	}
 
 	
-	
+	@Override
+	public IngredientDTO addLfToIngredient(Long ingId, Long lfId) {
+		Ingredient ing = ingredientRepository.findById(ingId).get();
+		LimitingFactor lf = limitingFactorRepository.findById(lfId).get();
+		
+		return null;
+	}
 	
 	
 	
