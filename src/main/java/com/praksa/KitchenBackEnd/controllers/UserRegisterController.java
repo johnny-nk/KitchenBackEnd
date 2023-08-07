@@ -4,6 +4,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,13 +24,12 @@ import com.praksa.KitchenBackEnd.services.UserService;
 @RequestMapping(path = "api/v1/project/register")
 public class UserRegisterController {
 	
-	//TODO: Validacije, hvatanje gresaka, loggovanje?
+	
 	
 	@Autowired
 	UserService userService;
 	
 	
-	//Proste metode za testiranje, razgranacemo ih blagovremeno
 	
 	@RequestMapping(method = RequestMethod.POST, value = "/admin")
 	public ResponseEntity<?> registerAdmin(@Valid @RequestBody AdminRegisterDTO adminDTO) {
@@ -51,7 +51,8 @@ public class UserRegisterController {
 		return new ResponseEntity<>(userService.addCook(cookDTO), HttpStatus.CREATED);
 	}
 	// ------------------------Update za Regular Usera --------------------------------//
-	@RequestMapping(method = RequestMethod.PUT, value="/regUserUpdate/{id}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.PUT, value="/regUserUpdate/{id}") //PRINCIPAL P A NE USER ID
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,@PathVariable Long id){
 		try {
@@ -66,6 +67,7 @@ public class UserRegisterController {
 	}
 	
 	//----------------------Delete za Regular Usera------------------------------------//
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteRegUserFromDB/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteRegluarUser(@PathVariable Long id){
@@ -81,6 +83,7 @@ public class UserRegisterController {
 	
 	
 	//----------------------GET za Regular Usera po Id-ju-------------------------------------//
+	@Secured({"REGULARUSER", "ADMINISTRATOR"})
 	@RequestMapping(method = RequestMethod.GET, value="/getRegUser/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRegUserById(@PathVariable Long id){
@@ -94,6 +97,7 @@ public class UserRegisterController {
 		    }
 	}
 	
+	@Secured({"ADMINISTRATOR", "REGULARUSER"})
 	@RequestMapping(method = RequestMethod.GET, value = "/getUser/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getUser(@PathVariable Long id) {

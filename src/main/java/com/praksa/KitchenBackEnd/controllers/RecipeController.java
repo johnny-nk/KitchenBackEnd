@@ -40,12 +40,12 @@ public class RecipeController {
 	private RecipeService recipeService;
 	
 	
-	// Test endpoint za "/home", za neulogovanog korisnika
+	//Test endpoint za "/home", za neulogovanog korisnika
 	@RequestMapping(method = RequestMethod.GET, path = "/")
 	public ResponseEntity<?> getAllRecipes() {
 		try {
 	        Iterable<Recipe> recipes = recipeService.getRecipes();
-	        if (recipes !=null) {
+	        if (recipes != null) {
 	            return new ResponseEntity<>(recipes, HttpStatus.OK);
 	        } else {
 	            return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Recipes not found"), HttpStatus.NOT_FOUND);
@@ -55,12 +55,13 @@ public class RecipeController {
 	    }
 	}
 	
+	//RADI
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRecipes() {
 		try {
 	        Iterable<RecipeRegisterDTO> recipes = recipeService.getAllRecipes();
-	        if (recipes !=null) {
+	        if (recipes != null) {
 	            return new ResponseEntity<>(recipes, HttpStatus.OK);
 	        } else {
 	            return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Recipes not found"), HttpStatus.NOT_FOUND);
@@ -69,6 +70,7 @@ public class RecipeController {
 	        return new ResponseEntity<>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error"), HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	}
+	
 	
 	@GetMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> getRecipe(@Valid @PathVariable Long id) {
@@ -84,7 +86,7 @@ public class RecipeController {
 		    }
 	}
 	
-	
+	@Secured({"COOK", "ADMINISTRATOR"})
 	@PostMapping(path = "/recipes")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> createRecipe(@Valid @RequestBody RecipeRegisterDTO newRecipe, Principal p) {
@@ -97,6 +99,8 @@ public class RecipeController {
 		}	
 	}
 	
+	//
+	@Secured({"COOK", "ADMINISTRATOR"})
 	@DeleteMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> deleteRecipe(@Valid @PathVariable Long id) {
 	   
@@ -110,12 +114,12 @@ public class RecipeController {
 		}
 	}
 
-	
+	@Secured({"COOK", "ADMINISTRATOR"})
 	@PutMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> updateRecipe(@Valid @RequestBody RecipeRegisterDTO recipe, @PathVariable Long id) {
 		 try {		
 		RecipeRegisterDTO updateRecipe = recipeService.updateRecipe(recipe, id);
-		if(updateRecipe !=null ) {
+		if(updateRecipe != null) {
 			return new ResponseEntity<>(updateRecipe, HttpStatus.OK);
 		}else {
             return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Recipe not found"), HttpStatus.NOT_FOUND);

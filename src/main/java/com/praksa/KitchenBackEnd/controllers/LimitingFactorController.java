@@ -6,6 +6,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +26,10 @@ public class LimitingFactorController {
 
 	@Autowired
 	private LimitingFactorService limitingFactorService;
-
-	@RequestMapping(method = RequestMethod.POST, value = "/newlimitingFactor/{Id}")
+	
+	
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.POST, value = "/newlimitingFactor/{Id}") //PRINCIPAL P UMESTO ID
 	public ResponseEntity<?> addNewLimitingFactor(@Valid @RequestBody LimFactorDTO limDTO, @PathVariable Long Id) {
 		try {
 			return new ResponseEntity<>(limitingFactorService.addLimitingFactor(limDTO, Id), HttpStatus.OK);
@@ -36,8 +39,9 @@ public class LimitingFactorController {
 
 		}
 	}
-
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}")
+	
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}") //PRINCIPAL P UMESTO ID
 	public ResponseEntity<?> updateLimitingFactor(@Valid @PathVariable Long Id, @RequestBody LimFactorDTO limDTO) {
 		try {
 			LimitingFactor updatedLimitingFactor = limitingFactorService.updateLimitingFactor(Id, limDTO);
@@ -54,7 +58,9 @@ public class LimitingFactorController {
 
 		}
 	}
-
+	
+	
+	//????????
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity<?> getLimitingFactorbyId(@PathVariable Long id) {
 		try {
@@ -71,7 +77,7 @@ public class LimitingFactorController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	@Secured({"ADMINISTRATOR", "REGULARUSER", "COOK"})
 	@RequestMapping(method = RequestMethod.GET, value = "/all")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllLimitingFactors() {
@@ -89,7 +95,9 @@ public class LimitingFactorController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteLimitingFactors/{id}")
 	public ResponseEntity<?> deleteLimitingFactors(@PathVariable Long id) {
 		LimitingFactor deleteLimitingFactors = limitingFactorService.deleteLimitingFactor(id);

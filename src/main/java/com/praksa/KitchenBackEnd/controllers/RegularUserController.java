@@ -41,7 +41,8 @@ public class RegularUserController {
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIMITING FACTORS=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
-	@RequestMapping(method = RequestMethod.GET, path = "/getLf/{userId}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.GET, path = "/getLf/{userId}") //PRINCIPAL PI A NE ID
 	public ResponseEntity<?> getLimFactors(@Valid @PathVariable Long userId) {
 	    try {
 	        return new ResponseEntity<>(regUserService.getLimitingFactors(userId), HttpStatus.OK);
@@ -59,8 +60,8 @@ public class RegularUserController {
 		return new ResponseEntity<>(regUserService.getLimFactors(p.getName()), HttpStatus.OK);
 	}
 	
-	
-	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/addLf/{lFid}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/addLf/{lFid}")  //PRINCIPAL PI A NE USERID
 	public ResponseEntity<?> addLimitingFactor(@Valid @PathVariable Long userId, @PathVariable Long lFid) {
 	    try {
 	        return new ResponseEntity<>(regUserService.addLimitingFactor(userId, lFid), HttpStatus.OK);
@@ -73,7 +74,8 @@ public class RegularUserController {
 	    }
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/lf/{lfId}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/lf/{lfId}") //PRINCIPAL PI A NE USERID
 	public ResponseEntity<?> removeLimitingFactor(@PathVariable Long userId, @PathVariable Long lfId) {
 		return new ResponseEntity<>(regUserService.removeLimitingFactor(userId, lfId), HttpStatus.OK);
 	}
@@ -81,20 +83,21 @@ public class RegularUserController {
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIKED RECIPES=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
-	
-	@RequestMapping(method = RequestMethod.GET, path = "/myCookbook/{username}")
-	public ResponseEntity<?> getMyCookbook(@PathVariable String username) {
-		return new ResponseEntity<>(recipeService.myCookbook(username), HttpStatus.OK);
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.GET, path = "/myCookbook")
+	public ResponseEntity<?> getMyCookbook(@PathVariable String username, Principal p) {
+		return new ResponseEntity<>(recipeService.myCookbook(p.getName()), HttpStatus.OK);
 	}
 	
-	
-	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/rec/{recId}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/rec/{recId}") //PRINCIPAL PI A NE USER ID
 	public ResponseEntity<?> addRecToUser(@PathVariable Long userId, @PathVariable Long recId) {
 		return new ResponseEntity<>(regUserService.addRecipeToUser(userId, recId), HttpStatus.OK);
 		
 	}
 	
-	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/rec/{recId}")
+	@Secured("REGULARUSER")
+	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/rec/{recId}") //PRINCIPAL PI A NE USER ID
 	public ResponseEntity<?> removeLikedRecipe(@PathVariable Long userId, @PathVariable Long recId) {
 		return new ResponseEntity<>(regUserService.removeRecipe(userId, recId), HttpStatus.ACCEPTED);
 	}

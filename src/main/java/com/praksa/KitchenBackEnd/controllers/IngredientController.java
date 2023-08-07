@@ -5,6 +5,7 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,7 +25,9 @@ public class IngredientController {
 
 	@Autowired
 	private IngredientService ingredientService;
-
+	
+	
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
 	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {
 		try {
@@ -35,7 +38,8 @@ public class IngredientController {
 
 		}
 	}
-
+	
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
 	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id,
 			@RequestBody IngredientDTO ingredientForUpdate) {
@@ -53,7 +57,7 @@ public class IngredientController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
 	@RequestMapping(method = RequestMethod.GET, value = "/{id}")
 	public ResponseEntity<?> getIngredientById(@PathVariable Long id) {
 		try {
@@ -88,7 +92,9 @@ public class IngredientController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
+	
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteIngredient/{id}")
 	public ResponseEntity<?> deleteIngredient(@PathVariable Long id) {
 		Ingredient deletedIngredient = ingredientService.deleteIngredient(id);
@@ -96,7 +102,9 @@ public class IngredientController {
 		return new ResponseEntity<>(deletedIngredient, HttpStatus.OK);
 
 	}
-
+	
+	
+	//????
 	@RequestMapping(method = RequestMethod.POST, value = "/connectIngredientToLimitingFactor/{ingredientId}/to/{limitingFactorId}")
 	public ResponseEntity<?> connectIngredientToLimitingFactor(@PathVariable Long ingredientId,
 			@PathVariable Long limitingFactorId) {

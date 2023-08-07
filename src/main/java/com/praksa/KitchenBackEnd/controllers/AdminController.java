@@ -35,9 +35,7 @@ public class AdminController {
 	//Create
 	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.POST, path = "/addCook" )
-	public ResponseEntity<?> addCook(@Valid @RequestBody CookRegisterDTO dto, Principal p) {
-		System.out.println(p.getName().toString());
-		
+	public ResponseEntity<?> addCook(@Valid @RequestBody CookRegisterDTO dto, Principal p) {		
 		return new ResponseEntity<>(userService.addCook(dto), HttpStatus.CREATED);
 	}
 	
