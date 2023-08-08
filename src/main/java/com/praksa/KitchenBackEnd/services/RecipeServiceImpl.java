@@ -208,7 +208,6 @@ public class RecipeServiceImpl implements RecipeService {
 		dto.setCook(recipe.getCook().getFirstName() + " " + recipe.getCook().getLastName());
 		dto.setCreatedOn(recipe.getCreatedOn());
 		dto.setUpdatedOn(recipe.getUpdatedOn());
-													
 		dto.setNutrition(calculateNutrition(recipe));  //-> dinamicno racunanje nutritivne vrednosti
 		dto.setIngredients(extractIng(recipe));		   //-> prikaz svih satojaka i njihovih nutrutivnih vrednost	
 		dto.setIngredientAmount(ingredientNamedMapString(recipe)); //-> samo imena sastojaka i njihove kolicine
