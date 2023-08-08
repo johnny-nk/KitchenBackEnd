@@ -73,6 +73,7 @@ public class RecipeController {
 	
 	
 	@GetMapping(path = "/recipes/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRecipe(@Valid @PathVariable Long id) {
 		  try {
 		        RecipeRegisterDTO recipe = recipeService.getRecipe(id);

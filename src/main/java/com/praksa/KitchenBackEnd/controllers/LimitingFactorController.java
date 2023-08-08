@@ -40,6 +40,8 @@ public class LimitingFactorController {
 		}
 	}
 	
+	
+	
 	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}")
 	public ResponseEntity<?> updateLimitingFactor(@Valid @PathVariable Long Id, @RequestBody LimFactorDTO limDTO) {
@@ -98,7 +100,7 @@ public class LimitingFactorController {
 	
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteLimitingFactors/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public ResponseEntity<?> deleteLimitingFactors(@PathVariable Long id) {
 		LimitingFactor deleteLimitingFactors = limitingFactorService.deleteLimitingFactor(id);
 		try {

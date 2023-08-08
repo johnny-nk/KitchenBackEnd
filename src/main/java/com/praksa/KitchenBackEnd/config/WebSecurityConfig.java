@@ -54,7 +54,7 @@ public class WebSecurityConfig {
 				.antMatchers(HttpMethod.POST, "/api/v1/project/users/login", "/api/v1/project/register/regUser").permitAll()
 				.and()
 				.authorizeRequests()
-				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "/api/v1/project/recipes").permitAll()
+				.antMatchers(HttpMethod.GET, "/api/v1/project/register/allbyUserName**", "/api/v1/project/recipes", "/api/v1/project/recipes/{id}").permitAll()
 				.and()
 				.authorizeRequests()
 //				.antMatchers(HttpMethod.GET, "api/v1/project/reci**").permitAll()
