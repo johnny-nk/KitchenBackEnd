@@ -131,8 +131,7 @@ public class RecipeController {
 		}
 	}
 	
-	//gadjaj ga preko ulogovanog usera da bi dobio username... trebali bi ovo sada uraditi za svaki endpoint
-	@Secured("REGULARUSER")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
 	public ResponseEntity<?> getFormatedRecipes(Principal p) {
 		return new ResponseEntity<>(recipeService.getFormatedRecipes(p.getName()), HttpStatus.OK);

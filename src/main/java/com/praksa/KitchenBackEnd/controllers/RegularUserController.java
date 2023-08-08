@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -41,32 +42,22 @@ public class RegularUserController {
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIMITING FACTORS=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
-	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.GET, path = "/getLf/{userId}") //PRINCIPAL PI A NE ID
-	public ResponseEntity<?> getLimFactors(@Valid @PathVariable Long userId) {
-	    try {
-	        return new ResponseEntity<>(regUserService.getLimitingFactors(userId), HttpStatus.OK);
-	    } catch (UserNotFoundException e) {
-	        return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "User not found with id: " + userId), HttpStatus.NOT_FOUND);
-	    } catch (Exception e) {
-	        return new ResponseEntity<>(new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "An error occurred"), HttpStatus.INTERNAL_SERVER_ERROR);
-	    }
-	}
 	
-	//kroz Principal
 	@Secured("REGULARUSER")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET, path = "/getLf")
 	public ResponseEntity<?> getLimitingFactors(@Valid Principal p) {
 		return new ResponseEntity<>(regUserService.getLimFactors(p.getName()), HttpStatus.OK);
 	}
 	
 	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/addLf/{lFid}")  //PRINCIPAL PI A NE USERID
-	public ResponseEntity<?> addLimitingFactor(@Valid @PathVariable Long userId, @PathVariable Long lFid) {
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(method = RequestMethod.POST, path = "/addLf/{lFid}")  
+	public ResponseEntity<?> addLimitingFactor(@Valid @PathVariable Long lFid, Principal p) {
 	    try {
-	        return new ResponseEntity<>(regUserService.addLimitingFactor(userId, lFid), HttpStatus.OK);
+	        return new ResponseEntity<>(regUserService.addLimitingFactor(p.getName(), lFid), HttpStatus.OK);
 	    } catch (UserNotFoundException e) {
-	        return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "User not found with id: " + userId), HttpStatus.NOT_FOUND);
+	        return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "User not found with name: " + p.getName()), HttpStatus.NOT_FOUND);
 	    } catch (LimitingFactorNotFoundException e) {
 	        return new ResponseEntity<>(new RESTError(HttpStatus.NOT_FOUND.value(), "Limiting Factor not found with id: " + lFid), HttpStatus.NOT_FOUND);
 	    } catch (Exception e) {
@@ -75,31 +66,35 @@ public class RegularUserController {
 	}
 	
 	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/lf/{lfId}") //PRINCIPAL PI A NE USERID
-	public ResponseEntity<?> removeLimitingFactor(@PathVariable Long userId, @PathVariable Long lfId) {
-		return new ResponseEntity<>(regUserService.removeLimitingFactor(userId, lfId), HttpStatus.OK);
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(method = RequestMethod.DELETE, path = "/deleteLf/{lfId}")
+	public ResponseEntity<?> removeLimitingFactor(@PathVariable Long lfId, Principal p) {
+		return new ResponseEntity<>(regUserService.removeLimitingFactor(lfId, p.getName()), HttpStatus.OK);
 	}
 	
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIKED RECIPES=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
 	
 	@Secured("REGULARUSER")
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET, path = "/myCookbook")
-	public ResponseEntity<?> getMyCookbook(@PathVariable String username, Principal p) {
+	public ResponseEntity<?> getMyCookbook(Principal p) {
 		return new ResponseEntity<>(recipeService.myCookbook(p.getName()), HttpStatus.OK);
 	}
 	
 	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.POST, path = "/user/{userId}/rec/{recId}") //PRINCIPAL PI A NE USER ID
-	public ResponseEntity<?> addRecToUser(@PathVariable Long userId, @PathVariable Long recId) {
-		return new ResponseEntity<>(regUserService.addRecipeToUser(userId, recId), HttpStatus.OK);
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(method = RequestMethod.POST, path = "/rec/{recId}")
+	public ResponseEntity<?> addRecToUser(@PathVariable Long recId, Principal p) {
+		return new ResponseEntity<>(regUserService.addRecipeToUser(p.getName(), recId), HttpStatus.OK);
 		
 	}
 	
 	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.DELETE, path = "/user/{userId}/rec/{recId}") //PRINCIPAL PI A NE USER ID
-	public ResponseEntity<?> removeLikedRecipe(@PathVariable Long userId, @PathVariable Long recId) {
-		return new ResponseEntity<>(regUserService.removeRecipe(userId, recId), HttpStatus.ACCEPTED);
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(method = RequestMethod.DELETE, path = "/rec/{recId}") 
+	public ResponseEntity<?> removeLikedRecipe(@PathVariable Long recId, Principal p) {
+		return new ResponseEntity<>(regUserService.removeRecipe(p.getName(), recId), HttpStatus.ACCEPTED);
 	}
 	
 	
