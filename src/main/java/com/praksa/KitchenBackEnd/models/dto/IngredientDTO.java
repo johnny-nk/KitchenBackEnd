@@ -1,12 +1,8 @@
 package com.praksa.KitchenBackEnd.models.dto;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import javax.persistence.Column;
-
-import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 
 public class IngredientDTO {
 	

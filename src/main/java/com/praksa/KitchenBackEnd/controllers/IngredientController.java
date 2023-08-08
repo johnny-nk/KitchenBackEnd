@@ -28,7 +28,7 @@ public class IngredientController {
 	
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.POST, value = "/newIngredient")
+	@RequestMapping(method = RequestMethod.POST)
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> addNewIngredient(@Valid @RequestBody IngredientDTO ingredients) {
 		try {
@@ -41,7 +41,7 @@ public class IngredientController {
 	}
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateIngredient/{id}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateIngredient(@Valid @PathVariable Long id,
 			@RequestBody IngredientDTO ingredientForUpdate) {
@@ -82,7 +82,7 @@ public class IngredientController {
 	
 	
 	@Secured({"COOK", "ADMINISTRATOR"})
-	@RequestMapping(method = RequestMethod.GET, value = "/allIngredients")
+	@RequestMapping(method = RequestMethod.GET)
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllIngredients() {
 		try {
@@ -103,7 +103,7 @@ public class IngredientController {
 	
 	@Secured("ADMINISTRATOR")
 	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.DELETE, value = "/deleteIngredient/{id}")
+	@RequestMapping(method = RequestMethod.DELETE, value = "/{id}")
 	public ResponseEntity<?> deleteIngredient(@PathVariable Long id) {
 		Ingredient deletedIngredient = ingredientService.deleteIngredient(id);
 
