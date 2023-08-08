@@ -13,13 +13,13 @@ public interface RegularUserService {
 	
 	
 	public RegularUserRegisterDTO getLimFactors(String username);
-	public Set<LimitingFactor> getLimitingFactors(Long userId);
-	public AffectedUsers addLimitingFactor(Long userId, Long lfId);
-	public Optional<AffectedUsers> removeLimitingFactor(Long lfId, Long userId);
+	public Set<LimitingFactor> getLimitingFactors(String username);
+	public AffectedUsers addLimitingFactor(String username, Long lfId);
+	public Optional<AffectedUsers> removeLimitingFactor(Long lfId, String username);
 	
 	
 	
 	public Set<Recipe> getUserRecipes(Long userId);
-	public Recipe addRecipeToUser(Long userId, Long recId);
-	public Optional<LikedRecipes> removeRecipe(Long userId, Long recId);
+	public Recipe addRecipeToUser(String username, Long recId);
+	public Optional<LikedRecipes> removeRecipe(String username, Long recId);
 }

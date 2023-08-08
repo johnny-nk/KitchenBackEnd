@@ -67,8 +67,8 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	
 	@Override
-	public Set<LimitingFactor> getLimitingFactors(Long userId) {
-		RegularUser user = (RegularUser) userRepository.findById(userId).get();
+	public Set<LimitingFactor> getLimitingFactors(String username) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
 		Set<LimitingFactor> lf = new HashSet<>();
 		for(AffectedUsers af : affectedUsersRepo.findAll()) {
 			if(user.getId().equals(af.getRegularUser().getId())) {
@@ -79,15 +79,16 @@ public class RegularUserServiceImpl implements RegularUserService {
 	}
 
 	@Override
-	public AffectedUsers addLimitingFactor(Long userId, Long lfId) {
-		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
+	public AffectedUsers addLimitingFactor(String username, Long lfId) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(user.getId(), lfId);
 		
 		if(af.isEmpty()) {
-		RegularUser user = (RegularUser) userRepository.findById(userId).get();
+		RegularUser nUser = (RegularUser) userRepository.findByUsername(username);
 		LimitingFactor lf = limFactorRepo.findById(lfId).get();
 		AffectedUsers aff = new AffectedUsers();
 		aff.setLimitingFactor(lf);
-		aff.setRegularUser(user);
+		aff.setRegularUser(nUser);
 		affectedUsersRepo.save(aff);
 		return aff;
 		} else {
@@ -98,8 +99,9 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	
 	@Override
-	public Optional<AffectedUsers> removeLimitingFactor(Long userId, Long lfId) {		
-		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(userId, lfId);
+	public Optional<AffectedUsers> removeLimitingFactor(Long lfId, String username) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		Optional<AffectedUsers> af = affectedUsersRepo.findByRegularUserIdAndLimitingFactorId(user.getId(), lfId);
 		if(af.isPresent()) {
 			affectedUsersRepo.delete(af.get());
 			return af;
@@ -123,13 +125,13 @@ public class RegularUserServiceImpl implements RegularUserService {
 	
 	
 	@Override
-	public Recipe addRecipeToUser(Long userId, Long recipeId) {
-		
-		Optional<LikedRecipes> likedRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userId, recipeId);
+	public Recipe addRecipeToUser(String username, Long recipeId) {
+		RegularUser userCheck = (RegularUser) userRepository.findByUsername(username);
+		Optional<LikedRecipes> likedRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userCheck.getId(), recipeId);
 		if(likedRecipe.isEmpty()) {
 			LikedRecipes likesRecipe = new LikedRecipes();
 			Recipe rec = recipeRepo.findById(recipeId).get();
-			RegularUser user = (RegularUser) userRepository.findById(userId).get();
+			RegularUser user = (RegularUser) userRepository.findByUsername(username);
 			likesRecipe.setRegularUser(user);
 			likesRecipe.setRecipe(rec);
 			likedRecRepo.save(likesRecipe);
@@ -141,8 +143,9 @@ public class RegularUserServiceImpl implements RegularUserService {
 	}
 
 	@Override
-	public Optional<LikedRecipes> removeRecipe(Long userId, Long recId) {
-		Optional<LikedRecipes> likesRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(userId, recId);
+	public Optional<LikedRecipes> removeRecipe(String username, Long recId) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		Optional<LikedRecipes> likesRecipe = likedRecRepo.findByRegularUserIdAndRecipeId(user.getId(), recId);
 		if(likesRecipe.isPresent()) {
 			likedRecRepo.deleteById(likesRecipe.get().getId());
 			return likesRecipe;
