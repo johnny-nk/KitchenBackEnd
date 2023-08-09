@@ -58,7 +58,8 @@ public class UserRegisterController {
 		return new ResponseEntity<>(userService.addCook(cookDTO), HttpStatus.CREATED);
 	}
 	// ------------------------Update za Regular Usera --------------------------------//
-	@Secured("REGULARUSER")
+	
+	@Secured({"REGULARUSER", "ADMINISTRATOR"})
 	@RequestMapping(method = RequestMethod.PUT, value="/updateUser") 
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,Principal p){
@@ -174,7 +175,7 @@ public class UserRegisterController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateCook(@Valid @RequestBody CookRegisterDTO updateCook,@PathVariable Long id){
 		try {
-			Cook cook = userService.updateCook(updateCook, id);
+			CookRegisterDTO cook = userService.updateCook(updateCook, id);
 			return new ResponseEntity<>(cook , HttpStatus.OK);
 	    } catch (UserNotFoundException e) {
 	        return new ResponseEntity<>("Cook not found with id: " + id, HttpStatus.NOT_FOUND);

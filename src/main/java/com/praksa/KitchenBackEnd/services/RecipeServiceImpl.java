@@ -287,9 +287,11 @@ public class RecipeServiceImpl implements RecipeService {
 	
 	
 	@Override
+	@Transactional
 	public Recipe deleteRecipe(Long id) {
 		Recipe recipe = recipeRepository.findById(id).get();
 		List<RecipeIngredient> rings = recipeIngreRepo.findAllByRecipeId(recipe);
+		likedRecipesRepo.deleteAllByRecipeId(id);
 		recipeIngreRepo.deleteAll(rings);
 		recipeRepository.deleteById(id);
 		return recipe;

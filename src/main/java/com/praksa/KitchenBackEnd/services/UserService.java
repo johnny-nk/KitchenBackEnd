@@ -29,9 +29,7 @@ public interface UserService {
 	public RegularUser deleteRegularUser(Long id);	
 	public Cook deleteCook(Long id);
 	/*------------PUT--------------*/
-	public RegularUser updateRegularUser(RegularUserRegisterDTO dto, Long id);
-	public Cook updateCook(CookRegisterDTO dto, Long id);
-	
+	public CookRegisterDTO updateCook(CookRegisterDTO dto, Long id);
 	public RegularUserRegisterDTO updateUser(RegularUserRegisterDTO dto, String username);
 	/*-----------GET-------------*/
 	public RegularUser getRegularUserById(Long id);

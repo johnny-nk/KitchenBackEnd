@@ -123,24 +123,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Cook addCook(CookRegisterDTO dto) {
 		Cook cook = (Cook) UserFactory.createUser(dto);
-		userRepository.save(cook);
+		userRepository.save(cook);		
 		return cook;
 	}
 
-	@Override
-	public RegularUser updateRegularUser(RegularUserRegisterDTO dto, Long id) {
-		Optional<RegularUser> regularUser = regularUserRepository.findById(id);
-		if (regularUser.isPresent()) {
-			RegularUser updateRegularUser = regularUser.get();
-			updateRegularUser.setFirstName(dto.getFirstName());
-			updateRegularUser.setLastName(dto.getLastName());
-			updateRegularUser.setPassword(dto.getPassword());
-			updateRegularUser.setUsername(dto.getUsername());
-			return regularUserRepository.save(updateRegularUser);
-		}else {
-			throw new UserNotFoundException();
-		}
-	}
+	
 
 	@Override
 	public RegularUserRegisterDTO updateUser(RegularUserRegisterDTO updateUser, String username) {
@@ -199,9 +186,7 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		
-		//tako da sam: ocistio stare unose
-		//uneo update unose
-		//i dobio napad panike 
+		
 		regularUserRepository.save(user);
 		affUsersRepo.deleteAll(usersLimFactors);
 		affUsersRepo.saveAll(updateLimFactors);
@@ -212,9 +197,12 @@ public class UserServiceImpl implements UserService {
 	
 	
 	@Override
+	@Transactional
 	public RegularUser deleteRegularUser(Long id) {
 		Optional<RegularUser> deleteRegularUser = regularUserRepository.findById(id);
 		if(deleteRegularUser.isPresent()) {
+			likedRecipesRepository.deleteAllByRegularUserId(id);
+			affUsersRepo.deleteAllByRegularUserId(id);
 			regularUserRepository.delete(deleteRegularUser.get());
 		}else {
 			throw new UserNotFoundException();
@@ -235,7 +223,7 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public Iterable<RegularUser> getAllRegluarUsers() {
 		Iterable<RegularUser> getAllRegluarUsers = regularUserRepository.findAll();
-		if(getAllRegluarUsers !=null) {
+		if(getAllRegluarUsers != null) {
 			return getAllRegluarUsers;
 		}else {
 			throw new UserNotFoundException();
@@ -275,19 +263,43 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public Cook updateCook(CookRegisterDTO dto, Long id) {
-		Optional<Cook> cook = cookRepository.findById(id);
-		if (cook.isPresent()) {
-			Cook updateCook = cook.get();
-			updateCook.setFirstName(dto.getFirstName());
-			updateCook.setLastName(dto.getLastName());
-			updateCook.setPassword(dto.getPassword());
-			updateCook.setUsername(dto.getUsername());
-			updateCook.setAboutMe(dto.getAboutMe());
-			return cookRepository.save(updateCook);
-		}else {
-			throw new UserNotFoundException();
+	public CookRegisterDTO updateCook(CookRegisterDTO updateCook, Long id) {
+		
+		Cook cook = (Cook) cookRepository.findById(id).get();
+		
+		if(updateCook.getUsername() != null && !updateCook.getUsername().equals(cook.getUsername())) {
+			cook.setUsername(updateCook.getUsername());
 		}
+		if(updateCook.getPassword() != null && !updateCook.getPassword().equals(cook.getPassword())) {
+			cook.setPassword(updateCook.getPassword());
+		}
+		if(updateCook.getFirstName() != null && !updateCook.getFirstName().equals(cook.getFirstName())) {
+			cook.setFirstName(updateCook.getFirstName());
+		}
+		if(updateCook.getLastName() != null && !updateCook.getLastName().equals(cook.getLastName())) {
+			cook.setLastName(updateCook.getLastName());
+		}
+		if(updateCook.getEmail() != null && !updateCook.getEmail().equals(cook.getEmail())) {
+			cook.setEmail(updateCook.getEmail());
+		}
+		
+		//Sta sa receptima?
+		
+		
+//		Optional<Cook> cook = cookRepository.findById(id);
+//		if (cook.isPresent()) {
+//			Cook updateCook = cook.get();
+//			updateCook.setFirstName(dto.getFirstName());
+//			updateCook.setLastName(dto.getLastName());
+//			updateCook.setPassword(dto.getPassword());
+//			updateCook.setUsername(dto.getUsername());
+//			updateCook.setAboutMe(dto.getAboutMe());
+//			return dto;
+//		}else {
+//			throw new UserNotFoundException();
+//		}
+		cookRepository.save(cook);
+		return updateCook;
 	}
 
 

@@ -163,12 +163,11 @@ public class StartupDatasetWrite implements ApplicationListener<ApplicationReady
 						CookRegisterDTO cook = new CookRegisterDTO(
 								u.getUsername(),
 								u.getPassword(),
-								EUserRole.valueOf(u.getRole()),
-								u.getFirstName(),
-								u.getLastName(),
-								u.getEmail(),
-								u.getAboutMe()
-								);
+								EUserRole.valueOf(u.getRole()));
+						cook.setFirstName(u.getFirstName());
+						cook.setLastName(u.getLastName());
+						cook.setEmail(u.getEmail());
+						cook.setAboutMe(u.getAboutMe());
 						userService.addCook(cook);
 						break;
 					}

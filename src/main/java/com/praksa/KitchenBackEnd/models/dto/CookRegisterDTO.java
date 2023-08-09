@@ -1,5 +1,11 @@
 package com.praksa.KitchenBackEnd.models.dto;
 
+
+
+import java.util.HashSet;
+import java.util.Set;
+
+
 import com.praksa.KitchenBackEnd.models.entities.EUserRole;
 
 public class CookRegisterDTO extends UserRegisterDTO {
@@ -11,6 +17,8 @@ public class CookRegisterDTO extends UserRegisterDTO {
 	private String email;
 
 	private String aboutMe;
+	
+	private Set<Long> myRecipes = new HashSet<>();
 
 	public CookRegisterDTO() {
 		super();
@@ -22,21 +30,13 @@ public class CookRegisterDTO extends UserRegisterDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CookRegisterDTO(String firstName, String lastName, String email, String aboutMe) {
+	public CookRegisterDTO(String firstName, String lastName, String email, String aboutMe, Set<Long> myRecipes) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
 		this.aboutMe = aboutMe;
-	}
-
-	public CookRegisterDTO(String username, String password, EUserRole role, String firstName, String lastName,
-			String email, String aboutMe) {
-		super(username, password, role);
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.email = email;
-		this.aboutMe = aboutMe;
+		this.myRecipes = myRecipes;
 	}
 
 	public String getFirstName() {
@@ -71,4 +71,17 @@ public class CookRegisterDTO extends UserRegisterDTO {
 		this.aboutMe = aboutMe;
 	}
 
+	public Set<Long> getMyRecipes() {
+		return myRecipes;
+	}
+
+	public void setMyRecipes(Set<Long> myRecipes) {
+		this.myRecipes = myRecipes;
+	}
+
+	
+	
+	
+
+	
 }

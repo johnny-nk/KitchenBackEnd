@@ -12,4 +12,6 @@ public interface LikedRecipesRepository extends CrudRepository<LikedRecipes, Lon
 	public Set<LikedRecipes> findByRegularUserId(Long id);
 	public Optional<LikedRecipes> findByRegularUserIdAndRecipeId(Long userId, Long recId);
 	public void deleteAllByRegularUserId(Long userId);
+	
+	public void deleteAllByRecipeId(Long recId);
 }

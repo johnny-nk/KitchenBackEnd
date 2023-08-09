@@ -101,9 +101,10 @@ public class RecipeController {
 		}
 	}
 
-	//
+	
 	@Secured({ "COOK", "ADMINISTRATOR" })
 	@DeleteMapping(path = "/recipes/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteRecipe(@Valid @PathVariable Long id) {
 
 		try {
@@ -115,6 +116,7 @@ public class RecipeController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
+		
 	}
 
 	@Secured({ "COOK", "ADMINISTRATOR" })
