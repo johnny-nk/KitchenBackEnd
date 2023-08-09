@@ -11,11 +11,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.praksa.KitchenBackEnd.controllers.util.RESTError;
+import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.UserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
@@ -41,6 +43,15 @@ public class RegularUserController {
 	
 	
 	//=-==-=-==-=-==-==-=-==-=-==-==- USER'S LIMITING FACTORS=-=-==-==-=-==-=-==-==-=-==-=-==-==-=-==-=-= //
+	
+	
+	
+	
+	@RequestMapping(method = RequestMethod.PUT, path = "/updateUser")
+	public ResponseEntity<?> updatUser(@RequestBody RegularUserRegisterDTO dto, Principal p) {
+//		System.out.println(p.getName().toString());
+		return new ResponseEntity<>(userService.updateUser(dto, p.getName()), HttpStatus.OK);
+	}
 	
 	
 	@Secured("REGULARUSER")

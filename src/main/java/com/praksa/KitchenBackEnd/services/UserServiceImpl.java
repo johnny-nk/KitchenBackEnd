@@ -8,19 +8,28 @@ import com.praksa.KitchenBackEnd.models.dto.AdminRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Administrator;
+import com.praksa.KitchenBackEnd.models.entities.AffectedUsers;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
+import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
+import com.praksa.KitchenBackEnd.models.entities.RecipeIngredient;
 import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.models.entities.User;
+import com.praksa.KitchenBackEnd.repositories.AffectedUserRepository;
 import com.praksa.KitchenBackEnd.repositories.CookRepository;
 import com.praksa.KitchenBackEnd.repositories.LikedRecipesRepository;
+import com.praksa.KitchenBackEnd.repositories.LimitingFactorRepository;
+import com.praksa.KitchenBackEnd.repositories.RecipeRepository;
 import com.praksa.KitchenBackEnd.repositories.RegularUserRepository;
 import com.praksa.KitchenBackEnd.repositories.UserRepository;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -36,7 +45,12 @@ public class UserServiceImpl implements UserService {
 	private CookRepository cookRepository;
 	@Autowired
 	private LikedRecipesRepository likedRecipesRepository;
-	
+	@Autowired
+	private AffectedUserRepository affUsersRepo;
+	@Autowired
+	private RecipeRepository recipeRepo;
+	@Autowired
+	private LimitingFactorRepository limFactorRepo;
 	@Autowired
 	private RecipeService recipeService;
 	
@@ -125,6 +139,70 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+	@Override
+	public RegularUserRegisterDTO updateUser(RegularUserRegisterDTO updateUser, String username) {
+
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		
+		if(updateUser.getUsername() != null && !updateUser.getUsername().equals(user.getUsername())) {
+			user.setUsername(updateUser.getUsername());
+		}
+		if(updateUser.getPassword() != null && !updateUser.getPassword().equals(user.getPassword())) {
+			user.setPassword(updateUser.getPassword());
+		}
+		if(updateUser.getFirstName() != null && !updateUser.getFirstName().equals(user.getFirstName())) {
+			user.setFirstName(updateUser.getFirstName());
+		}
+		if(updateUser.getLastName() != null && !updateUser.getLastName().equals(user.getLastName())) {
+			user.setLastName(updateUser.getLastName());
+		}
+		if(updateUser.getEmail() != null && !updateUser.getEmail().equals(user.getEmail())) {
+			user.setEmail(updateUser.getEmail());
+		}
+		
+		
+		Set<LikedRecipes> usersRecipes = likedRecipesRepository.findByRegularUserId(user.getId());
+		Set<LikedRecipes> updateRecipes = new HashSet<>();
+		Set<Long> intSet = new HashSet<>();
+		for(Long recipeId : updateUser.getFavRecipesId()) {			
+			intSet.add(recipeId);	
+		}
+		if(intSet.equals(null)) {
+			likedRecipesRepository.deleteAllByRegularUserId(user.getId());
+		} 
+		
+		if (intSet != null) {
+		for(Long recId : intSet) {
+				LikedRecipes newLike = new LikedRecipes(null, user, recipeRepo.findById(recId).get());
+				updateRecipes.add(newLike);
+			}
+		}
+		
+		Set<AffectedUsers> usersLimFactors = affUsersRepo.findByRegularUserId(user.getId());
+		Set<AffectedUsers> updateLimFactors = new HashSet<>();
+		Set<Long> lfSet = new HashSet<>();
+		for(Long limId : updateUser.getMyLimFactorsId()) {
+			lfSet.add(limId);
+		}
+		if(lfSet.equals(null)) {
+			affUsersRepo.deleteAllByRegularUserId(user.getId());
+		}
+		if(lfSet != null) {
+			for(Long lf : lfSet) {
+				AffectedUsers affUser = new AffectedUsers(null, user, limFactorRepo.findById(lf).get());
+				updateLimFactors.add(affUser);
+			}
+		}
+		
+		regularUserRepository.save(user);
+		affUsersRepo.deleteAll(usersLimFactors);
+		affUsersRepo.saveAll(updateLimFactors);
+		likedRecipesRepository.deleteAll(usersRecipes);
+		likedRecipesRepository.saveAll(updateRecipes);
+		return updateUser;
+	}
+	
+	
 	@Override
 	public RegularUser deleteRegularUser(Long id) {
 		Optional<RegularUser> deleteRegularUser = regularUserRepository.findById(id);
