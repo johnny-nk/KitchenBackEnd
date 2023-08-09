@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.util;
 
+
+
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 public class Encryption {
@@ -15,6 +17,7 @@ public class Encryption {
 
 	public static void main(String[] args) {
 		System.out.println(getPassEncoded("pass"));
+		
 		
 	}
 }

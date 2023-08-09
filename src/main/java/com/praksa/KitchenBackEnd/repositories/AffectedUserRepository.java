@@ -1,6 +1,7 @@
 package com.praksa.KitchenBackEnd.repositories;
 
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.data.repository.CrudRepository;
 
@@ -11,4 +12,7 @@ public interface AffectedUserRepository extends CrudRepository<AffectedUsers, Lo
 //	public List<AffectedUsers> findByLimitingFactorIdAndRegularUserId(Long limId, Long userId);
 	
 	public Optional<AffectedUsers> findByRegularUserIdAndLimitingFactorId(Long userId, Long lfId);
+	public Set<AffectedUsers> findByRegularUserId(Long id);
+	
+	public void deleteAllByRegularUserId(Long id);
 }

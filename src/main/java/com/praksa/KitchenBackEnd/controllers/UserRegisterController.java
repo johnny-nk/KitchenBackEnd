@@ -33,6 +33,9 @@ public class UserRegisterController {
 	
 	
 	
+	
+	
+	
 	@RequestMapping(method = RequestMethod.POST, value = "/admin")
 	public ResponseEntity<?> registerAdmin(@Valid @RequestBody AdminRegisterDTO adminDTO) {
 		

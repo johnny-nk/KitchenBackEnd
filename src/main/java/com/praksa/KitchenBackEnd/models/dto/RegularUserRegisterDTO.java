@@ -17,9 +17,12 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 	
 	private String email;
 	
+	//Mrace da ostane zbog drugih servisa. Jednom kad napravis kucu moras i da zivis u njoj
 	private List<RecipeRegisterDTO> myCookbook = new ArrayList<>();
-	
 	private Set<String> myLimitigFactors = new HashSet<>();
+	//za update
+	private Set<Long> favRecipesId = new HashSet<>();
+	private Set<Long> myLimFactorsId = new HashSet<>();
 
 	public RegularUserRegisterDTO() {
 		super();
@@ -36,7 +39,8 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 
 
 	public RegularUserRegisterDTO(Long id, String firstName, String lastName, String email,
-			List<RecipeRegisterDTO> myCookbook, Set<String> myLimitigFactors) {
+			List<RecipeRegisterDTO> myCookbook, Set<String> myLimitigFactors, Set<Long> favRecipesId,
+			Set<Long> myLimFactorsId) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -44,6 +48,8 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 		this.email = email;
 		this.myCookbook = myCookbook;
 		this.myLimitigFactors = myLimitigFactors;
+		this.favRecipesId = favRecipesId;
+		this.myLimFactorsId = myLimFactorsId;
 	}
 
 
@@ -116,6 +122,30 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 
 	public void setMyLimitigFactors(Set<String> myLimitigFactors) {
 		this.myLimitigFactors = myLimitigFactors;
+	}
+
+
+
+	public Set<Long> getFavRecipesId() {
+		return favRecipesId;
+	}
+
+
+
+	public void setFavRecipesId(Set<Long> favRecipesId) {
+		this.favRecipesId = favRecipesId;
+	}
+
+
+
+	public Set<Long> getMyLimFactorsId() {
+		return myLimFactorsId;
+	}
+
+
+
+	public void setMyLimFactorsId(Set<Long> myLimFactorsId) {
+		this.myLimFactorsId = myLimFactorsId;
 	}
 
 
