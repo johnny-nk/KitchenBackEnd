@@ -164,9 +164,9 @@ public class UserServiceImpl implements UserService {
 		}
 		
 		
-		Set<LikedRecipes> usersRecipes = likedRecipesRepository.findByRegularUserId(user.getId());
-		Set<LikedRecipes> updateRecipes = new HashSet<>();
-		Set<Long> intSet = new HashSet<>();
+		Set<LikedRecipes> usersRecipes = likedRecipesRepository.findByRegularUserId(user.getId());  																			
+		Set<LikedRecipes> updateRecipes = new HashSet<>();														
+		Set<Long> intSet = new HashSet<>();								
 		for(Long recipeId : updateUser.getFavRecipesId()) {			
 			intSet.add(recipeId);	
 		}
@@ -180,6 +180,8 @@ public class UserServiceImpl implements UserService {
 				updateRecipes.add(newLike);
 			}
 		}
+		
+		
 		
 		Set<AffectedUsers> usersLimFactors = affUsersRepo.findByRegularUserId(user.getId());
 		Set<AffectedUsers> updateLimFactors = new HashSet<>();
@@ -197,6 +199,9 @@ public class UserServiceImpl implements UserService {
 			}
 		}
 		
+		//tako da sam: ocistio stare unose
+		//uneo update unose
+		//i dobio napad panike 
 		regularUserRepository.save(user);
 		affUsersRepo.deleteAll(usersLimFactors);
 		affUsersRepo.saveAll(updateLimFactors);

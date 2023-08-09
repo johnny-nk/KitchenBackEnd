@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.controllers;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,14 +59,14 @@ public class UserRegisterController {
 	}
 	// ------------------------Update za Regular Usera --------------------------------//
 	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.PUT, value="/regUserUpdate/{id}") //PRINCIPAL P A NE USER ID
+	@RequestMapping(method = RequestMethod.PUT, value="/updateUser") 
 	@CrossOrigin(origins = "http://localhost:3000")
-	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,@PathVariable Long id){
+	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,Principal p){
 		try {
-			RegularUser regUser = userService.updateRegularUser(updateRegularUser, id);
+			RegularUserRegisterDTO regUser = userService.updateUser(updateRegularUser, p.getName());
 			return new ResponseEntity<>(regUser , HttpStatus.OK);
 	    } catch (UserNotFoundException e) {
-	        return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
+	        return new ResponseEntity<>("User not found with username: " + p.getName(), HttpStatus.NOT_FOUND);
 	    } catch (Exception e) {
 	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
