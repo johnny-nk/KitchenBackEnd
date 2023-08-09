@@ -17,10 +17,9 @@ public class RegularUserRegisterDTO extends UserRegisterDTO {
 	
 	private String email;
 	
-	//Mrace da ostane zbog drugih servisa. Jednom kad napravis kucu moras i da zivis u njoj
 	private List<RecipeRegisterDTO> myCookbook = new ArrayList<>();
 	private Set<String> myLimitigFactors = new HashSet<>();
-	//za update
+	
 	private Set<Long> favRecipesId = new HashSet<>();
 	private Set<Long> myLimFactorsId = new HashSet<>();
 

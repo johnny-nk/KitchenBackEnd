@@ -81,7 +81,7 @@ public class Recipe {
 	
 	
 	@JsonManagedReference(value = "recipe-recipeIngredients")
-	@OneToMany(mappedBy = "recipeId", cascade = CascadeType.REFRESH, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "recipeId", cascade = CascadeType.REFRESH, fetch = FetchType.EAGER)
 	private List<RecipeIngredient> ingredients = new ArrayList<>();
 	
 	@JsonBackReference(value = "recipe-cook")

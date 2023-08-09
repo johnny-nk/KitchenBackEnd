@@ -42,13 +42,6 @@ public class RegularUserController {
 	
 	
 	
-	@RequestMapping(method = RequestMethod.PUT, path = "/updateUser")
-	public ResponseEntity<?> updatUser(@RequestBody RegularUserRegisterDTO dto, Principal p) {
-//		System.out.println(p.getName().toString());
-		return new ResponseEntity<>(userService.updateUser(dto, p.getName()), HttpStatus.OK);
-	}
-	
-	
 	@Secured("REGULARUSER")
 	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET, path = "/getLf")

@@ -1,5 +1,7 @@
 package com.praksa.KitchenBackEnd.controllers;
 
+import java.security.Principal;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,15 +58,16 @@ public class UserRegisterController {
 		return new ResponseEntity<>(userService.addCook(cookDTO), HttpStatus.CREATED);
 	}
 	// ------------------------Update za Regular Usera --------------------------------//
-	@Secured("REGULARUSER")
-	@RequestMapping(method = RequestMethod.PUT, value="/regUserUpdate/{id}") //PRINCIPAL P A NE USER ID
+	
+	@Secured({"REGULARUSER", "ADMINISTRATOR"})
+	@RequestMapping(method = RequestMethod.PUT, value="/updateUser") 
 	@CrossOrigin(origins = "http://localhost:3000")
-	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,@PathVariable Long id){
+	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser,Principal p){
 		try {
-			RegularUser regUser = userService.updateRegularUser(updateRegularUser, id);
+			RegularUserRegisterDTO regUser = userService.updateUser(updateRegularUser, p.getName());
 			return new ResponseEntity<>(regUser , HttpStatus.OK);
 	    } catch (UserNotFoundException e) {
-	        return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);
+	        return new ResponseEntity<>("User not found with username: " + p.getName(), HttpStatus.NOT_FOUND);
 	    } catch (Exception e) {
 	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
@@ -172,7 +175,7 @@ public class UserRegisterController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateCook(@Valid @RequestBody CookRegisterDTO updateCook,@PathVariable Long id){
 		try {
-			Cook cook = userService.updateCook(updateCook, id);
+			CookRegisterDTO cook = userService.updateCook(updateCook, id);
 			return new ResponseEntity<>(cook , HttpStatus.OK);
 	    } catch (UserNotFoundException e) {
 	        return new ResponseEntity<>("Cook not found with id: " + id, HttpStatus.NOT_FOUND);
