@@ -1,6 +1,7 @@
 package com.praksa.KitchenBackEnd.controllers;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 import com.praksa.KitchenBackEnd.models.dto.AdminRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.CookRegisterDTO;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
@@ -75,7 +77,7 @@ public class UserRegisterController {
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteRegluarUser(@PathVariable Long id){
 		try {	
-			RegularUser regUser = userService.deleteRegularUser(id);
+			 userService.deleteRegularUser(id);
 			return new ResponseEntity<>("User was deleted", HttpStatus.OK);
 		  } catch (UserNotFoundException e) {
 		        return new ResponseEntity<>("User not found with id: " + id, HttpStatus.NOT_FOUND);

@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.praksa.KitchenBackEnd.controllers.util.RESTError;
 import com.praksa.KitchenBackEnd.models.dto.LimFactorDTO;
-import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 import com.praksa.KitchenBackEnd.services.LimitingFactorService;
 
@@ -43,7 +42,7 @@ public class LimitingFactorController {
 	
 	
 	@Secured("ADMINISTRATOR")
-	@RequestMapping(method = RequestMethod.PUT, value = "/updateLimitingFactor/{Id}")
+	@RequestMapping(method = RequestMethod.PUT, value = "/{Id}")
 	public ResponseEntity<?> updateLimitingFactor(@Valid @PathVariable Long Id, @RequestBody LimFactorDTO limDTO) {
 		try {
 			LimitingFactor updatedLimitingFactor = limitingFactorService.updateLimitingFactor(Id, limDTO);
@@ -80,7 +79,7 @@ public class LimitingFactorController {
 		}
 	}
 	@Secured({"ADMINISTRATOR", "REGULARUSER", "COOK"})
-	@RequestMapping(method = RequestMethod.GET, value = "/all")
+	@RequestMapping(method = RequestMethod.GET)
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getAllLimitingFactors() {
 		try {

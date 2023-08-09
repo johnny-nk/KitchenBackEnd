@@ -1,10 +1,9 @@
 package com.praksa.KitchenBackEnd.controllers;
 
 import java.security.Principal;
-import java.util.HashSet;
-import java.util.Set;
 
 import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,10 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.praksa.KitchenBackEnd.controllers.util.RESTError;
 import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
-import com.praksa.KitchenBackEnd.models.dto.UserRegisterDTO;
-import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
-import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
-import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.runtimeException.LimitingFactorNotFoundException;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 import com.praksa.KitchenBackEnd.services.RecipeService;

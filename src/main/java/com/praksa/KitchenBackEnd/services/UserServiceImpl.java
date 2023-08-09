@@ -1,5 +1,14 @@
 package com.praksa.KitchenBackEnd.services;
 
+import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.HashSet;
+import java.util.stream.Collectors;
+
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +20,6 @@ import com.praksa.KitchenBackEnd.models.entities.Administrator;
 import com.praksa.KitchenBackEnd.models.entities.AffectedUsers;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
 import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
-import com.praksa.KitchenBackEnd.models.entities.RecipeIngredient;
 import com.praksa.KitchenBackEnd.models.entities.RegularUser;
 import com.praksa.KitchenBackEnd.models.entities.User;
 import com.praksa.KitchenBackEnd.repositories.AffectedUserRepository;
@@ -24,15 +32,10 @@ import com.praksa.KitchenBackEnd.repositories.UserRepository;
 import com.praksa.KitchenBackEnd.runtimeException.UserNotFoundException;
 
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
-import javax.transaction.Transactional;
+
+
+
 
 @Service
 public class UserServiceImpl implements UserService {

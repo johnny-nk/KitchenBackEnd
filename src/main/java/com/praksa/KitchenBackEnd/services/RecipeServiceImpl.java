@@ -1,33 +1,19 @@
 package com.praksa.KitchenBackEnd.services;
 
-import org.springframework.aop.ThrowsAdvice;
-import org.springframework.beans.factory.annotation.Autowired;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.praksa.KitchenBackEnd.models.dto.RecipeDTO;
 import com.praksa.KitchenBackEnd.models.dto.RecipeRegisterDTO;
-import com.praksa.KitchenBackEnd.models.dto.RegularUserRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Cook;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LikedRecipes;
