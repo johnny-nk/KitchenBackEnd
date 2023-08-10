@@ -92,6 +92,12 @@ public class UserServiceImpl implements UserService {
 		RegularUser user = (RegularUser) userRepository.findById(id).get();		
 		return userFormater(user);
 	}
+	
+	@Override
+	public RegularUserRegisterDTO getLoggedInUser(String username) {
+		RegularUser user = (RegularUser) userRepository.findByUsername(username);
+		return userFormater(user);
+	}
 
 	public User getUserByUsername(String username) {
 		User user = userRepository.findByUsername(username);

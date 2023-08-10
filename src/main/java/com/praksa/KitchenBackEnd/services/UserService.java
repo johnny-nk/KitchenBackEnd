@@ -34,6 +34,7 @@ public interface UserService {
 	/*-----------GET-------------*/
 	public RegularUser getRegularUserById(Long id);
 	public Iterable<RegularUser> getAllRegluarUsers();
+	public RegularUserRegisterDTO getLoggedInUser(String username);
 	/*-----------GET COOK-------------*/
 	public Cook getCookById(Long id);
 	
