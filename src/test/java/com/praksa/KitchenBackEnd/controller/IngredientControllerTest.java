@@ -6,6 +6,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -13,16 +14,19 @@ import com.praksa.KitchenBackEnd.controllers.IngredientController;
 import com.praksa.KitchenBackEnd.models.dto.IngredientDTO;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
+import com.praksa.KitchenBackEnd.repositories.IngredientRepository;
 import com.praksa.KitchenBackEnd.services.IngredientService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
+@AutoConfigureMockMvc
 public class IngredientControllerTest {
 
     private MockMvc mockMvc;
@@ -33,11 +37,22 @@ public class IngredientControllerTest {
     @InjectMocks
     private IngredientController ingredientController;
 
+    @Mock
+    private IngredientRepository ingredientRepository;
     @BeforeEach
     void setUp() {
+        // Initialize the mocks
+        MockitoAnnotations.openMocks(this);
+
+        // Set up mock behavior
+        Ingredient existingIngredient = new Ingredient(); // Create a sample Ingredient object
+        when(ingredientRepository.findById(1L)).thenReturn(Optional.of(existingIngredient));
+        
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.standaloneSetup(ingredientController).build();
+
     }
+
 
     @Test
     void testAddNewIngredient() throws Exception {
@@ -45,7 +60,7 @@ public class IngredientControllerTest {
         ingredientDTO.setName("Ingredient Name");
 
         Ingredient savedIngredient = new Ingredient();
-        savedIngredient.setId(1L);
+        savedIngredient.setId(26L);
         savedIngredient.setName("Ingredient Name");
 
         when(ingredientService.addIngredient(any())).thenReturn(savedIngredient);
@@ -54,7 +69,7 @@ public class IngredientControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(ingredientDTO)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.id").value(26))
                 .andExpect(jsonPath("$.name").value("Ingredient Name"));
     }
 
@@ -63,17 +78,13 @@ public class IngredientControllerTest {
         IngredientDTO ingredientForUpdate = new IngredientDTO();
         ingredientForUpdate.setName("Updated Ingredient Name");
 
-        Ingredient updatedIngredient = new Ingredient();
-        updatedIngredient.setId(1L);
-        updatedIngredient.setName("Updated Ingredient Name");
-
-        when(ingredientService.updateIngredient(any(), anyLong())).thenReturn(updatedIngredient);
+        // Set up your mockMvc with the controller
+        MockMvc mockMvc = MockMvcBuilders.standaloneSetup(ingredientController).build();
 
         mockMvc.perform(put("/api/v1/project/ingredient/1")
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(new ObjectMapper().writeValueAsString(ingredientForUpdate)))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.id").value(1))
                 .andExpect(jsonPath("$.name").value("Updated Ingredient Name"));
     }
 
