@@ -113,6 +113,12 @@ public class UserRegisterController {
 		return new ResponseEntity<>(userService.getUser(id), HttpStatus.OK);
 	}
 	
+	@Secured("REGULARUSER")
+	@CrossOrigin(origins = "http://localhost:3000")
+	@RequestMapping(method = RequestMethod.GET, value = "/getLoggedInUser/{username}")
+	public ResponseEntity<?> getLoggedInUser(@PathVariable String username) {
+		return new ResponseEntity<>(userService.getLoggedInUser(username), HttpStatus.OK);
+	}
 	
 	//----------------------GET za sve Regluar Usere-------------------------------------//
 	@Secured("ADMINISTRATOR")

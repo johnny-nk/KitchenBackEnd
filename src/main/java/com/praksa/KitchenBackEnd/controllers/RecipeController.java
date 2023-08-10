@@ -102,7 +102,7 @@ public class RecipeController {
 	}
 
 	
-	@Secured({ "COOK", "ADMINISTRATOR" })
+	@Secured({"COOK", "ADMINISTRATOR" })
 	@DeleteMapping(path = "/recipes/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteRecipe(@Valid @PathVariable Long id) {
@@ -119,7 +119,7 @@ public class RecipeController {
 		
 	}
 
-	@Secured({ "COOK", "ADMINISTRATOR" })
+	@Secured({"COOK", "ADMINISTRATOR" })
 	@PutMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> updateRecipe(@Valid @RequestBody RecipeRegisterDTO recipe, @PathVariable Long id) {
 		try {
