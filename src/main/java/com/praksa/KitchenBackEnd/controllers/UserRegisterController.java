@@ -177,6 +177,7 @@ public class UserRegisterController {
 	}
 	
 	//----------------------Delete za COOK------------------------------------//
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteCook/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteCook(@PathVariable Long id){
