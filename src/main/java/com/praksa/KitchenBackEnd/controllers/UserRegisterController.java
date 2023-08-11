@@ -73,6 +73,20 @@ public class UserRegisterController {
 	    }
 	
 	}
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.PUT, value="/adminUpdateUser/{userId}") 
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser, @PathVariable Long userId){
+		try {
+			RegularUserRegisterDTO regUser = userService.adminUpdateUser(updateRegularUser, userId);
+			return new ResponseEntity<>(regUser , HttpStatus.OK);
+	    } catch (UserNotFoundException e) {
+	        return new ResponseEntity<>("User not found with this id." , HttpStatus.NOT_FOUND);
+	    } catch (Exception e) {
+	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	
+	}
 	
 	//----------------------Delete za Regular Usera------------------------------------//
 	@Secured("ADMINISTRATOR")
