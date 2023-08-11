@@ -191,6 +191,7 @@ public class UserRegisterController {
 	}
 	
 	//----------------------Update za COOK------------------------------------//
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.PUT, value="/updateCook/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateCook(@Valid @RequestBody CookRegisterDTO updateCook,@PathVariable Long id){
@@ -203,6 +204,13 @@ public class UserRegisterController {
 	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	
+	}
+	
+	@Secured("COOK")
+	@RequestMapping(method = RequestMethod.PUT, value = "/cookUpdate")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> cookUpdate(@Valid @RequestBody CookRegisterDTO updateCook, Principal p) {
+		return new ResponseEntity<>(userService.cookUpdate(updateCook, p.getName()), HttpStatus.OK);
 	}
 	
 	

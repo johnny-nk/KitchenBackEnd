@@ -378,6 +378,33 @@ public class UserServiceImpl implements UserService {
 		cookRepository.save(cook);
 		return updateCook;
 	}
+	
+	@Override
+	@Transactional
+	public CookRegisterDTO cookUpdate(CookRegisterDTO updateCook, String username) {
+		
+		Cook cook = (Cook) userRepository.findByUsername(username);
+		
+		if(updateCook.getUsername() != null && !updateCook.getUsername().equals(cook.getUsername())) {
+			cook.setUsername(updateCook.getUsername());
+		}
+		if(updateCook.getPassword() != null && !updateCook.getPassword().equals(cook.getPassword())) {
+			cook.setPassword(updateCook.getPassword());
+		}
+		if(updateCook.getFirstName() != null && !updateCook.getFirstName().equals(cook.getFirstName())) {
+			cook.setFirstName(updateCook.getFirstName());
+		}
+		if(updateCook.getLastName() != null && !updateCook.getLastName().equals(cook.getLastName())) {
+			cook.setLastName(updateCook.getLastName());
+		}
+		if(updateCook.getEmail() != null && !updateCook.getEmail().equals(cook.getEmail())) {
+			cook.setEmail(updateCook.getEmail());
+		}
+		
+		
+		cookRepository.save(cook);
+		return updateCook;
+	}
 
 
 	@Override
