@@ -1,6 +1,7 @@
 package com.praksa.KitchenBackEnd.services;
 
 import com.praksa.KitchenBackEnd.models.dto.IngredientDTO;
+import com.praksa.KitchenBackEnd.models.dto.RecipeRegisterDTO;
 import com.praksa.KitchenBackEnd.models.entities.Ingredient;
 import com.praksa.KitchenBackEnd.models.entities.LimitingFactor;
 
@@ -17,6 +18,8 @@ public interface IngredientService {
 	
 	public IngredientDTO addLfToIngredient(Long ingId, Long lfId);
 	public Iterable<IngredientDTO> getIngredients();
+	public Ingredient searchByIngredientName(String title);
+
 	
 	
 	

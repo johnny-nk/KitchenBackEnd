@@ -100,6 +100,12 @@ public class IngredientController {
 		}
 	}
 	
+	@Secured({"COOK", "ADMINISTRATOR"})
+	@RequestMapping(method = RequestMethod.GET, value="/searchByName/{name}")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> getIngByName(@PathVariable String name) {
+		return new ResponseEntity<>(ingredientService.searchByIngredientName(name), HttpStatus.OK);
+	}
 	
 	@Secured("ADMINISTRATOR")
 	@CrossOrigin(origins = "http://localhost:3000")

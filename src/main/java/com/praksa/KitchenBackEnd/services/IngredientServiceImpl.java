@@ -61,6 +61,14 @@ public class IngredientServiceImpl implements IngredientService {
 	//=-=-=-=-=-==-=-==-==-=-=-=SERVICES=-=-=-=-=-=-=-=-=-=-=-=-=-==//
 	
 	@Override
+	public Ingredient searchByIngredientName(String title) {
+		Ingredient ingredient = ingredientRepository.findByNameStartingWith(title);
+		return ingredient;
+	}
+	
+	
+	
+	@Override
 	public Iterable<IngredientDTO> getIngredients() {
 		Iterable<Ingredient> ingEntities = ingredientRepository.findAll();
 		List<IngredientDTO> ingredients = ingFormater(ingEntities);
