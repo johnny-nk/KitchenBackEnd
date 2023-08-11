@@ -121,6 +121,7 @@ public class RecipeController {
 
 	@Secured({"COOK", "ADMINISTRATOR" })
 	@PutMapping(path = "/recipes/{id}")
+	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateRecipe(@Valid @RequestBody RecipeRegisterDTO recipe, @PathVariable Long id) {
 		try {
 			
@@ -155,6 +156,7 @@ public class RecipeController {
 	}
 
 	// pretraga po imenu
+	@CrossOrigin(origins = "http://localhost:3000")
 	@RequestMapping(method = RequestMethod.GET, path = "/recipes/search")
 	public ResponseEntity<?> searchRecipe(@RequestParam String title) {
 		try {
