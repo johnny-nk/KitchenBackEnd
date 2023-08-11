@@ -30,7 +30,9 @@ public interface UserService {
 	public Cook deleteCook(Long id);
 	/*------------PUT--------------*/
 	public CookRegisterDTO updateCook(CookRegisterDTO dto, Long id);
+	public CookRegisterDTO cookUpdate(CookRegisterDTO dto, String username);
 	public RegularUserRegisterDTO updateUser(RegularUserRegisterDTO dto, String username);
+	public RegularUserRegisterDTO adminUpdateUser(RegularUserRegisterDTO dto, Long userId);
 	/*-----------GET-------------*/
 	public RegularUser getRegularUserById(Long id);
 	public Iterable<RegularUser> getAllRegluarUsers();

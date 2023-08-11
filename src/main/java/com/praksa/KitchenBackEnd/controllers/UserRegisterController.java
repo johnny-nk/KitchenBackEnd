@@ -73,6 +73,20 @@ public class UserRegisterController {
 	    }
 	
 	}
+	@Secured("ADMINISTRATOR")
+	@RequestMapping(method = RequestMethod.PUT, value="/adminUpdateUser/{userId}") 
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> updateRegularUser(@Valid @RequestBody RegularUserRegisterDTO updateRegularUser, @PathVariable Long userId){
+		try {
+			RegularUserRegisterDTO regUser = userService.adminUpdateUser(updateRegularUser, userId);
+			return new ResponseEntity<>(regUser , HttpStatus.OK);
+	    } catch (UserNotFoundException e) {
+	        return new ResponseEntity<>("User not found with this id." , HttpStatus.NOT_FOUND);
+	    } catch (Exception e) {
+	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
+	    }
+	
+	}
 	
 	//----------------------Delete za Regular Usera------------------------------------//
 	@Secured("ADMINISTRATOR")
@@ -163,6 +177,7 @@ public class UserRegisterController {
 	}
 	
 	//----------------------Delete za COOK------------------------------------//
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.DELETE, value="/deleteCook/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> deleteCook(@PathVariable Long id){
@@ -177,6 +192,7 @@ public class UserRegisterController {
 	}
 	
 	//----------------------Update za COOK------------------------------------//
+	@Secured("ADMINISTRATOR")
 	@RequestMapping(method = RequestMethod.PUT, value="/updateCook/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> updateCook(@Valid @RequestBody CookRegisterDTO updateCook,@PathVariable Long id){
@@ -189,6 +205,13 @@ public class UserRegisterController {
 	        return new ResponseEntity<>("An error occurred", HttpStatus.INTERNAL_SERVER_ERROR);
 	    }
 	
+	}
+	
+	@Secured("COOK")
+	@RequestMapping(method = RequestMethod.PUT, value = "/cookUpdate")
+	@CrossOrigin(origins = "http://localhost:3000")
+	public ResponseEntity<?> cookUpdate(@Valid @RequestBody CookRegisterDTO updateCook, Principal p) {
+		return new ResponseEntity<>(userService.cookUpdate(updateCook, p.getName()), HttpStatus.OK);
 	}
 	
 	

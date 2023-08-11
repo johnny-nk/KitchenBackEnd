@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 
 import javax.transaction.Transactional;
@@ -69,7 +70,9 @@ public class UserServiceImpl implements UserService {
 		dto.setRole(user.getRole());
 		dto.setMyCookbook(recipeService.myCookbook(user.getUsername()));
 		dto.setMyLimitigFactors(user.getLimitingFactor().stream().map(e->e.getLimitingFactor().getName()).collect(Collectors.toSet()));
-
+		for(LikedRecipes recId : likedRecipesRepository.findByRegularUserId(user.getId())) {
+			dto.getFavRecipesId().add(recId.getRecipe().getId());
+		}
 		return dto;
 	}
 	
@@ -132,8 +135,76 @@ public class UserServiceImpl implements UserService {
 		userRepository.save(cook);		
 		return cook;
 	}
-
 	
+	
+	
+	
+
+	@Override
+	public RegularUserRegisterDTO adminUpdateUser(RegularUserRegisterDTO updateUser, Long userId) {
+		RegularUser user = (RegularUser) userRepository.findById(userId).get();
+		
+		if(updateUser.getUsername() != null && !updateUser.getUsername().equals(user.getUsername())) {
+			user.setUsername(updateUser.getUsername());
+		}
+		if(updateUser.getPassword() != null && !updateUser.getPassword().equals(user.getPassword())) {
+			user.setPassword(updateUser.getPassword());
+		}
+		if(updateUser.getFirstName() != null && !updateUser.getFirstName().equals(user.getFirstName())) {
+			user.setFirstName(updateUser.getFirstName());
+		}
+		if(updateUser.getLastName() != null && !updateUser.getLastName().equals(user.getLastName())) {
+			user.setLastName(updateUser.getLastName());
+		}
+		if(updateUser.getEmail() != null && !updateUser.getEmail().equals(user.getEmail())) {
+			user.setEmail(updateUser.getEmail());
+		}
+		
+		
+		Set<LikedRecipes> usersRecipes = likedRecipesRepository.findByRegularUserId(user.getId());  																			
+		Set<LikedRecipes> updateRecipes = new HashSet<>();														
+		Set<Long> intSet = new HashSet<>();								
+		for(Long recipeId : updateUser.getFavRecipesId()) {			
+			intSet.add(recipeId);	
+		}
+		if(intSet.equals(null)) {
+			likedRecipesRepository.deleteAllByRegularUserId(user.getId());
+		} 
+		
+		if (intSet != null) {
+		for(Long recId : intSet) {
+				LikedRecipes newLike = new LikedRecipes(null, user, recipeRepo.findById(recId).get());
+				updateRecipes.add(newLike);
+			}
+		}
+		
+		
+		
+		Set<AffectedUsers> usersLimFactors = affUsersRepo.findByRegularUserId(user.getId());
+		Set<AffectedUsers> updateLimFactors = new HashSet<>();
+		Set<Long> lfSet = new HashSet<>();
+		for(Long limId : updateUser.getMyLimFactorsId()) {
+			lfSet.add(limId);
+		}
+		if(lfSet.equals(null)) {
+			affUsersRepo.deleteAllByRegularUserId(user.getId());
+		}
+		if(lfSet != null) {
+			for(Long lf : lfSet) {
+				AffectedUsers affUser = new AffectedUsers(null, user, limFactorRepo.findById(lf).get());
+				updateLimFactors.add(affUser);
+			}
+		}
+		
+		
+		regularUserRepository.save(user);
+		affUsersRepo.deleteAll(usersLimFactors);
+		affUsersRepo.saveAll(updateLimFactors);
+		likedRecipesRepository.deleteAll(usersRecipes);
+		likedRecipesRepository.saveAll(updateRecipes);
+		return updateUser;
+	}
+
 
 	@Override
 	public RegularUserRegisterDTO updateUser(RegularUserRegisterDTO updateUser, String username) {
@@ -304,6 +375,33 @@ public class UserServiceImpl implements UserService {
 //		}else {
 //			throw new UserNotFoundException();
 //		}
+		cookRepository.save(cook);
+		return updateCook;
+	}
+	
+	@Override
+	@Transactional
+	public CookRegisterDTO cookUpdate(CookRegisterDTO updateCook, String username) {
+		
+		Cook cook = (Cook) userRepository.findByUsername(username);
+		
+		if(updateCook.getUsername() != null && !updateCook.getUsername().equals(cook.getUsername())) {
+			cook.setUsername(updateCook.getUsername());
+		}
+		if(updateCook.getPassword() != null && !updateCook.getPassword().equals(cook.getPassword())) {
+			cook.setPassword(updateCook.getPassword());
+		}
+		if(updateCook.getFirstName() != null && !updateCook.getFirstName().equals(cook.getFirstName())) {
+			cook.setFirstName(updateCook.getFirstName());
+		}
+		if(updateCook.getLastName() != null && !updateCook.getLastName().equals(cook.getLastName())) {
+			cook.setLastName(updateCook.getLastName());
+		}
+		if(updateCook.getEmail() != null && !updateCook.getEmail().equals(cook.getEmail())) {
+			cook.setEmail(updateCook.getEmail());
+		}
+		
+		
 		cookRepository.save(cook);
 		return updateCook;
 	}
