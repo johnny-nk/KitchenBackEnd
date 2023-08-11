@@ -359,6 +359,9 @@ public class UserServiceImpl implements UserService {
 		if(updateCook.getEmail() != null && !updateCook.getEmail().equals(cook.getEmail())) {
 			cook.setEmail(updateCook.getEmail());
 		}
+		if(updateCook.getAboutMe() != null && !updateCook.getAboutMe().equals(cook.getAboutMe())) {
+			cook.setAboutMe(updateCook.getAboutMe());
+		}
 		
 		//Sta sa receptima?
 		
@@ -399,6 +402,9 @@ public class UserServiceImpl implements UserService {
 		}
 		if(updateCook.getEmail() != null && !updateCook.getEmail().equals(cook.getEmail())) {
 			cook.setEmail(updateCook.getEmail());
+		}
+		if(updateCook.getAboutMe() != null && !updateCook.getAboutMe().equals(cook.getAboutMe())) {
+			cook.setAboutMe(updateCook.getAboutMe());
 		}
 		
 		
