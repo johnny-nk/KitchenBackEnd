@@ -123,6 +123,7 @@ public class RecipeController {
 	@PutMapping(path = "/recipes/{id}")
 	public ResponseEntity<?> updateRecipe(@Valid @RequestBody RecipeRegisterDTO recipe, @PathVariable Long id) {
 		try {
+			
 			RecipeRegisterDTO updateRecipe = recipeService.updateRecipe(recipe, id);
 			if (updateRecipe != null) {
 				return new ResponseEntity<>(updateRecipe, HttpStatus.OK);
@@ -139,10 +140,11 @@ public class RecipeController {
 	}
 	
 	@CrossOrigin(origins = "http://localhost:3000")
-	@RequestMapping(method = RequestMethod.GET, path = "/recipes/getFormatedRecipes")
+	@RequestMapping(method = RequestMethod.GET, path = "/userRecipes")
 	public ResponseEntity<?> getFormatedRecipes(Principal p) {
 		try {
-			return new ResponseEntity<>(recipeService.getFormatedRecipes(p.getName()), HttpStatus.OK);
+			Iterable<RecipeRegisterDTO> recipes = recipeService.getFormatedRecipes(p.getName());
+			return new ResponseEntity<>(recipes, HttpStatus.OK);
 		} catch (Exception e) {
 			return new ResponseEntity<>(
 					new RESTError(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error"),
