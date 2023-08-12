@@ -69,7 +69,7 @@ public class RecipeController {
 					HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-
+	
 	@GetMapping(path = "/recipes/{id}")
 	@CrossOrigin(origins = "http://localhost:3000")
 	public ResponseEntity<?> getRecipe(@Valid @PathVariable Long id) {
