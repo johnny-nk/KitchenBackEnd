@@ -1,0 +1,1038 @@
+{
+	"info": {
+		"_postman_id": "9d21b81f-0c9b-4cab-b3ef-ea8384d41b49",
+		"name": "Praksa",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24776582"
+	},
+	"item": [
+		{
+			"name": "Registracija",
+			"item": [
+				{
+					"name": "recipe requests",
+					"item": [
+						{
+							"name": "getRecipes",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4iLCJhdXRob3JpdGllcyI6WyJBRE1JTklTVFJBVE9SIl0sImlhdCI6MTY5MDcxMzY0NSwiZXhwIjoxNjkwNzczNjQ1fQ.trGTvNgaxbne6hcf8ZaIvE4zCjcxV0WxiHm1QmQGqtO9S5XhvHlRdblFnJUbazRmMiiELOP_7BKKKuCa19P4ag",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/recipes",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get recipe",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4yIiwiYXV0aG9yaXRpZXMiOlsiQURNSU5JU1RSQVRPUiJdLCJpYXQiOjE2OTEyMzA2NTQsImV4cCI6MTY5MTI5MDY1NH0.11ta6fwap3bfk7TAJE1gwMcH5MDxp_NtPnW25wxdRSis0tEdmRueTcOEWQfiM_aTaWPFdkLIWSvtD-ODU7Hkcg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/project/recipes/22",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes",
+										"22"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "search recipes",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "create recipe",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/project/recipes/296",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes",
+										"296"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiam9obm55IiwiYXV0aG9yaXRpZXMiOlsiUkVHVUxBUlVTRVIiXSwiaWF0IjoxNjkwODM0MjQ2LCJleHAiOjE2OTA4OTQyNDZ9.sLdKCjXEkix9Ya2vudYIy7UCOdJgl33eTZoIQLRWQ9pbRpHPU1dNfdHfQTRfkyHeP4Mh4pyRD8K4hi73GZsnhA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/userRec/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"userRec",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add Recipe to user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiam9obm55IiwiYXV0aG9yaXRpZXMiOlsiUkVHVUxBUlVTRVIiXSwiaWF0IjoxNjkwODcxMDkwLCJleHAiOjE2OTA5MzEwOTB9.v8XKJNgCXb6Jb58BYondbzC0qom7vzMmym532E5ljOeO-f6eUCWC4xNwDzrIyVoUIJlNV4UFw3nacCqafhE1vA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/user/1/rec/601",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"user",
+										"1",
+										"rec",
+										"601"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "new recipe with ing",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTA5MDgxMDgsImV4cCI6MTY5MDk2ODEwOH0.xWu7s5p_BjH8smF2ZsZLNVn_pR8B95c2Q15v28PiQcyl4IaVGq_LERW2t-dT4IDG11PYV9LXiMI20ylXkg8hLg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/recipes/adRec/2",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes",
+										"adRec",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Update recipe",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTExMzIwODIsImV4cCI6MTY5MTE5MjA4Mn0.aZc7OUsDqBN_gkRons9OQgrNUeKmGrogco9KNBICs483AeP-R_VsV-2xqI2igLoSOURaQHY_7vlvaVNLRGRC2g",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": " {      \r\n        \"amount\": 5,\r\n        \"title\": \"Pancakes\",\r\n        \"description\": \"Home made pancakes. asdasd\",\r\n        \"steps\": \"1.Mix 2.Cook 3.Eat 123123\",\r\n        \"timeToPrepare\": 45,\r\n        \"category\": \"BREAKFAST\",\r\n        \"ingredientMap\": {\r\n            \"400\": 1301,\r\n            \"401\": 311,\r\n            \"402\": 3333\r\n            \r\n            \r\n            \r\n        }\r\n }",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/project/recipes/22",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes",
+										"22"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "delete recipe",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/recipes/600",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"recipes",
+										"600"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "regUser LF",
+					"item": [
+						{
+							"name": "get user LF",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/regUser/getLf/{userId}",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"getLf",
+										"{userId}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add limFactor to user",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTExNzY2NzMsImV4cCI6MTY5MTIzNjY3M30.IjLtXRW4YiqVQHVYBgkJeIC1BqEmarjLIegB8gB_ZyrmIEvj36DrLsZg3M-8QDm78V_nIWuvQNBQnpT2L1q8Zg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/regUser/user/1/addLf/100",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"user",
+										"1",
+										"addLf",
+										"100"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user delte lf",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTEyMTQ2MjYsImV4cCI6MTY5MTI3NDYyNn0.SeZUeKtJ4rHkLOGng08c-0IzSIIHe9elw80VSzPSkiOzru-kYLuA_bAgEIWoMjdlcsF67GZZ_XF7Ow3zMaffww",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/project/regUser/user/1/lf/49",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"user",
+										"1",
+										"lf",
+										"49"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "regUser recipes",
+					"item": [
+						{
+							"name": "get user recipes",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "user add recipe",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTEyMTI3MDAsImV4cCI6MTY5MTI3MjcwMH0.PVo5oERsKG_j27Eskf95-uBOZ4lDchr21YAA__HTGwgv_NSFOpR-3qHlJ1sxUGKZ0Tq-ajjWCpj2vaPlqc936w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/project/regUser/user/1/rec/22",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"user",
+										"1",
+										"rec",
+										"22"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "user delte recipe",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTEyMTI3MDAsImV4cCI6MTY5MTI3MjcwMH0.PVo5oERsKG_j27Eskf95-uBOZ4lDchr21YAA__HTGwgv_NSFOpR-3qHlJ1sxUGKZ0Tq-ajjWCpj2vaPlqc936w",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/api/v1/project/regUser/user/1/rec/22",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"user",
+										"1",
+										"rec",
+										"22"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "add/get/remove ingredient",
+					"item": [
+						{
+							"name": "get one",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/ingredients/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"ingredients",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "get all",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/ingredients/allIngredients",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"ingredients",
+										"allIngredients"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "add new",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/ingredients/newIngredient",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"ingredients",
+										"newIngredient"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "update",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"url": {
+									"raw": "localhost:8080/api/v1/project/ingredients/updateIngredient/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"ingredients",
+										"updateIngredient",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "deleteIngredient",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4yIiwiYXV0aG9yaXRpZXMiOlsiQURNSU5JU1RSQVRPUiJdLCJpYXQiOjE2OTA2NDU0MzIsImV4cCI6MTY5MDcwNTQzMn0.KzQQrsy8m8_sVTmRvqFrJept5RQPxC1Bj9cF7NGcAiYDUJyJOo1ii8mp5BKA497ayaQ690ebSbwC52xp06QhRA",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n        \"name\": \"asd\",\r\n        \"unit\": \"2\",\r\n        \"calories\": 5,\r\n        \"carbs\": 5.0,\r\n        \"sugars\": 12.0,\r\n        \"fats\": 12.0,\r\n        \"saturatedFats\": 33.0,\r\n        \"proteins\": 12.0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/project/ingredients/deleteIngredient/{id}",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"ingredients",
+										"deleteIngredient",
+										"{id}"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "regular user",
+					"item": [
+						{
+							"name": "update reguser",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoibmljazEiLCJhdXRob3JpdGllcyI6WyJSRUdVTEFSVVNFUiJdLCJpYXQiOjE2OTE1MTcwNTQsImV4cCI6MTY5MTU3NzA1NH0.qdXJRUzVgsao9VNhsd_PP-BBONFBjOewI8TVHGj_7_E-bQCZkAadFFKCCrKdwGJPdp4SdiaELhodhaSqzm4yew",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"firstName\": \"testerName\",\r\n    \"favRecipesId\": []\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "localhost:8080/api/v1/project/regUser/updateUser/132",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"api",
+										"v1",
+										"project",
+										"regUser",
+										"updateUser",
+										"132"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Admin Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"ADMINISTRATOR\",\r\n    \"username\": \"newAdmin@example.com\",\r\n    \"password\": \"pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/admin",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"admin"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cook Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"COOK\",\r\n    \"username\": \"newAdmin@example.com\",\r\n    \"password\": \"pass\",\r\n    \"firstName\": \"Gordon\",\r\n    \"lastName\": \"Remzi\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/project/register/cook",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"cook"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Regular User Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"role\": \"REGULARUSER\",\r\n    \"username\": \"tester\",\r\n    \"password\": \"pass\",\r\n    \"firstName\": \"Tester\",\r\n    \"lastName\": \"Testerson\",\r\n    \"email\": \"test@example.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/regUser",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"regUser"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Regular User Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"GordonTest\",\r\n    \"lastName\": \"Remz1212i\",\r\n    \"username\": \"Test@example.com\",\r\n    \"password\": \"test123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/regUserUpdate/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"regUserUpdate",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Regular User ",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/deleteRegUserFromDB/15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"deleteRegUserFromDB",
+								"15"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET Regular User ",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/getRegUser/14",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"getRegUser",
+								"14"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL REGULAR USERS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/getRegUsers",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"getRegUsers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET ALL COOKS",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/getCooks",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"getCooks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GET COOK BY ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/getCook/21",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"getCook",
+								"21"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete COOK ",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/api/v1/project/register/deleteCook/23",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"deleteCook",
+								"23"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "UPDATE ZA COOK",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"newCook123@example.com\",\r\n    \"password\": \"pas123s\",\r\n    \"firstName\": \"Gordon1\",\r\n    \"lastName\": \"Remzi1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/v1/project/register/updateCook/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"register",
+								"updateCook",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/api/v1/project/users/login?user=nick1&password=pass",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"users",
+								"login"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "nick1"
+								},
+								{
+									"key": "password",
+									"value": "pass"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserLF",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4yIiwiYXV0aG9yaXRpZXMiOlsiQURNSU5JU1RSQVRPUiJdLCJpYXQiOjE2OTA2NzEwNjksImV4cCI6MTY5MDczMTA2OX0.nSs4Z6-HBX_K3KrO3lDob-8fvKrcS3PaO-rmJ3suuW_tlqoEoXsvsqDXp8wGSj2kzYNajjauwsolfizA8RCk0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/project/regUser/getLf/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"regUser",
+								"getLf",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addLimitingFactor",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4yIiwiYXV0aG9yaXRpZXMiOlsiQURNSU5JU1RSQVRPUiJdLCJpYXQiOjE2OTA2NzEwNjksImV4cCI6MTY5MDczMTA2OX0.nSs4Z6-HBX_K3KrO3lDob-8fvKrcS3PaO-rmJ3suuW_tlqoEoXsvsqDXp8wGSj2kzYNajjauwsolfizA8RCk0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/project/regUser/user/4/addLf/46",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"regUser",
+								"user",
+								"4",
+								"addLf",
+								"46"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteLimitingFactor",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJqdGkiOiJzb2Z0dGVrSldUIiwic3ViIjoiYWRtaW4yIiwiYXV0aG9yaXRpZXMiOlsiQURNSU5JU1RSQVRPUiJdLCJpYXQiOjE2OTA2NzEwNjksImV4cCI6MTY5MDczMTA2OX0.nSs4Z6-HBX_K3KrO3lDob-8fvKrcS3PaO-rmJ3suuW_tlqoEoXsvsqDXp8wGSj2kzYNajjauwsolfizA8RCk0A",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/api/v1/project/regUser/user/4/removeLf/44",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"v1",
+								"project",
+								"regUser",
+								"user",
+								"4",
+								"removeLf",
+								"44"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
